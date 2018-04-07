@@ -25,10 +25,8 @@ import com.tools20022.repository.area.ForeignExchangeTradeLatestVersion;
 import com.tools20022.repository.msg.RegulatoryReporting6;
 import com.tools20022.repository.msg.SupplementaryData1;
 import com.tools20022.repository.msg.TradeData15;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -81,15 +79,16 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "ForeignExchangeTradeStatusNotificationV06", propOrder = {"tradeData", "regulatoryReporting", "supplementaryData"})
 public class ForeignExchangeTradeStatusNotificationV06 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "TradData", required = true)
 	protected TradeData15 tradeData;
 	/**
-	 * Provides information on the status of a trade in a system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -110,7 +109,7 @@ public class ForeignExchangeTradeStatusNotificationV06 {
 	 * "Provides information on the status of a trade in a system."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmTradeData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusNotificationV06, TradeData15> mmTradeData = new MMMessageBuildingBlock<ForeignExchangeTradeStatusNotificationV06, TradeData15>() {
 		{
 			xmlTag = "TradData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -121,20 +120,21 @@ public class ForeignExchangeTradeStatusNotificationV06 {
 			complexType_lazy = () -> TradeData15.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusNotificationV06.class.getMethod("getTradeData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public TradeData15 getValue(ForeignExchangeTradeStatusNotificationV06 obj) {
+			return obj.getTradeData();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusNotificationV06 obj, TradeData15 value) {
+			obj.setTradeData(value);
 		}
 	};
+	@XmlElement(name = "RgltryRptg")
 	protected RegulatoryReporting6 regulatoryReporting;
 	/**
-	 * Information that is to be provided to trade repositories in the context
-	 * of the regulatory standards around over-the-counter (OTC) derivatives,
-	 * central counterparties and trade repositories.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -157,7 +157,7 @@ public class ForeignExchangeTradeStatusNotificationV06 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmRegulatoryReporting = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusNotificationV06, Optional<RegulatoryReporting6>> mmRegulatoryReporting = new MMMessageBuildingBlock<ForeignExchangeTradeStatusNotificationV06, Optional<RegulatoryReporting6>>() {
 		{
 			xmlTag = "RgltryRptg";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -168,19 +168,21 @@ public class ForeignExchangeTradeStatusNotificationV06 {
 			complexType_lazy = () -> RegulatoryReporting6.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusNotificationV06.class.getMethod("getRegulatoryReporting", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<RegulatoryReporting6> getValue(ForeignExchangeTradeStatusNotificationV06 obj) {
+			return obj.getRegulatoryReporting();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusNotificationV06 obj, Optional<RegulatoryReporting6> value) {
+			obj.setRegulatoryReporting(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "SplmtryData")
 	protected List<SupplementaryData1> supplementaryData;
 	/**
-	 * Additional information that cannot be captured in the structured elements
-	 * and/or any other specific block.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -203,7 +205,7 @@ public class ForeignExchangeTradeStatusNotificationV06 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSupplementaryData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusNotificationV06, List<SupplementaryData1>> mmSupplementaryData = new MMMessageBuildingBlock<ForeignExchangeTradeStatusNotificationV06, List<SupplementaryData1>>() {
 		{
 			xmlTag = "SplmtryData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -213,12 +215,14 @@ public class ForeignExchangeTradeStatusNotificationV06 {
 			complexType_lazy = () -> SupplementaryData1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusNotificationV06.class.getMethod("getSupplementaryData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<SupplementaryData1> getValue(ForeignExchangeTradeStatusNotificationV06 obj) {
+			return obj.getSupplementaryData();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusNotificationV06 obj, List<SupplementaryData1> value) {
+			obj.setSupplementaryData(value);
 		}
 	};
 
@@ -251,34 +255,34 @@ public class ForeignExchangeTradeStatusNotificationV06 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "TradData", required = true)
 	public TradeData15 getTradeData() {
 		return tradeData;
 	}
 
-	public void setTradeData(TradeData15 tradeData) {
-		this.tradeData = tradeData;
+	public ForeignExchangeTradeStatusNotificationV06 setTradeData(TradeData15 tradeData) {
+		this.tradeData = Objects.requireNonNull(tradeData);
+		return this;
 	}
 
-	@XmlElement(name = "RgltryRptg")
-	public RegulatoryReporting6 getRegulatoryReporting() {
-		return regulatoryReporting;
+	public Optional<RegulatoryReporting6> getRegulatoryReporting() {
+		return regulatoryReporting == null ? Optional.empty() : Optional.of(regulatoryReporting);
 	}
 
-	public void setRegulatoryReporting(RegulatoryReporting6 regulatoryReporting) {
+	public ForeignExchangeTradeStatusNotificationV06 setRegulatoryReporting(RegulatoryReporting6 regulatoryReporting) {
 		this.regulatoryReporting = regulatoryReporting;
+		return this;
 	}
 
-	@XmlElement(name = "SplmtryData")
 	public List<SupplementaryData1> getSupplementaryData() {
-		return supplementaryData;
+		return supplementaryData == null ? supplementaryData = new ArrayList<>() : supplementaryData;
 	}
 
-	public void setSupplementaryData(List<SupplementaryData1> supplementaryData) {
-		this.supplementaryData = supplementaryData;
+	public ForeignExchangeTradeStatusNotificationV06 setSupplementaryData(List<SupplementaryData1> supplementaryData) {
+		this.supplementaryData = Objects.requireNonNull(supplementaryData);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:fxtr.008.06.06")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:fxtr.008.001.06")
 	static public class Document {
 		@XmlElement(name = "FXTradStsNtfctn", required = true)
 		public ForeignExchangeTradeStatusNotificationV06 messageBody;

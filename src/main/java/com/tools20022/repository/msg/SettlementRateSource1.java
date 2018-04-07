@@ -27,6 +27,8 @@ import com.tools20022.repository.datatype.RateSourceText;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -58,8 +60,16 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
+ * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getConstraint
+ * constraint} =
+ * <ul>
+ * <li>
+ * {@linkplain com.tools20022.repository.constraints.ConstraintTimeCountryLocationRule#forSettlementRateSource1
+ * ConstraintTimeCountryLocationRule.forSettlementRateSource1}</li>
+ * </ul>
+ * </li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -72,15 +82,16 @@ import javax.xml.bind.annotation.XmlType;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "SettlementRateSource1", propOrder = {"rateSource", "time", "countryCode", "locationCode"})
 public class SettlementRateSource1 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "RateSrc", required = true)
 	protected RateSourceText rateSource;
 	/**
-	 * Specifies the rate source for the non deliverable trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -106,9 +117,9 @@ public class SettlementRateSource1 {
 	 * definition} = "Specifies the rate source for the non deliverable trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmRateSource = new MMMessageAttribute() {
+	public static final MMMessageAttribute<SettlementRateSource1, RateSourceText> mmRateSource = new MMMessageAttribute<SettlementRateSource1, RateSourceText>() {
 		{
-			componentContext_lazy = () -> SettlementRateSource1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.SettlementRateSource1.mmObject();
 			isDerived = false;
 			xmlTag = "RateSrc";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -118,11 +129,22 @@ public class SettlementRateSource1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> RateSourceText.mmObject();
 		}
+
+		@Override
+		public RateSourceText getValue(SettlementRateSource1 obj) {
+			return obj.getRateSource();
+		}
+
+		@Override
+		public void setValue(SettlementRateSource1 obj, RateSourceText value) {
+			obj.setRateSource(value);
+		}
 	};
+	@XmlElement(name = "Tm")
 	protected Exact4NumericText time;
 	/**
-	 * Specifies the time "HHMM" associated with the rate source.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -149,9 +171,9 @@ public class SettlementRateSource1 {
 	 * "Specifies the time \"HHMM\" associated with the rate source."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmTime = new MMMessageAttribute() {
+	public static final MMMessageAttribute<SettlementRateSource1, Optional<Exact4NumericText>> mmTime = new MMMessageAttribute<SettlementRateSource1, Optional<Exact4NumericText>>() {
 		{
-			componentContext_lazy = () -> SettlementRateSource1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.SettlementRateSource1.mmObject();
 			isDerived = false;
 			xmlTag = "Tm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -161,11 +183,22 @@ public class SettlementRateSource1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Exact4NumericText.mmObject();
 		}
+
+		@Override
+		public Optional<Exact4NumericText> getValue(SettlementRateSource1 obj) {
+			return obj.getTime();
+		}
+
+		@Override
+		public void setValue(SettlementRateSource1 obj, Optional<Exact4NumericText> value) {
+			obj.setTime(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "CtryCd")
 	protected CountryCode countryCode;
 	/**
-	 * Specifies the country code for the quoted rate source.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -190,9 +223,9 @@ public class SettlementRateSource1 {
 	 * definition} = "Specifies the country code for the quoted rate source."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmCountryCode = new MMMessageAttribute() {
+	public static final MMMessageAttribute<SettlementRateSource1, Optional<CountryCode>> mmCountryCode = new MMMessageAttribute<SettlementRateSource1, Optional<CountryCode>>() {
 		{
-			componentContext_lazy = () -> SettlementRateSource1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.SettlementRateSource1.mmObject();
 			isDerived = false;
 			xmlTag = "CtryCd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -202,11 +235,22 @@ public class SettlementRateSource1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> CountryCode.mmObject();
 		}
+
+		@Override
+		public Optional<CountryCode> getValue(SettlementRateSource1 obj) {
+			return obj.getCountryCode();
+		}
+
+		@Override
+		public void setValue(SettlementRateSource1 obj, Optional<CountryCode> value) {
+			obj.setCountryCode(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "LctnCd")
 	protected Exact2AlphaNumericText locationCode;
 	/**
-	 * The location expressed as a 2 character code.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -232,9 +276,9 @@ public class SettlementRateSource1 {
 	 * definition} = "The location expressed as a 2 character code."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmLocationCode = new MMMessageAttribute() {
+	public static final MMMessageAttribute<SettlementRateSource1, Optional<Exact2AlphaNumericText>> mmLocationCode = new MMMessageAttribute<SettlementRateSource1, Optional<Exact2AlphaNumericText>>() {
 		{
-			componentContext_lazy = () -> SettlementRateSource1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.SettlementRateSource1.mmObject();
 			isDerived = false;
 			xmlTag = "LctnCd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -244,13 +288,25 @@ public class SettlementRateSource1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Exact2AlphaNumericText.mmObject();
 		}
+
+		@Override
+		public Optional<Exact2AlphaNumericText> getValue(SettlementRateSource1 obj) {
+			return obj.getLocationCode();
+		}
+
+		@Override
+		public void setValue(SettlementRateSource1 obj, Optional<Exact2AlphaNumericText> value) {
+			obj.setLocationCode(value.orElse(null));
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(SettlementRateSource1.mmRateSource, SettlementRateSource1.mmTime, SettlementRateSource1.mmCountryCode, SettlementRateSource1.mmLocationCode);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.SettlementRateSource1.mmRateSource, com.tools20022.repository.msg.SettlementRateSource1.mmTime,
+						com.tools20022.repository.msg.SettlementRateSource1.mmCountryCode, com.tools20022.repository.msg.SettlementRateSource1.mmLocationCode);
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
+				constraint_lazy = () -> Arrays.asList(com.tools20022.repository.constraints.ConstraintTimeCountryLocationRule.forSettlementRateSource1);
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "SettlementRateSource1";
 				definition = "Specifies the components of a settlement rate source for a non delvierable trade.";
@@ -259,39 +315,39 @@ public class SettlementRateSource1 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "RateSrc", required = true)
 	public RateSourceText getRateSource() {
 		return rateSource;
 	}
 
-	public void setRateSource(RateSourceText rateSource) {
-		this.rateSource = rateSource;
+	public SettlementRateSource1 setRateSource(RateSourceText rateSource) {
+		this.rateSource = Objects.requireNonNull(rateSource);
+		return this;
 	}
 
-	@XmlElement(name = "Tm")
-	public Exact4NumericText getTime() {
-		return time;
+	public Optional<Exact4NumericText> getTime() {
+		return time == null ? Optional.empty() : Optional.of(time);
 	}
 
-	public void setTime(Exact4NumericText time) {
+	public SettlementRateSource1 setTime(Exact4NumericText time) {
 		this.time = time;
+		return this;
 	}
 
-	@XmlElement(name = "CtryCd")
-	public CountryCode getCountryCode() {
-		return countryCode;
+	public Optional<CountryCode> getCountryCode() {
+		return countryCode == null ? Optional.empty() : Optional.of(countryCode);
 	}
 
-	public void setCountryCode(CountryCode countryCode) {
+	public SettlementRateSource1 setCountryCode(CountryCode countryCode) {
 		this.countryCode = countryCode;
+		return this;
 	}
 
-	@XmlElement(name = "LctnCd")
-	public Exact2AlphaNumericText getLocationCode() {
-		return locationCode;
+	public Optional<Exact2AlphaNumericText> getLocationCode() {
+		return locationCode == null ? Optional.empty() : Optional.of(locationCode);
 	}
 
-	public void setLocationCode(Exact2AlphaNumericText locationCode) {
+	public SettlementRateSource1 setLocationCode(Exact2AlphaNumericText locationCode) {
 		this.locationCode = locationCode;
+		return this;
 	}
 }

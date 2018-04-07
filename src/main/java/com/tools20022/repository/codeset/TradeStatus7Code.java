@@ -37,25 +37,25 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getCode code} =
  * <ul>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus7Code#Invalid
- * TradeStatus7Code.mmInvalid}</li>
+ * TradeStatus7Code.Invalid}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus7Code#Unmatched
- * TradeStatus7Code.mmUnmatched}</li>
+ * TradeStatus7Code.Unmatched}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus7Code#Matched
- * TradeStatus7Code.mmMatched}</li>
+ * TradeStatus7Code.Matched}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus7Code#SettlementMature
- * TradeStatus7Code.mmSettlementMature}</li>
+ * TradeStatus7Code.SettlementMature}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus7Code#Suspended
- * TradeStatus7Code.mmSuspended}</li>
+ * TradeStatus7Code.Suspended}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus7Code#SettlementMaturePending
- * TradeStatus7Code.mmSettlementMaturePending}</li>
+ * TradeStatus7Code.SettlementMaturePending}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus7Code#PartialFix
- * TradeStatus7Code.mmPartialFix}</li>
+ * TradeStatus7Code.PartialFix}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus7Code#FixUnmatched
- * TradeStatus7Code.mmFixUnmatched}</li>
+ * TradeStatus7Code.FixUnmatched}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getTrace trace} =
@@ -64,8 +64,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getExample
  * example} =
  * <ul>
@@ -288,7 +288,7 @@ public class TradeStatus7Code extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				example = Arrays.asList("INVA");
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "TradeStatus7Code";

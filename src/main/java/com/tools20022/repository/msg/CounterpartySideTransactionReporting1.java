@@ -27,9 +27,9 @@ import com.tools20022.repository.entity.Party;
 import com.tools20022.repository.entity.ReportingPartyRole;
 import com.tools20022.repository.entity.Trade;
 import com.tools20022.repository.GeneratedRepository;
-import java.util.Arrays;
+import com.tools20022.repository.msg.UniqueTransactionIdentifier2;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -63,8 +63,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -77,15 +77,16 @@ import javax.xml.bind.annotation.XmlType;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "CounterpartySideTransactionReporting1", propOrder = {"reportingJurisdiction", "reportingParty", "counterpartySideUniqueTransactionIdentifier"})
 public class CounterpartySideTransactionReporting1 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "RptgJursdctn")
 	protected Max35Text reportingJurisdiction;
 	/**
-	 * Specifies the supervisory party to which the trade needs to be reported.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -117,10 +118,10 @@ public class CounterpartySideTransactionReporting1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmReportingJurisdiction = new MMMessageAttribute() {
+	public static final MMMessageAttribute<CounterpartySideTransactionReporting1, Optional<Max35Text>> mmReportingJurisdiction = new MMMessageAttribute<CounterpartySideTransactionReporting1, Optional<Max35Text>>() {
 		{
 			businessElementTrace_lazy = () -> GenericIdentification.mmIdentification;
-			componentContext_lazy = () -> CounterpartySideTransactionReporting1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.CounterpartySideTransactionReporting1.mmObject();
 			isDerived = false;
 			xmlTag = "RptgJursdctn";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -130,12 +131,22 @@ public class CounterpartySideTransactionReporting1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max35Text> getValue(CounterpartySideTransactionReporting1 obj) {
+			return obj.getReportingJurisdiction();
+		}
+
+		@Override
+		public void setValue(CounterpartySideTransactionReporting1 obj, Optional<Max35Text> value) {
+			obj.setReportingJurisdiction(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "RptgPty")
 	protected PartyIdentification73Choice reportingParty;
 	/**
-	 * Identifies the party that is responsible for reporting the trade to the
-	 * trade repository.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -168,10 +179,10 @@ public class CounterpartySideTransactionReporting1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmReportingParty = new MMMessageAttribute() {
+	public static final MMMessageAttribute<CounterpartySideTransactionReporting1, Optional<PartyIdentification73Choice>> mmReportingParty = new MMMessageAttribute<CounterpartySideTransactionReporting1, Optional<PartyIdentification73Choice>>() {
 		{
 			businessElementTrace_lazy = () -> Party.mmIdentification;
-			componentContext_lazy = () -> CounterpartySideTransactionReporting1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.CounterpartySideTransactionReporting1.mmObject();
 			isDerived = false;
 			xmlTag = "RptgPty";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -181,16 +192,22 @@ public class CounterpartySideTransactionReporting1 {
 			minOccurs = 0;
 			complexType_lazy = () -> PartyIdentification73Choice.mmObject();
 		}
+
+		@Override
+		public Optional<PartyIdentification73Choice> getValue(CounterpartySideTransactionReporting1 obj) {
+			return obj.getReportingParty();
+		}
+
+		@Override
+		public void setValue(CounterpartySideTransactionReporting1 obj, Optional<PartyIdentification73Choice> value) {
+			obj.setReportingParty(value.orElse(null));
+		}
 	};
-	protected List<com.tools20022.repository.msg.UniqueTransactionIdentifier2> counterpartySideUniqueTransactionIdentifier;
+	@XmlElement(name = "CtrPtySdUnqTxIdr")
+	protected List<UniqueTransactionIdentifier2> counterpartySideUniqueTransactionIdentifier;
 	/**
-	 * Specifies the unique transaction identifier (UTI) to be created at the
-	 * time a transaction is first executed, shared with all registered entities
-	 * and counterparties involved in the transaction, and used to track that
-	 * particular transaction over its life. This identifier can also be known
-	 * as the Unique Swap Identifier (USI). This is the UTI from the
-	 * Counterparty Side party.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -223,27 +240,37 @@ public class CounterpartySideTransactionReporting1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmCounterpartySideUniqueTransactionIdentifier = new MMMessageAttribute() {
+	public static final MMMessageAttribute<CounterpartySideTransactionReporting1, List<UniqueTransactionIdentifier2>> mmCounterpartySideUniqueTransactionIdentifier = new MMMessageAttribute<CounterpartySideTransactionReporting1, List<UniqueTransactionIdentifier2>>() {
 		{
 			businessElementTrace_lazy = () -> Trade.mmTradeRelatedIdentifications;
-			componentContext_lazy = () -> CounterpartySideTransactionReporting1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.CounterpartySideTransactionReporting1.mmObject();
 			isDerived = false;
 			xmlTag = "CtrPtySdUnqTxIdr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "CounterpartySideUniqueTransactionIdentifier";
 			definition = "Specifies the unique transaction identifier (UTI) to be created at the time a transaction is first executed, shared with all registered entities and counterparties involved in the transaction, and used to track that particular transaction over its life. This identifier can also be known as the Unique Swap Identifier (USI). This is the UTI from the Counterparty Side party.";
 			minOccurs = 0;
-			complexType_lazy = () -> com.tools20022.repository.msg.UniqueTransactionIdentifier2.mmObject();
+			complexType_lazy = () -> UniqueTransactionIdentifier2.mmObject();
+		}
+
+		@Override
+		public List<UniqueTransactionIdentifier2> getValue(CounterpartySideTransactionReporting1 obj) {
+			return obj.getCounterpartySideUniqueTransactionIdentifier();
+		}
+
+		@Override
+		public void setValue(CounterpartySideTransactionReporting1 obj, List<UniqueTransactionIdentifier2> value) {
+			obj.setCounterpartySideUniqueTransactionIdentifier(value);
 		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(CounterpartySideTransactionReporting1.mmReportingJurisdiction, CounterpartySideTransactionReporting1.mmReportingParty,
-						CounterpartySideTransactionReporting1.mmCounterpartySideUniqueTransactionIdentifier);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.CounterpartySideTransactionReporting1.mmReportingJurisdiction, com.tools20022.repository.msg.CounterpartySideTransactionReporting1.mmReportingParty,
+						com.tools20022.repository.msg.CounterpartySideTransactionReporting1.mmCounterpartySideUniqueTransactionIdentifier);
 				trace_lazy = () -> ReportingPartyRole.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "CounterpartySideTransactionReporting1";
 				definition = "This is regulatory transaction reporting information from the counterparty side party.";
@@ -252,30 +279,30 @@ public class CounterpartySideTransactionReporting1 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "RptgJursdctn")
-	public Max35Text getReportingJurisdiction() {
-		return reportingJurisdiction;
+	public Optional<Max35Text> getReportingJurisdiction() {
+		return reportingJurisdiction == null ? Optional.empty() : Optional.of(reportingJurisdiction);
 	}
 
-	public void setReportingJurisdiction(Max35Text reportingJurisdiction) {
+	public CounterpartySideTransactionReporting1 setReportingJurisdiction(Max35Text reportingJurisdiction) {
 		this.reportingJurisdiction = reportingJurisdiction;
+		return this;
 	}
 
-	@XmlElement(name = "RptgPty")
-	public PartyIdentification73Choice getReportingParty() {
-		return reportingParty;
+	public Optional<PartyIdentification73Choice> getReportingParty() {
+		return reportingParty == null ? Optional.empty() : Optional.of(reportingParty);
 	}
 
-	public void setReportingParty(PartyIdentification73Choice reportingParty) {
+	public CounterpartySideTransactionReporting1 setReportingParty(PartyIdentification73Choice reportingParty) {
 		this.reportingParty = reportingParty;
+		return this;
 	}
 
-	@XmlElement(name = "CtrPtySdUnqTxIdr")
 	public List<UniqueTransactionIdentifier2> getCounterpartySideUniqueTransactionIdentifier() {
-		return counterpartySideUniqueTransactionIdentifier;
+		return counterpartySideUniqueTransactionIdentifier == null ? counterpartySideUniqueTransactionIdentifier = new ArrayList<>() : counterpartySideUniqueTransactionIdentifier;
 	}
 
-	public void setCounterpartySideUniqueTransactionIdentifier(List<com.tools20022.repository.msg.UniqueTransactionIdentifier2> counterpartySideUniqueTransactionIdentifier) {
-		this.counterpartySideUniqueTransactionIdentifier = counterpartySideUniqueTransactionIdentifier;
+	public CounterpartySideTransactionReporting1 setCounterpartySideUniqueTransactionIdentifier(List<UniqueTransactionIdentifier2> counterpartySideUniqueTransactionIdentifier) {
+		this.counterpartySideUniqueTransactionIdentifier = Objects.requireNonNull(counterpartySideUniqueTransactionIdentifier);
+		return this;
 	}
 }

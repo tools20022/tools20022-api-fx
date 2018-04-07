@@ -25,6 +25,7 @@ import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -61,8 +62,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -75,15 +76,16 @@ import javax.xml.bind.annotation.XmlType;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "AcknowledgementDetails1Choice", propOrder = {"payInScheduleReference", "payInCallReference"})
 public class AcknowledgementDetails1Choice {
 
 	final static private AtomicReference<MMChoiceComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "PayInSchdlRef", required = true)
 	protected Max35Text payInScheduleReference;
 	/**
-	 * Reference to the pay in schedule that is being acknowledged.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -109,9 +111,9 @@ public class AcknowledgementDetails1Choice {
 	 * "Reference to the pay in schedule that is being acknowledged."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmPayInScheduleReference = new MMMessageAttribute() {
+	public static final MMMessageAttribute<AcknowledgementDetails1Choice, Max35Text> mmPayInScheduleReference = new MMMessageAttribute<AcknowledgementDetails1Choice, Max35Text>() {
 		{
-			componentContext_lazy = () -> AcknowledgementDetails1Choice.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.choice.AcknowledgementDetails1Choice.mmObject();
 			isDerived = false;
 			xmlTag = "PayInSchdlRef";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -121,11 +123,22 @@ public class AcknowledgementDetails1Choice {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(AcknowledgementDetails1Choice obj) {
+			return obj.getPayInScheduleReference();
+		}
+
+		@Override
+		public void setValue(AcknowledgementDetails1Choice obj, Max35Text value) {
+			obj.setPayInScheduleReference(value);
+		}
 	};
+	@XmlElement(name = "PayInCallRef", required = true)
 	protected Max35Text payInCallReference;
 	/**
-	 * Reference to the pay in call that is being acknowledged.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -150,9 +163,9 @@ public class AcknowledgementDetails1Choice {
 	 * definition} = "Reference to the pay in call that is being acknowledged."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmPayInCallReference = new MMMessageAttribute() {
+	public static final MMMessageAttribute<AcknowledgementDetails1Choice, Max35Text> mmPayInCallReference = new MMMessageAttribute<AcknowledgementDetails1Choice, Max35Text>() {
 		{
-			componentContext_lazy = () -> AcknowledgementDetails1Choice.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.choice.AcknowledgementDetails1Choice.mmObject();
 			isDerived = false;
 			xmlTag = "PayInCallRef";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -162,14 +175,24 @@ public class AcknowledgementDetails1Choice {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(AcknowledgementDetails1Choice obj) {
+			return obj.getPayInCallReference();
+		}
+
+		@Override
+		public void setValue(AcknowledgementDetails1Choice obj, Max35Text value) {
+			obj.setPayInCallReference(value);
+		}
 	};
 
 	final static public MMChoiceComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMChoiceComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(AcknowledgementDetails1Choice.mmPayInScheduleReference, AcknowledgementDetails1Choice.mmPayInCallReference);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.choice.AcknowledgementDetails1Choice.mmPayInScheduleReference, com.tools20022.repository.choice.AcknowledgementDetails1Choice.mmPayInCallReference);
 				messageBuildingBlock_lazy = () -> Arrays.asList(PayInEventAcknowledgementV02.mmAcknowledgementDetails);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "AcknowledgementDetails1Choice";
 				definition = "Reference of the PayInSchedule or the PayInCall being acknowledged. This is the Message Identification element from the Report Data sequence of the Pay In Schedule message or the Pay In Call message.\r\n";
@@ -178,21 +201,21 @@ public class AcknowledgementDetails1Choice {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "PayInSchdlRef", required = true)
 	public Max35Text getPayInScheduleReference() {
 		return payInScheduleReference;
 	}
 
-	public void setPayInScheduleReference(Max35Text payInScheduleReference) {
-		this.payInScheduleReference = payInScheduleReference;
+	public AcknowledgementDetails1Choice setPayInScheduleReference(Max35Text payInScheduleReference) {
+		this.payInScheduleReference = Objects.requireNonNull(payInScheduleReference);
+		return this;
 	}
 
-	@XmlElement(name = "PayInCallRef", required = true)
 	public Max35Text getPayInCallReference() {
 		return payInCallReference;
 	}
 
-	public void setPayInCallReference(Max35Text payInCallReference) {
-		this.payInCallReference = payInCallReference;
+	public AcknowledgementDetails1Choice setPayInCallReference(Max35Text payInCallReference) {
+		this.payInCallReference = Objects.requireNonNull(payInCallReference);
+		return this;
 	}
 }

@@ -39,28 +39,28 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <ul>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#AlternativeInvestmentFund
- * CorporateSectorIdentifier1Code.mmAlternativeInvestmentFund}</li>
+ * CorporateSectorIdentifier1Code.AlternativeInvestmentFund}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#Assurance
- * CorporateSectorIdentifier1Code.mmAssurance}</li>
+ * CorporateSectorIdentifier1Code.Assurance}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#CreditInstitution
- * CorporateSectorIdentifier1Code.mmCreditInstitution}</li>
+ * CorporateSectorIdentifier1Code.CreditInstitution}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#Insurance
- * CorporateSectorIdentifier1Code.mmInsurance}</li>
+ * CorporateSectorIdentifier1Code.Insurance}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#InvestmentFirm
- * CorporateSectorIdentifier1Code.mmInvestmentFirm}</li>
+ * CorporateSectorIdentifier1Code.InvestmentFirm}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#OccupationalRetirementProvision
- * CorporateSectorIdentifier1Code.mmOccupationalRetirementProvision}</li>
+ * CorporateSectorIdentifier1Code.OccupationalRetirementProvision}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#Reinsurance
- * CorporateSectorIdentifier1Code.mmReinsurance}</li>
+ * CorporateSectorIdentifier1Code.Reinsurance}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifier1Code#UCITS
- * CorporateSectorIdentifier1Code.mmUCITS}</li>
+ * CorporateSectorIdentifier1Code.UCITS}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getTrace trace} =
@@ -69,8 +69,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -287,7 +287,7 @@ public class CorporateSectorIdentifier1Code extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "CorporateSectorIdentifier1Code";
 				definition = "Identifies the corporate sector of the counterparty for reporting to trade repositories.";

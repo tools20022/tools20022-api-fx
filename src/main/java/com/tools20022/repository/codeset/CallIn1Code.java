@@ -38,13 +38,13 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <ul>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CallIn1Code#CallForAccountValue
- * CallIn1Code.mmCallForAccountValue}</li>
+ * CallIn1Code.CallForAccountValue}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CallIn1Code#CallForSettlement
- * CallIn1Code.mmCallForSettlement}</li>
+ * CallIn1Code.CallForSettlement}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CallIn1Code#CallForCurrencyClose
- * CallIn1Code.mmCallForCurrencyClose}</li>
+ * CallIn1Code.CallForCurrencyClose}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getTrace trace} =
@@ -52,8 +52,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getExample
  * example} =
  * <ul>
@@ -151,7 +151,7 @@ public class CallIn1Code extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				example = Arrays.asList("CFAV");
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "CallIn1Code";

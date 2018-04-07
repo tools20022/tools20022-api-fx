@@ -29,6 +29,7 @@ import com.tools20022.repository.datatype.YesNoIndicator;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -36,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * Specifies the opening and valuation conditions for the non deliverable
- * forward
+ * forward.
  * <p>
  * <strong>Constant fields:</strong>
  * <ul>
@@ -72,8 +73,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -82,7 +83,7 @@ import javax.xml.bind.annotation.XmlType;
  * "NonDeliverableForwardConditions1"</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
  * definition} =
- * "Specifies the opening and valuation conditions for the non deliverable forward"
+ * "Specifies the opening and valuation conditions for the non deliverable forward."
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMModelEntity#getNextVersions
  * nextVersions} =
@@ -94,15 +95,16 @@ import javax.xml.bind.annotation.XmlType;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "NonDeliverableForwardConditions1", propOrder = {"openingIndicator", "openingFixingConditions"})
 public class NonDeliverableForwardConditions1 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "OpngInd", required = true)
 	protected YesNoIndicator openingIndicator;
 	/**
-	 * Specifies whether the instruction is an NDF opening or fixing.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -129,9 +131,9 @@ public class NonDeliverableForwardConditions1 {
 	 * "Specifies whether the instruction is an NDF opening or fixing."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmOpeningIndicator = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NonDeliverableForwardConditions1, YesNoIndicator> mmOpeningIndicator = new MMMessageAttribute<NonDeliverableForwardConditions1, YesNoIndicator>() {
 		{
-			componentContext_lazy = () -> NonDeliverableForwardConditions1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NonDeliverableForwardConditions1.mmObject();
 			isDerived = false;
 			xmlTag = "OpngInd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -141,12 +143,22 @@ public class NonDeliverableForwardConditions1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> YesNoIndicator.mmObject();
 		}
+
+		@Override
+		public YesNoIndicator getValue(NonDeliverableForwardConditions1 obj) {
+			return obj.getOpeningIndicator();
+		}
+
+		@Override
+		public void setValue(NonDeliverableForwardConditions1 obj, YesNoIndicator value) {
+			obj.setOpeningIndicator(value);
+		}
 	};
+	@XmlElement(name = "OpngFxgConds", required = true)
 	protected NDFOpeningFixing1Choice openingFixingConditions;
 	/**
-	 * Specifies either the conditions for an NDF oepning or an NDF fixing
-	 * confirmation.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -173,9 +185,9 @@ public class NonDeliverableForwardConditions1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmOpeningFixingConditions = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<NonDeliverableForwardConditions1, NDFOpeningFixing1Choice> mmOpeningFixingConditions = new MMMessageAssociationEnd<NonDeliverableForwardConditions1, NDFOpeningFixing1Choice>() {
 		{
-			componentContext_lazy = () -> NonDeliverableForwardConditions1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NonDeliverableForwardConditions1.mmObject();
 			isDerived = false;
 			xmlTag = "OpngFxgConds";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -186,39 +198,49 @@ public class NonDeliverableForwardConditions1 {
 			isComposite = true;
 			type_lazy = () -> NDFOpeningFixing1Choice.mmObject();
 		}
+
+		@Override
+		public NDFOpeningFixing1Choice getValue(NonDeliverableForwardConditions1 obj) {
+			return obj.getOpeningFixingConditions();
+		}
+
+		@Override
+		public void setValue(NonDeliverableForwardConditions1 obj, NDFOpeningFixing1Choice value) {
+			obj.setOpeningFixingConditions(value);
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(NonDeliverableForwardConditions1.mmOpeningIndicator, NonDeliverableForwardConditions1.mmOpeningFixingConditions);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.NonDeliverableForwardConditions1.mmOpeningIndicator, com.tools20022.repository.msg.NonDeliverableForwardConditions1.mmOpeningFixingConditions);
 				messageBuildingBlock_lazy = () -> Arrays.asList(ForeignExchangeTradeInstructionV04.mmNonDeliverableForwardConditions, ForeignExchangeTradeInstructionCancellationV04.mmNonDeliverableForwardConditions,
 						ForeignExchangeTradeInstructionAmendmentV04.mmNonDeliverableForwardConditions);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "NonDeliverableForwardConditions1";
-				definition = "Specifies the opening and valuation conditions for the non deliverable forward";
+				definition = "Specifies the opening and valuation conditions for the non deliverable forward.";
 				nextVersions_lazy = () -> Arrays.asList(NonDeliverableForwardConditions2.mmObject());
 			}
 		});
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "OpngInd", required = true)
 	public YesNoIndicator getOpeningIndicator() {
 		return openingIndicator;
 	}
 
-	public void setOpeningIndicator(YesNoIndicator openingIndicator) {
-		this.openingIndicator = openingIndicator;
+	public NonDeliverableForwardConditions1 setOpeningIndicator(YesNoIndicator openingIndicator) {
+		this.openingIndicator = Objects.requireNonNull(openingIndicator);
+		return this;
 	}
 
-	@XmlElement(name = "OpngFxgConds", required = true)
 	public NDFOpeningFixing1Choice getOpeningFixingConditions() {
 		return openingFixingConditions;
 	}
 
-	public void setOpeningFixingConditions(NDFOpeningFixing1Choice openingFixingConditions) {
-		this.openingFixingConditions = openingFixingConditions;
+	public NonDeliverableForwardConditions1 setOpeningFixingConditions(NDFOpeningFixing1Choice openingFixingConditions) {
+		this.openingFixingConditions = Objects.requireNonNull(openingFixingConditions);
+		return this;
 	}
 }

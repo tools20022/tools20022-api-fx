@@ -24,11 +24,13 @@ import com.tools20022.repository.datatype.CurrencyAndAmount;
 import com.tools20022.repository.datatype.ISODateTime;
 import com.tools20022.repository.datatype.Max70Text;
 import com.tools20022.repository.datatype.Number;
+import com.tools20022.repository.entity.InvestmentPlan;
 import com.tools20022.repository.entity.PaymentObligation;
 import com.tools20022.repository.GeneratedRepository;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Specifies the details of each successive payment in settlement of a debt or
@@ -83,8 +85,8 @@ import java.util.concurrent.atomic.AtomicReference;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -102,9 +104,8 @@ public class Instalment extends PaymentObligation {
 	final static private AtomicReference<MMBusinessComponent> mmObject_lazy = new AtomicReference<>();
 	protected Number initialNumberOfInstalment;
 	/**
-	 * Number of pre-paid instalment periods at the time an investment plan is
-	 * created.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -128,7 +129,7 @@ public class Instalment extends PaymentObligation {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmInitialNumberOfInstalment = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, Number> mmInitialNumberOfInstalment = new MMBusinessAttribute<Instalment, Number>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -140,19 +141,20 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> Number.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getInitialNumberOfInstalment", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Number getValue(Instalment obj) {
+			return obj.getInitialNumberOfInstalment();
+		}
+
+		@Override
+		public void setValue(Instalment obj, Number value) {
+			obj.setInitialNumberOfInstalment(value);
 		}
 	};
 	protected Number totalNumberOfInstalment;
 	/**
-	 * Total number of times the amount must be invested at the predefined
-	 * frequency as of the start date of the investment plan.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -176,7 +178,7 @@ public class Instalment extends PaymentObligation {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmTotalNumberOfInstalment = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, Number> mmTotalNumberOfInstalment = new MMBusinessAttribute<Instalment, Number>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -188,18 +190,20 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> Number.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getTotalNumberOfInstalment", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Number getValue(Instalment obj) {
+			return obj.getTotalNumberOfInstalment();
+		}
+
+		@Override
+		public void setValue(Instalment obj, Number value) {
+			obj.setTotalNumberOfInstalment(value);
 		}
 	};
 	protected FrequencyCode periodUnit;
 	/**
-	 * Period unit between consecutive payments (for example day, month, year).
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -224,7 +228,7 @@ public class Instalment extends PaymentObligation {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmPeriodUnit = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, FrequencyCode> mmPeriodUnit = new MMBusinessAttribute<Instalment, FrequencyCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -236,18 +240,20 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> FrequencyCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getPeriodUnit", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public FrequencyCode getValue(Instalment obj) {
+			return obj.getPeriodUnit();
+		}
+
+		@Override
+		public void setValue(Instalment obj, FrequencyCode value) {
+			obj.setPeriodUnit(value);
 		}
 	};
 	protected Number numberOfUnits;
 	/**
-	 * Number of period units between consecutive payments.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -269,7 +275,7 @@ public class Instalment extends PaymentObligation {
 	 * definition} = "Number of period units between consecutive payments."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmNumberOfUnits = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, Number> mmNumberOfUnits = new MMBusinessAttribute<Instalment, Number>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -281,18 +287,20 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> Number.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getNumberOfUnits", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Number getValue(Instalment obj) {
+			return obj.getNumberOfUnits();
+		}
+
+		@Override
+		public void setValue(Instalment obj, Number value) {
+			obj.setNumberOfUnits(value);
 		}
 	};
 	protected Max70Text sequenceIdentification;
 	/**
-	 * Specifies the progressive number of a single instalment.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -314,7 +322,7 @@ public class Instalment extends PaymentObligation {
 	 * definition} = "Specifies the progressive number of a single instalment."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmSequenceIdentification = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, Max70Text> mmSequenceIdentification = new MMBusinessAttribute<Instalment, Max70Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -326,18 +334,20 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> Max70Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getSequenceIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max70Text getValue(Instalment obj) {
+			return obj.getSequenceIdentification();
+		}
+
+		@Override
+		public void setValue(Instalment obj, Max70Text value) {
+			obj.setSequenceIdentification(value);
 		}
 	};
 	protected InvestmentPlan investmentPlan;
 	/**
-	 * Investment plan for which instalment information is provided.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -368,7 +378,7 @@ public class Instalment extends PaymentObligation {
 	 * "Investment plan for which instalment information is provided."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmInvestmentPlan = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Instalment, Optional<InvestmentPlan>> mmInvestmentPlan = new MMBusinessAssociationEnd<Instalment, Optional<InvestmentPlan>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -381,11 +391,21 @@ public class Instalment extends PaymentObligation {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.InvestmentPlan.mmObject();
 		}
+
+		@Override
+		public Optional<InvestmentPlan> getValue(Instalment obj) {
+			return obj.getInvestmentPlan();
+		}
+
+		@Override
+		public void setValue(Instalment obj, Optional<InvestmentPlan> value) {
+			obj.setInvestmentPlan(value.orElse(null));
+		}
 	};
 	protected InstalmentPlanCode instalmentPlanType;
 	/**
-	 * Type of instalment plan.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -408,7 +428,7 @@ public class Instalment extends PaymentObligation {
 	 * definition} = "Type of instalment plan."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmInstalmentPlanType = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, InstalmentPlanCode> mmInstalmentPlanType = new MMBusinessAttribute<Instalment, InstalmentPlanCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -420,18 +440,20 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> InstalmentPlanCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getInstalmentPlanType", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public InstalmentPlanCode getValue(Instalment obj) {
+			return obj.getInstalmentPlanType();
+		}
+
+		@Override
+		public void setValue(Instalment obj, InstalmentPlanCode value) {
+			obj.setInstalmentPlanType(value);
 		}
 	};
 	protected CurrencyAndAmount firstPaymentAmount;
 	/**
-	 * Amount of the first payment.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -454,7 +476,7 @@ public class Instalment extends PaymentObligation {
 	 * definition} = "Amount of the first payment."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmFirstPaymentAmount = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, CurrencyAndAmount> mmFirstPaymentAmount = new MMBusinessAttribute<Instalment, CurrencyAndAmount>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -466,18 +488,20 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> CurrencyAndAmount.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getFirstPaymentAmount", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public CurrencyAndAmount getValue(Instalment obj) {
+			return obj.getFirstPaymentAmount();
+		}
+
+		@Override
+		public void setValue(Instalment obj, CurrencyAndAmount value) {
+			obj.setFirstPaymentAmount(value);
 		}
 	};
 	protected ISODateTime firstPaymentDate;
 	/**
-	 * Date of the first payment.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -499,7 +523,7 @@ public class Instalment extends PaymentObligation {
 	 * definition} = "Date of the first payment."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmFirstPaymentDate = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Instalment, ISODateTime> mmFirstPaymentDate = new MMBusinessAttribute<Instalment, ISODateTime>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Instalment.mmObject();
@@ -511,19 +535,21 @@ public class Instalment extends PaymentObligation {
 			simpleType_lazy = () -> ISODateTime.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Instalment.class.getMethod("getFirstPaymentDate", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public ISODateTime getValue(Instalment obj) {
+			return obj.getFirstPaymentDate();
+		}
+
+		@Override
+		public void setValue(Instalment obj, ISODateTime value) {
+			obj.setFirstPaymentDate(value);
 		}
 	};
 
 	static public MMBusinessComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMBusinessComponent() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "Instalment";
 				definition = "Specifies the details of each successive payment in settlement of a debt or in an investment plan.";
@@ -547,71 +573,80 @@ public class Instalment extends PaymentObligation {
 		return initialNumberOfInstalment;
 	}
 
-	public void setInitialNumberOfInstalment(Number initialNumberOfInstalment) {
-		this.initialNumberOfInstalment = initialNumberOfInstalment;
+	public Instalment setInitialNumberOfInstalment(Number initialNumberOfInstalment) {
+		this.initialNumberOfInstalment = Objects.requireNonNull(initialNumberOfInstalment);
+		return this;
 	}
 
 	public Number getTotalNumberOfInstalment() {
 		return totalNumberOfInstalment;
 	}
 
-	public void setTotalNumberOfInstalment(Number totalNumberOfInstalment) {
-		this.totalNumberOfInstalment = totalNumberOfInstalment;
+	public Instalment setTotalNumberOfInstalment(Number totalNumberOfInstalment) {
+		this.totalNumberOfInstalment = Objects.requireNonNull(totalNumberOfInstalment);
+		return this;
 	}
 
 	public FrequencyCode getPeriodUnit() {
 		return periodUnit;
 	}
 
-	public void setPeriodUnit(FrequencyCode periodUnit) {
-		this.periodUnit = periodUnit;
+	public Instalment setPeriodUnit(FrequencyCode periodUnit) {
+		this.periodUnit = Objects.requireNonNull(periodUnit);
+		return this;
 	}
 
 	public Number getNumberOfUnits() {
 		return numberOfUnits;
 	}
 
-	public void setNumberOfUnits(Number numberOfUnits) {
-		this.numberOfUnits = numberOfUnits;
+	public Instalment setNumberOfUnits(Number numberOfUnits) {
+		this.numberOfUnits = Objects.requireNonNull(numberOfUnits);
+		return this;
 	}
 
 	public Max70Text getSequenceIdentification() {
 		return sequenceIdentification;
 	}
 
-	public void setSequenceIdentification(Max70Text sequenceIdentification) {
-		this.sequenceIdentification = sequenceIdentification;
+	public Instalment setSequenceIdentification(Max70Text sequenceIdentification) {
+		this.sequenceIdentification = Objects.requireNonNull(sequenceIdentification);
+		return this;
 	}
 
-	public InvestmentPlan getInvestmentPlan() {
-		return investmentPlan;
+	public Optional<InvestmentPlan> getInvestmentPlan() {
+		return investmentPlan == null ? Optional.empty() : Optional.of(investmentPlan);
 	}
 
-	public void setInvestmentPlan(com.tools20022.repository.entity.InvestmentPlan investmentPlan) {
+	public Instalment setInvestmentPlan(com.tools20022.repository.entity.InvestmentPlan investmentPlan) {
 		this.investmentPlan = investmentPlan;
+		return this;
 	}
 
 	public InstalmentPlanCode getInstalmentPlanType() {
 		return instalmentPlanType;
 	}
 
-	public void setInstalmentPlanType(InstalmentPlanCode instalmentPlanType) {
-		this.instalmentPlanType = instalmentPlanType;
+	public Instalment setInstalmentPlanType(InstalmentPlanCode instalmentPlanType) {
+		this.instalmentPlanType = Objects.requireNonNull(instalmentPlanType);
+		return this;
 	}
 
 	public CurrencyAndAmount getFirstPaymentAmount() {
 		return firstPaymentAmount;
 	}
 
-	public void setFirstPaymentAmount(CurrencyAndAmount firstPaymentAmount) {
-		this.firstPaymentAmount = firstPaymentAmount;
+	public Instalment setFirstPaymentAmount(CurrencyAndAmount firstPaymentAmount) {
+		this.firstPaymentAmount = Objects.requireNonNull(firstPaymentAmount);
+		return this;
 	}
 
 	public ISODateTime getFirstPaymentDate() {
 		return firstPaymentDate;
 	}
 
-	public void setFirstPaymentDate(ISODateTime firstPaymentDate) {
-		this.firstPaymentDate = firstPaymentDate;
+	public Instalment setFirstPaymentDate(ISODateTime firstPaymentDate) {
+		this.firstPaymentDate = Objects.requireNonNull(firstPaymentDate);
+		return this;
 	}
 }

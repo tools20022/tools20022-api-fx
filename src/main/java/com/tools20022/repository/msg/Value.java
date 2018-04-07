@@ -25,11 +25,9 @@ import com.tools20022.repository.entity.CashEntry;
 import com.tools20022.repository.entity.CurrencyExchange;
 import com.tools20022.repository.GeneratedRepository;
 import java.text.DateFormat;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.Date;
 import java.util.function.Supplier;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -56,8 +54,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} = com.tools20022.metamodel.MMRegistrationStatus.OBSOLETE</li>
@@ -71,15 +69,16 @@ import javax.xml.bind.annotation.XmlType;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "Value", propOrder = {"baseCurrencyItem", "alternateCurrencyItem"})
 public class Value {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "BaseCcyItm", required = true)
 	protected ActiveOrHistoricCurrencyAndAmount baseCurrencyItem;
 	/**
-	 * Specifies the amount in the base currency of the receiver.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -110,10 +109,10 @@ public class Value {
 	 * "Specifies the amount in the base currency of the receiver."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmBaseCurrencyItem = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Value, ActiveOrHistoricCurrencyAndAmount> mmBaseCurrencyItem = new MMMessageAttribute<Value, ActiveOrHistoricCurrencyAndAmount>() {
 		{
 			businessElementTrace_lazy = () -> CashEntry.mmAmount;
-			componentContext_lazy = () -> Value.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Value.mmObject();
 			isDerived = false;
 			xmlTag = "BaseCcyItm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -123,11 +122,22 @@ public class Value {
 			minOccurs = 1;
 			simpleType_lazy = () -> ActiveOrHistoricCurrencyAndAmount.mmObject();
 		}
+
+		@Override
+		public ActiveOrHistoricCurrencyAndAmount getValue(Value obj) {
+			return obj.getBaseCurrencyItem();
+		}
+
+		@Override
+		public void setValue(Value obj, ActiveOrHistoricCurrencyAndAmount value) {
+			obj.setBaseCurrencyItem(value);
+		}
 	};
+	@XmlElement(name = "AltrnCcyItm", required = true)
 	protected List<ActiveOrHistoricCurrencyAndAmount> alternateCurrencyItem;
 	/**
-	 * Specifies the amount in another currency.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -157,10 +167,10 @@ public class Value {
 	 * definition} = "Specifies the amount in another currency."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmAlternateCurrencyItem = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Value, List<ActiveOrHistoricCurrencyAndAmount>> mmAlternateCurrencyItem = new MMMessageAttribute<Value, List<ActiveOrHistoricCurrencyAndAmount>>() {
 		{
 			businessElementTrace_lazy = () -> CurrencyExchange.mmResultingAmount;
-			componentContext_lazy = () -> Value.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Value.mmObject();
 			isDerived = false;
 			xmlTag = "AltrnCcyItm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -169,14 +179,24 @@ public class Value {
 			minOccurs = 1;
 			simpleType_lazy = () -> ActiveOrHistoricCurrencyAndAmount.mmObject();
 		}
+
+		@Override
+		public List<ActiveOrHistoricCurrencyAndAmount> getValue(Value obj) {
+			return obj.getAlternateCurrencyItem();
+		}
+
+		@Override
+		public void setValue(Value obj, List<ActiveOrHistoricCurrencyAndAmount> value) {
+			obj.setAlternateCurrencyItem(value);
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(Value.mmBaseCurrencyItem, Value.mmAlternateCurrencyItem);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.Value.mmBaseCurrencyItem, com.tools20022.repository.msg.Value.mmAlternateCurrencyItem);
 				trace_lazy = () -> CashEntry.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.OBSOLETE;
 				removalDate = ((Supplier<Date>) (() -> {
 					try {
@@ -192,21 +212,21 @@ public class Value {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "BaseCcyItm", required = true)
 	public ActiveOrHistoricCurrencyAndAmount getBaseCurrencyItem() {
 		return baseCurrencyItem;
 	}
 
-	public void setBaseCurrencyItem(ActiveOrHistoricCurrencyAndAmount baseCurrencyItem) {
-		this.baseCurrencyItem = baseCurrencyItem;
+	public Value setBaseCurrencyItem(ActiveOrHistoricCurrencyAndAmount baseCurrencyItem) {
+		this.baseCurrencyItem = Objects.requireNonNull(baseCurrencyItem);
+		return this;
 	}
 
-	@XmlElement(name = "AltrnCcyItm", required = true)
 	public List<ActiveOrHistoricCurrencyAndAmount> getAlternateCurrencyItem() {
-		return alternateCurrencyItem;
+		return alternateCurrencyItem == null ? alternateCurrencyItem = new ArrayList<>() : alternateCurrencyItem;
 	}
 
-	public void setAlternateCurrencyItem(List<ActiveOrHistoricCurrencyAndAmount> alternateCurrencyItem) {
-		this.alternateCurrencyItem = alternateCurrencyItem;
+	public Value setAlternateCurrencyItem(List<ActiveOrHistoricCurrencyAndAmount> alternateCurrencyItem) {
+		this.alternateCurrencyItem = Objects.requireNonNull(alternateCurrencyItem);
+		return this;
 	}
 }

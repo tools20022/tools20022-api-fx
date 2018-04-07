@@ -21,11 +21,11 @@ import com.tools20022.metamodel.*;
 import com.tools20022.repository.datatype.Max1025Text;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.datatype.Number;
+import com.tools20022.repository.entity.SecurityCertificate;
+import com.tools20022.repository.entity.TerminalManagementSystem;
 import com.tools20022.repository.GeneratedRepository;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 
 /**
  * Parameters used to access a network.
@@ -75,8 +75,8 @@ import java.util.List;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -92,8 +92,8 @@ public class NetworkAccess {
 	final static private AtomicReference<MMBusinessComponent> mmObject_lazy = new AtomicReference<>();
 	protected Max35Text hostIPAddress;
 	/**
-	 * IP address of the host.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -116,7 +116,7 @@ public class NetworkAccess {
 	 * definition} = "IP address of the host."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmHostIPAddress = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<NetworkAccess, Max35Text> mmHostIPAddress = new MMBusinessAttribute<NetworkAccess, Max35Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.NetworkAccess.mmObject();
@@ -128,18 +128,20 @@ public class NetworkAccess {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetworkAccess.class.getMethod("getHostIPAddress", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(NetworkAccess obj) {
+			return obj.getHostIPAddress();
+		}
+
+		@Override
+		public void setValue(NetworkAccess obj, Max35Text value) {
+			obj.setHostIPAddress(value);
 		}
 	};
 	protected Number hostPortNumber;
 	/**
-	 * Port number of the host.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -162,7 +164,7 @@ public class NetworkAccess {
 	 * definition} = "Port number of the host."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmHostPortNumber = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<NetworkAccess, Number> mmHostPortNumber = new MMBusinessAttribute<NetworkAccess, Number>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.NetworkAccess.mmObject();
@@ -174,18 +176,20 @@ public class NetworkAccess {
 			simpleType_lazy = () -> Number.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetworkAccess.class.getMethod("getHostPortNumber", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Number getValue(NetworkAccess obj) {
+			return obj.getHostPortNumber();
+		}
+
+		@Override
+		public void setValue(NetworkAccess obj, Number value) {
+			obj.setHostPortNumber(value);
 		}
 	};
 	protected Max35Text userName;
 	/**
-	 * User name identifying the party accessing the network.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -208,7 +212,7 @@ public class NetworkAccess {
 	 * definition} = "User name identifying the party accessing the network."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmUserName = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<NetworkAccess, Max35Text> mmUserName = new MMBusinessAttribute<NetworkAccess, Max35Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.NetworkAccess.mmObject();
@@ -220,18 +224,20 @@ public class NetworkAccess {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetworkAccess.class.getMethod("getUserName", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(NetworkAccess obj) {
+			return obj.getUserName();
+		}
+
+		@Override
+		public void setValue(NetworkAccess obj, Max35Text value) {
+			obj.setUserName(value);
 		}
 	};
 	protected Max35Text accessCode;
 	/**
-	 * Password authenticating the user
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -254,7 +260,7 @@ public class NetworkAccess {
 	 * definition} = "Password authenticating the user"</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmAccessCode = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<NetworkAccess, Max35Text> mmAccessCode = new MMBusinessAttribute<NetworkAccess, Max35Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.NetworkAccess.mmObject();
@@ -266,18 +272,20 @@ public class NetworkAccess {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetworkAccess.class.getMethod("getAccessCode", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(NetworkAccess obj) {
+			return obj.getAccessCode();
+		}
+
+		@Override
+		public void setValue(NetworkAccess obj, Max35Text value) {
+			obj.setAccessCode(value);
 		}
 	};
-	protected List<com.tools20022.repository.entity.SecurityCertificate> clientCertificate;
+	protected List<SecurityCertificate> clientCertificate;
 	/**
-	 * Client certificate chain.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -308,7 +316,7 @@ public class NetworkAccess {
 	 * definition} = "Client certificate chain."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmClientCertificate = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<NetworkAccess, List<SecurityCertificate>> mmClientCertificate = new MMBusinessAssociationEnd<NetworkAccess, List<SecurityCertificate>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.NetworkAccess.mmObject();
@@ -316,15 +324,25 @@ public class NetworkAccess {
 			name = "ClientCertificate";
 			definition = "Client certificate chain.";
 			minOccurs = 0;
-			opposite_lazy = () -> com.tools20022.repository.entity.SecurityCertificate.mmNetworkAccess;
+			opposite_lazy = () -> SecurityCertificate.mmNetworkAccess;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.SecurityCertificate.mmObject();
+			type_lazy = () -> SecurityCertificate.mmObject();
+		}
+
+		@Override
+		public List<SecurityCertificate> getValue(NetworkAccess obj) {
+			return obj.getClientCertificate();
+		}
+
+		@Override
+		public void setValue(NetworkAccess obj, List<SecurityCertificate> value) {
+			obj.setClientCertificate(value);
 		}
 	};
 	protected TerminalManagementSystem terminalManagementSystem;
 	/**
-	 * Terminal Management System which uses the network.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -356,7 +374,7 @@ public class NetworkAccess {
 	 * definition} = "Terminal Management System which uses the network."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmTerminalManagementSystem = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<NetworkAccess, Optional<TerminalManagementSystem>> mmTerminalManagementSystem = new MMBusinessAssociationEnd<NetworkAccess, Optional<TerminalManagementSystem>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.NetworkAccess.mmObject();
@@ -365,15 +383,25 @@ public class NetworkAccess {
 			definition = "Terminal Management System which uses the network.";
 			maxOccurs = 1;
 			minOccurs = 0;
-			opposite_lazy = () -> com.tools20022.repository.entity.TerminalManagementSystem.mmNetworkAccess;
+			opposite_lazy = () -> TerminalManagementSystem.mmNetworkAccess;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.TerminalManagementSystem.mmObject();
+			type_lazy = () -> TerminalManagementSystem.mmObject();
+		}
+
+		@Override
+		public Optional<TerminalManagementSystem> getValue(NetworkAccess obj) {
+			return obj.getTerminalManagementSystem();
+		}
+
+		@Override
+		public void setValue(NetworkAccess obj, Optional<TerminalManagementSystem> value) {
+			obj.setTerminalManagementSystem(value.orElse(null));
 		}
 	};
 	protected Max1025Text networkAddress;
 	/**
-	 * Address used to reach the network on which a message will be carried.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -397,7 +425,7 @@ public class NetworkAccess {
 	 * "Address used to reach the network on which a message will be carried."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmNetworkAddress = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<NetworkAccess, Max1025Text> mmNetworkAddress = new MMBusinessAttribute<NetworkAccess, Max1025Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.NetworkAccess.mmObject();
@@ -409,23 +437,25 @@ public class NetworkAccess {
 			simpleType_lazy = () -> Max1025Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetworkAccess.class.getMethod("getNetworkAddress", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max1025Text getValue(NetworkAccess obj) {
+			return obj.getNetworkAddress();
+		}
+
+		@Override
+		public void setValue(NetworkAccess obj, Max1025Text value) {
+			obj.setNetworkAddress(value);
 		}
 	};
 
 	static public MMBusinessComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMBusinessComponent() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "NetworkAccess";
 				definition = "Parameters used to access a network.";
-				associationDomain_lazy = () -> Arrays.asList(com.tools20022.repository.entity.SecurityCertificate.mmNetworkAccess, com.tools20022.repository.entity.TerminalManagementSystem.mmNetworkAccess);
+				associationDomain_lazy = () -> Arrays.asList(SecurityCertificate.mmNetworkAccess, TerminalManagementSystem.mmNetworkAccess);
 				element_lazy = () -> Arrays.asList(com.tools20022.repository.entity.NetworkAccess.mmHostIPAddress, com.tools20022.repository.entity.NetworkAccess.mmHostPortNumber, com.tools20022.repository.entity.NetworkAccess.mmUserName,
 						com.tools20022.repository.entity.NetworkAccess.mmAccessCode, com.tools20022.repository.entity.NetworkAccess.mmClientCertificate, com.tools20022.repository.entity.NetworkAccess.mmTerminalManagementSystem,
 						com.tools20022.repository.entity.NetworkAccess.mmNetworkAddress);
@@ -443,55 +473,62 @@ public class NetworkAccess {
 		return hostIPAddress;
 	}
 
-	public void setHostIPAddress(Max35Text hostIPAddress) {
-		this.hostIPAddress = hostIPAddress;
+	public NetworkAccess setHostIPAddress(Max35Text hostIPAddress) {
+		this.hostIPAddress = Objects.requireNonNull(hostIPAddress);
+		return this;
 	}
 
 	public Number getHostPortNumber() {
 		return hostPortNumber;
 	}
 
-	public void setHostPortNumber(Number hostPortNumber) {
-		this.hostPortNumber = hostPortNumber;
+	public NetworkAccess setHostPortNumber(Number hostPortNumber) {
+		this.hostPortNumber = Objects.requireNonNull(hostPortNumber);
+		return this;
 	}
 
 	public Max35Text getUserName() {
 		return userName;
 	}
 
-	public void setUserName(Max35Text userName) {
-		this.userName = userName;
+	public NetworkAccess setUserName(Max35Text userName) {
+		this.userName = Objects.requireNonNull(userName);
+		return this;
 	}
 
 	public Max35Text getAccessCode() {
 		return accessCode;
 	}
 
-	public void setAccessCode(Max35Text accessCode) {
-		this.accessCode = accessCode;
+	public NetworkAccess setAccessCode(Max35Text accessCode) {
+		this.accessCode = Objects.requireNonNull(accessCode);
+		return this;
 	}
 
 	public List<SecurityCertificate> getClientCertificate() {
-		return clientCertificate;
+		return clientCertificate == null ? clientCertificate = new ArrayList<>() : clientCertificate;
 	}
 
-	public void setClientCertificate(List<com.tools20022.repository.entity.SecurityCertificate> clientCertificate) {
-		this.clientCertificate = clientCertificate;
+	public NetworkAccess setClientCertificate(List<SecurityCertificate> clientCertificate) {
+		this.clientCertificate = Objects.requireNonNull(clientCertificate);
+		return this;
 	}
 
-	public TerminalManagementSystem getTerminalManagementSystem() {
-		return terminalManagementSystem;
+	public Optional<TerminalManagementSystem> getTerminalManagementSystem() {
+		return terminalManagementSystem == null ? Optional.empty() : Optional.of(terminalManagementSystem);
 	}
 
-	public void setTerminalManagementSystem(com.tools20022.repository.entity.TerminalManagementSystem terminalManagementSystem) {
+	public NetworkAccess setTerminalManagementSystem(TerminalManagementSystem terminalManagementSystem) {
 		this.terminalManagementSystem = terminalManagementSystem;
+		return this;
 	}
 
 	public Max1025Text getNetworkAddress() {
 		return networkAddress;
 	}
 
-	public void setNetworkAddress(Max1025Text networkAddress) {
-		this.networkAddress = networkAddress;
+	public NetworkAccess setNetworkAddress(Max1025Text networkAddress) {
+		this.networkAddress = Objects.requireNonNull(networkAddress);
+		return this;
 	}
 }

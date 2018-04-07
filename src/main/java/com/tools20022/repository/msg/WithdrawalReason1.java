@@ -26,6 +26,8 @@ import com.tools20022.repository.datatype.Max4Text;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -61,8 +63,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -75,15 +77,16 @@ import javax.xml.bind.annotation.XmlType;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "WithdrawalReason1", propOrder = {"withdrawalReasonCode", "withdrawalReasonSubCode"})
 public class WithdrawalReason1 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "WdrwlRsnCd", required = true)
 	protected WithdrawalReason1Code withdrawalReasonCode;
 	/**
-	 * Withdrawal reason expressed as a code.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -109,9 +112,9 @@ public class WithdrawalReason1 {
 	 * definition} = "Withdrawal reason expressed as a code."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmWithdrawalReasonCode = new MMMessageAttribute() {
+	public static final MMMessageAttribute<WithdrawalReason1, WithdrawalReason1Code> mmWithdrawalReasonCode = new MMMessageAttribute<WithdrawalReason1, WithdrawalReason1Code>() {
 		{
-			componentContext_lazy = () -> WithdrawalReason1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.WithdrawalReason1.mmObject();
 			isDerived = false;
 			xmlTag = "WdrwlRsnCd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -121,11 +124,22 @@ public class WithdrawalReason1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> WithdrawalReason1Code.mmObject();
 		}
+
+		@Override
+		public WithdrawalReason1Code getValue(WithdrawalReason1 obj) {
+			return obj.getWithdrawalReasonCode();
+		}
+
+		@Override
+		public void setValue(WithdrawalReason1 obj, WithdrawalReason1Code value) {
+			obj.setWithdrawalReasonCode(value);
+		}
 	};
+	@XmlElement(name = "WdrwlRsnSubCd")
 	protected Max4Text withdrawalReasonSubCode;
 	/**
-	 * Further withdrawal reason information expressed as a code.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -151,9 +165,9 @@ public class WithdrawalReason1 {
 	 * "Further withdrawal reason information expressed as a code."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmWithdrawalReasonSubCode = new MMMessageAttribute() {
+	public static final MMMessageAttribute<WithdrawalReason1, Optional<Max4Text>> mmWithdrawalReasonSubCode = new MMMessageAttribute<WithdrawalReason1, Optional<Max4Text>>() {
 		{
-			componentContext_lazy = () -> WithdrawalReason1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.WithdrawalReason1.mmObject();
 			isDerived = false;
 			xmlTag = "WdrwlRsnSubCd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -163,14 +177,24 @@ public class WithdrawalReason1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max4Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max4Text> getValue(WithdrawalReason1 obj) {
+			return obj.getWithdrawalReasonSubCode();
+		}
+
+		@Override
+		public void setValue(WithdrawalReason1 obj, Optional<Max4Text> value) {
+			obj.setWithdrawalReasonSubCode(value.orElse(null));
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(WithdrawalReason1.mmWithdrawalReasonCode, WithdrawalReason1.mmWithdrawalReasonSubCode);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.WithdrawalReason1.mmWithdrawalReasonCode, com.tools20022.repository.msg.WithdrawalReason1.mmWithdrawalReasonSubCode);
 				messageBuildingBlock_lazy = () -> Arrays.asList(ForeignExchangeTradeWithdrawalNotificationV03.mmWithdrawalReason);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "WithdrawalReason1";
 				definition = "Specifies the withdrawal reason code and optionally a withdrawal reason sub code.";
@@ -179,21 +203,21 @@ public class WithdrawalReason1 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "WdrwlRsnCd", required = true)
 	public WithdrawalReason1Code getWithdrawalReasonCode() {
 		return withdrawalReasonCode;
 	}
 
-	public void setWithdrawalReasonCode(WithdrawalReason1Code withdrawalReasonCode) {
-		this.withdrawalReasonCode = withdrawalReasonCode;
+	public WithdrawalReason1 setWithdrawalReasonCode(WithdrawalReason1Code withdrawalReasonCode) {
+		this.withdrawalReasonCode = Objects.requireNonNull(withdrawalReasonCode);
+		return this;
 	}
 
-	@XmlElement(name = "WdrwlRsnSubCd")
-	public Max4Text getWithdrawalReasonSubCode() {
-		return withdrawalReasonSubCode;
+	public Optional<Max4Text> getWithdrawalReasonSubCode() {
+		return withdrawalReasonSubCode == null ? Optional.empty() : Optional.of(withdrawalReasonSubCode);
 	}
 
-	public void setWithdrawalReasonSubCode(Max4Text withdrawalReasonSubCode) {
+	public WithdrawalReason1 setWithdrawalReasonSubCode(Max4Text withdrawalReasonSubCode) {
 		this.withdrawalReasonSubCode = withdrawalReasonSubCode;
+		return this;
 	}
 }

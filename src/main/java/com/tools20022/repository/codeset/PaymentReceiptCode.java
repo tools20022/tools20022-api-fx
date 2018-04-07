@@ -37,11 +37,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getCode code} =
  * <ul>
  * <li>{@linkplain com.tools20022.repository.codeset.PaymentReceiptCode#Payment
- * PaymentReceiptCode.mmPayment}</li>
+ * PaymentReceiptCode.Payment}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.PaymentReceiptCode#Receipt
- * PaymentReceiptCode.mmReceipt}</li>
+ * PaymentReceiptCode.Receipt}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.PaymentReceiptCode#None
- * PaymentReceiptCode.mmNone}</li>
+ * PaymentReceiptCode.None}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getDerivation derivation}
@@ -54,8 +54,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -169,7 +169,7 @@ public class PaymentReceiptCode extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "PaymentReceiptCode";
 				definition = "Specifies if an operation is a payment, or a receipt or none.";

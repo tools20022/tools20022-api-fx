@@ -37,36 +37,36 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getCode code} =
  * <ul>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Invalid
- * TradeStatus6Code.mmInvalid}</li>
+ * TradeStatus6Code.Invalid}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Matched
- * TradeStatus6Code.mmMatched}</li>
+ * TradeStatus6Code.Matched}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus6Code#SettlementMaturePending
- * TradeStatus6Code.mmSettlementMaturePending}</li>
+ * TradeStatus6Code.SettlementMaturePending}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Rejected
- * TradeStatus6Code.mmRejected}</li>
+ * TradeStatus6Code.Rejected}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Rescinded
- * TradeStatus6Code.mmRescinded}</li>
+ * TradeStatus6Code.Rescinded}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Settled
- * TradeStatus6Code.mmSettled}</li>
+ * TradeStatus6Code.Settled}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Split
- * TradeStatus6Code.mmSplit}</li>
+ * TradeStatus6Code.Split}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Unmatched
- * TradeStatus6Code.mmUnmatched}</li>
+ * TradeStatus6Code.Unmatched}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus6Code#SettlementMature
- * TradeStatus6Code.mmSettlementMature}</li>
+ * TradeStatus6Code.SettlementMature}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus6Code#FixUnmatched
- * TradeStatus6Code.mmFixUnmatched}</li>
+ * TradeStatus6Code.FixUnmatched}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.TradeStatus6Code#Netted
- * TradeStatus6Code.mmNetted}</li>
+ * TradeStatus6Code.Netted}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus6Code#PartialFix
- * TradeStatus6Code.mmPartialFix}</li>
+ * TradeStatus6Code.PartialFix}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.TradeStatus6Code#OpenMatched
- * TradeStatus6Code.mmOpenMatched}</li>
+ * TradeStatus6Code.OpenMatched}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getTrace trace} =
@@ -75,8 +75,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getExample
  * example} =
  * <ul>
@@ -419,7 +419,7 @@ public class TradeStatus6Code extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				example = Arrays.asList("INVA");
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "TradeStatus6Code";

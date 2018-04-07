@@ -29,6 +29,8 @@ import com.tools20022.repository.entity.StatusReason;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -75,8 +77,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -87,15 +89,16 @@ import javax.xml.bind.annotation.XmlType;
  * definition} = "General information about the reason of the rejection."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "RejectionReason2", propOrder = {"rejectingPartyReason", "rejectionDateTime", "errorLocation", "reasonDescription", "additionalData"})
 public class RejectionReason2 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "RjctgPtyRsn", required = true)
 	protected Max35Text rejectingPartyReason;
 	/**
-	 * Reason of the rejection provided by the rejecting party.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -120,9 +123,9 @@ public class RejectionReason2 {
 	 * definition} = "Reason of the rejection provided by the rejecting party."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmRejectingPartyReason = new MMMessageAttribute() {
+	public static final MMMessageAttribute<RejectionReason2, Max35Text> mmRejectingPartyReason = new MMMessageAttribute<RejectionReason2, Max35Text>() {
 		{
-			componentContext_lazy = () -> RejectionReason2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RejectionReason2.mmObject();
 			isDerived = false;
 			xmlTag = "RjctgPtyRsn";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -132,11 +135,22 @@ public class RejectionReason2 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(RejectionReason2 obj) {
+			return obj.getRejectingPartyReason();
+		}
+
+		@Override
+		public void setValue(RejectionReason2 obj, Max35Text value) {
+			obj.setRejectingPartyReason(value);
+		}
 	};
+	@XmlElement(name = "RjctnDtTm")
 	protected ISODateTime rejectionDateTime;
 	/**
-	 * Date and time at which the rejection was generated.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -161,9 +175,9 @@ public class RejectionReason2 {
 	 * definition} = "Date and time at which the rejection was generated."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmRejectionDateTime = new MMMessageAttribute() {
+	public static final MMMessageAttribute<RejectionReason2, Optional<ISODateTime>> mmRejectionDateTime = new MMMessageAttribute<RejectionReason2, Optional<ISODateTime>>() {
 		{
-			componentContext_lazy = () -> RejectionReason2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RejectionReason2.mmObject();
 			isDerived = false;
 			xmlTag = "RjctnDtTm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -173,11 +187,22 @@ public class RejectionReason2 {
 			minOccurs = 0;
 			simpleType_lazy = () -> ISODateTime.mmObject();
 		}
+
+		@Override
+		public Optional<ISODateTime> getValue(RejectionReason2 obj) {
+			return obj.getRejectionDateTime();
+		}
+
+		@Override
+		public void setValue(RejectionReason2 obj, Optional<ISODateTime> value) {
+			obj.setRejectionDateTime(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "ErrLctn")
 	protected Max350Text errorLocation;
 	/**
-	 * Description of the precise location of the potential error in a message.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -204,9 +229,9 @@ public class RejectionReason2 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmErrorLocation = new MMMessageAttribute() {
+	public static final MMMessageAttribute<RejectionReason2, Optional<Max350Text>> mmErrorLocation = new MMMessageAttribute<RejectionReason2, Optional<Max350Text>>() {
 		{
-			componentContext_lazy = () -> RejectionReason2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RejectionReason2.mmObject();
 			isDerived = false;
 			xmlTag = "ErrLctn";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -216,11 +241,22 @@ public class RejectionReason2 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max350Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max350Text> getValue(RejectionReason2 obj) {
+			return obj.getErrorLocation();
+		}
+
+		@Override
+		public void setValue(RejectionReason2 obj, Optional<Max350Text> value) {
+			obj.setErrorLocation(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "RsnDesc")
 	protected Max350Text reasonDescription;
 	/**
-	 * Detailed description of the rejection reason.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -245,9 +281,9 @@ public class RejectionReason2 {
 	 * definition} = "Detailed description of the rejection reason."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmReasonDescription = new MMMessageAttribute() {
+	public static final MMMessageAttribute<RejectionReason2, Optional<Max350Text>> mmReasonDescription = new MMMessageAttribute<RejectionReason2, Optional<Max350Text>>() {
 		{
-			componentContext_lazy = () -> RejectionReason2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RejectionReason2.mmObject();
 			isDerived = false;
 			xmlTag = "RsnDesc";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -257,13 +293,22 @@ public class RejectionReason2 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max350Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max350Text> getValue(RejectionReason2 obj) {
+			return obj.getReasonDescription();
+		}
+
+		@Override
+		public void setValue(RejectionReason2 obj, Optional<Max350Text> value) {
+			obj.setReasonDescription(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "AddtlData")
 	protected Max20000Text additionalData;
 	/**
-	 * Additional information related to the rejection and meant to allow for
-	 * the precise identification of the rejection reason. This could include a
-	 * copy of the rejected message in part or in full.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -291,9 +336,9 @@ public class RejectionReason2 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmAdditionalData = new MMMessageAttribute() {
+	public static final MMMessageAttribute<RejectionReason2, Optional<Max20000Text>> mmAdditionalData = new MMMessageAttribute<RejectionReason2, Optional<Max20000Text>>() {
 		{
-			componentContext_lazy = () -> RejectionReason2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RejectionReason2.mmObject();
 			isDerived = false;
 			xmlTag = "AddtlData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -303,16 +348,26 @@ public class RejectionReason2 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max20000Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max20000Text> getValue(RejectionReason2 obj) {
+			return obj.getAdditionalData();
+		}
+
+		@Override
+		public void setValue(RejectionReason2 obj, Optional<Max20000Text> value) {
+			obj.setAdditionalData(value.orElse(null));
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(RejectionReason2.mmRejectingPartyReason, RejectionReason2.mmRejectionDateTime, RejectionReason2.mmErrorLocation, RejectionReason2.mmReasonDescription,
-						RejectionReason2.mmAdditionalData);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.RejectionReason2.mmRejectingPartyReason, com.tools20022.repository.msg.RejectionReason2.mmRejectionDateTime,
+						com.tools20022.repository.msg.RejectionReason2.mmErrorLocation, com.tools20022.repository.msg.RejectionReason2.mmReasonDescription, com.tools20022.repository.msg.RejectionReason2.mmAdditionalData);
 				messageBuildingBlock_lazy = () -> Arrays.asList(MessageRejectV01.mmReason);
 				trace_lazy = () -> StatusReason.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "RejectionReason2";
 				definition = "General information about the reason of the rejection.";
@@ -321,48 +376,48 @@ public class RejectionReason2 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "RjctgPtyRsn", required = true)
 	public Max35Text getRejectingPartyReason() {
 		return rejectingPartyReason;
 	}
 
-	public void setRejectingPartyReason(Max35Text rejectingPartyReason) {
-		this.rejectingPartyReason = rejectingPartyReason;
+	public RejectionReason2 setRejectingPartyReason(Max35Text rejectingPartyReason) {
+		this.rejectingPartyReason = Objects.requireNonNull(rejectingPartyReason);
+		return this;
 	}
 
-	@XmlElement(name = "RjctnDtTm")
-	public ISODateTime getRejectionDateTime() {
-		return rejectionDateTime;
+	public Optional<ISODateTime> getRejectionDateTime() {
+		return rejectionDateTime == null ? Optional.empty() : Optional.of(rejectionDateTime);
 	}
 
-	public void setRejectionDateTime(ISODateTime rejectionDateTime) {
+	public RejectionReason2 setRejectionDateTime(ISODateTime rejectionDateTime) {
 		this.rejectionDateTime = rejectionDateTime;
+		return this;
 	}
 
-	@XmlElement(name = "ErrLctn")
-	public Max350Text getErrorLocation() {
-		return errorLocation;
+	public Optional<Max350Text> getErrorLocation() {
+		return errorLocation == null ? Optional.empty() : Optional.of(errorLocation);
 	}
 
-	public void setErrorLocation(Max350Text errorLocation) {
+	public RejectionReason2 setErrorLocation(Max350Text errorLocation) {
 		this.errorLocation = errorLocation;
+		return this;
 	}
 
-	@XmlElement(name = "RsnDesc")
-	public Max350Text getReasonDescription() {
-		return reasonDescription;
+	public Optional<Max350Text> getReasonDescription() {
+		return reasonDescription == null ? Optional.empty() : Optional.of(reasonDescription);
 	}
 
-	public void setReasonDescription(Max350Text reasonDescription) {
+	public RejectionReason2 setReasonDescription(Max350Text reasonDescription) {
 		this.reasonDescription = reasonDescription;
+		return this;
 	}
 
-	@XmlElement(name = "AddtlData")
-	public Max20000Text getAdditionalData() {
-		return additionalData;
+	public Optional<Max20000Text> getAdditionalData() {
+		return additionalData == null ? Optional.empty() : Optional.of(additionalData);
 	}
 
-	public void setAdditionalData(Max20000Text additionalData) {
+	public RejectionReason2 setAdditionalData(Max20000Text additionalData) {
 		this.additionalData = additionalData;
+		return this;
 	}
 }

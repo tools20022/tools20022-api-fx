@@ -39,42 +39,49 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <ul>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.MarketTypeCode#PrimaryMarket
- * MarketTypeCode.mmPrimaryMarket}</li>
+ * MarketTypeCode.PrimaryMarket}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.MarketTypeCode#SecondaryMarket
- * MarketTypeCode.mmSecondaryMarket}</li>
+ * MarketTypeCode.SecondaryMarket}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#ThirdMarket
- * MarketTypeCode.mmThirdMarket}</li>
+ * MarketTypeCode.ThirdMarket}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.MarketTypeCode#FourthMarket
- * MarketTypeCode.mmFourthMarket}</li>
+ * MarketTypeCode.FourthMarket}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.MarketTypeCode#OverTheCounter
- * MarketTypeCode.mmOverTheCounter}</li>
+ * MarketTypeCode.OverTheCounter}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#Various
- * MarketTypeCode.mmVarious}</li>
+ * MarketTypeCode.Various}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.MarketTypeCode#StockExchange
- * MarketTypeCode.mmStockExchange}</li>
+ * MarketTypeCode.StockExchange}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#Fund
- * MarketTypeCode.mmFund}</li>
+ * MarketTypeCode.Fund}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#LocalMarket
- * MarketTypeCode.mmLocalMarket}</li>
+ * MarketTypeCode.LocalMarket}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#Theoretical
- * MarketTypeCode.mmTheoretical}</li>
+ * MarketTypeCode.Theoretical}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#Vendor
- * MarketTypeCode.mmVendor}</li>
+ * MarketTypeCode.Vendor}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#InterBank
- * MarketTypeCode.mmInterBank}</li>
+ * MarketTypeCode.InterBank}</li>
  * <li>{@linkplain com.tools20022.repository.codeset.MarketTypeCode#Counter
- * MarketTypeCode.mmCounter}</li>
+ * MarketTypeCode.Counter}</li>
+ * </ul>
+ * </li>
+ * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getDerivation derivation}
+ * =
+ * <ul>
+ * <li>{@linkplain com.tools20022.repository.codeset.MarketType8Code
+ * MarketType8Code}</li>
  * </ul>
  * </li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getExample
  * example} =
  * <ul>
@@ -495,11 +502,12 @@ public class MarketTypeCode extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				example = Arrays.asList("PRIM");
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "MarketTypeCode";
 				definition = "Specifies the type of place where a trade was executed, a price was sourced from, an instrument is listed.";
+				derivation_lazy = () -> Arrays.asList(MarketType8Code.mmObject());
 				code_lazy = () -> Arrays.asList(com.tools20022.repository.codeset.MarketTypeCode.PrimaryMarket, com.tools20022.repository.codeset.MarketTypeCode.SecondaryMarket, com.tools20022.repository.codeset.MarketTypeCode.ThirdMarket,
 						com.tools20022.repository.codeset.MarketTypeCode.FourthMarket, com.tools20022.repository.codeset.MarketTypeCode.OverTheCounter, com.tools20022.repository.codeset.MarketTypeCode.Various,
 						com.tools20022.repository.codeset.MarketTypeCode.StockExchange, com.tools20022.repository.codeset.MarketTypeCode.Fund, com.tools20022.repository.codeset.MarketTypeCode.LocalMarket,

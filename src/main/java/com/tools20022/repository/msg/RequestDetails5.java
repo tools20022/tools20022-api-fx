@@ -24,9 +24,12 @@ import com.tools20022.metamodel.MMRegistrationStatus;
 import com.tools20022.repository.area.admi.StaticDataReportV02;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.GeneratedRepository;
+import com.tools20022.repository.msg.RequestDetails4;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.List;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -62,8 +65,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -74,15 +77,16 @@ import javax.xml.bind.annotation.XmlType;
  * definition} = "Report of the requested data."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "RequestDetails5", propOrder = {"type", "requestReference", "reportKey"})
 public class RequestDetails5 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "Tp", required = true)
 	protected Max35Text type;
 	/**
-	 * Type of data requested, for example, a sub-member BIC.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -107,9 +111,9 @@ public class RequestDetails5 {
 	 * definition} = "Type of data requested, for example, a sub-member BIC."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmType = new MMMessageAttribute() {
+	public static final MMMessageAttribute<RequestDetails5, Max35Text> mmType = new MMMessageAttribute<RequestDetails5, Max35Text>() {
 		{
-			componentContext_lazy = () -> RequestDetails5.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RequestDetails5.mmObject();
 			isDerived = false;
 			xmlTag = "Tp";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -119,11 +123,22 @@ public class RequestDetails5 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(RequestDetails5 obj) {
+			return obj.getType();
+		}
+
+		@Override
+		public void setValue(RequestDetails5 obj, Max35Text value) {
+			obj.setType(value);
+		}
 	};
+	@XmlElement(name = "ReqRef", required = true)
 	protected Max35Text requestReference;
 	/**
-	 * Reference to the request for which the report is sent.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -148,9 +163,9 @@ public class RequestDetails5 {
 	 * definition} = "Reference to the request for which the report is sent."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmRequestReference = new MMMessageAttribute() {
+	public static final MMMessageAttribute<RequestDetails5, Max35Text> mmRequestReference = new MMMessageAttribute<RequestDetails5, Max35Text>() {
 		{
-			componentContext_lazy = () -> RequestDetails5.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RequestDetails5.mmObject();
 			isDerived = false;
 			xmlTag = "ReqRef";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -160,11 +175,22 @@ public class RequestDetails5 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(RequestDetails5 obj) {
+			return obj.getRequestReference();
+		}
+
+		@Override
+		public void setValue(RequestDetails5 obj, Max35Text value) {
+			obj.setRequestReference(value);
+		}
 	};
-	protected List<com.tools20022.repository.msg.RequestDetails4> reportKey;
+	@XmlElement(name = "RptKey", required = true)
+	protected List<RequestDetails4> reportKey;
 	/**
-	 * Report key and returned data.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -188,9 +214,9 @@ public class RequestDetails5 {
 	 * definition} = "Report key and returned data."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmReportKey = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<RequestDetails5, List<RequestDetails4>> mmReportKey = new MMMessageAssociationEnd<RequestDetails5, List<RequestDetails4>>() {
 		{
-			componentContext_lazy = () -> RequestDetails5.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.RequestDetails5.mmObject();
 			isDerived = false;
 			xmlTag = "RptKey";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -198,16 +224,26 @@ public class RequestDetails5 {
 			definition = "Report key and returned data.";
 			minOccurs = 1;
 			isComposite = true;
-			type_lazy = () -> com.tools20022.repository.msg.RequestDetails4.mmObject();
+			type_lazy = () -> RequestDetails4.mmObject();
+		}
+
+		@Override
+		public List<RequestDetails4> getValue(RequestDetails5 obj) {
+			return obj.getReportKey();
+		}
+
+		@Override
+		public void setValue(RequestDetails5 obj, List<RequestDetails4> value) {
+			obj.setReportKey(value);
 		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(RequestDetails5.mmType, RequestDetails5.mmRequestReference, RequestDetails5.mmReportKey);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.RequestDetails5.mmType, com.tools20022.repository.msg.RequestDetails5.mmRequestReference, com.tools20022.repository.msg.RequestDetails5.mmReportKey);
 				messageBuildingBlock_lazy = () -> Arrays.asList(StaticDataReportV02.mmReportDetails);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "RequestDetails5";
 				definition = "Report of the requested data.";
@@ -216,30 +252,30 @@ public class RequestDetails5 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "Tp", required = true)
 	public Max35Text getType() {
 		return type;
 	}
 
-	public void setType(Max35Text type) {
-		this.type = type;
+	public RequestDetails5 setType(Max35Text type) {
+		this.type = Objects.requireNonNull(type);
+		return this;
 	}
 
-	@XmlElement(name = "ReqRef", required = true)
 	public Max35Text getRequestReference() {
 		return requestReference;
 	}
 
-	public void setRequestReference(Max35Text requestReference) {
-		this.requestReference = requestReference;
+	public RequestDetails5 setRequestReference(Max35Text requestReference) {
+		this.requestReference = Objects.requireNonNull(requestReference);
+		return this;
 	}
 
-	@XmlElement(name = "RptKey", required = true)
 	public List<RequestDetails4> getReportKey() {
-		return reportKey;
+		return reportKey == null ? reportKey = new ArrayList<>() : reportKey;
 	}
 
-	public void setReportKey(List<com.tools20022.repository.msg.RequestDetails4> reportKey) {
-		this.reportKey = reportKey;
+	public RequestDetails5 setReportKey(List<RequestDetails4> reportKey) {
+		this.reportKey = Objects.requireNonNull(reportKey);
+		return this;
 	}
 }

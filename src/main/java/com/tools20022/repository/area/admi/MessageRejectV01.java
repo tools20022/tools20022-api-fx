@@ -24,9 +24,9 @@ import com.tools20022.metamodel.MMRegistrationStatus;
 import com.tools20022.repository.area.AdministrationLatestVersion;
 import com.tools20022.repository.msg.MessageReference;
 import com.tools20022.repository.msg.RejectionReason2;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -73,16 +73,16 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "MessageRejectV01", propOrder = {"relatedReference", "reason"})
 public class MessageRejectV01 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "RltdRef", required = true)
 	protected MessageReference relatedReference;
 	/**
-	 * Refers to the identification of the message previously received and for
-	 * which the rejection is notified.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -105,7 +105,7 @@ public class MessageRejectV01 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmRelatedReference = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<MessageRejectV01, MessageReference> mmRelatedReference = new MMMessageBuildingBlock<MessageRejectV01, MessageReference>() {
 		{
 			xmlTag = "RltdRef";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -116,18 +116,21 @@ public class MessageRejectV01 {
 			complexType_lazy = () -> MessageReference.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return MessageRejectV01.class.getMethod("getRelatedReference", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public MessageReference getValue(MessageRejectV01 obj) {
+			return obj.getRelatedReference();
+		}
+
+		@Override
+		public void setValue(MessageRejectV01 obj, MessageReference value) {
+			obj.setRelatedReference(value);
 		}
 	};
+	@XmlElement(name = "Rsn", required = true)
 	protected RejectionReason2 reason;
 	/**
-	 * General information about the reason of the message rejection.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -149,7 +152,7 @@ public class MessageRejectV01 {
 	 * "General information about the reason of the message rejection."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmReason = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<MessageRejectV01, RejectionReason2> mmReason = new MMMessageBuildingBlock<MessageRejectV01, RejectionReason2>() {
 		{
 			xmlTag = "Rsn";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -160,12 +163,14 @@ public class MessageRejectV01 {
 			complexType_lazy = () -> RejectionReason2.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return MessageRejectV01.class.getMethod("getReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public RejectionReason2 getValue(MessageRejectV01 obj) {
+			return obj.getReason();
+		}
+
+		@Override
+		public void setValue(MessageRejectV01 obj, RejectionReason2 value) {
+			obj.setReason(value);
 		}
 	};
 
@@ -197,25 +202,25 @@ public class MessageRejectV01 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "RltdRef", required = true)
 	public MessageReference getRelatedReference() {
 		return relatedReference;
 	}
 
-	public void setRelatedReference(MessageReference relatedReference) {
-		this.relatedReference = relatedReference;
+	public MessageRejectV01 setRelatedReference(MessageReference relatedReference) {
+		this.relatedReference = Objects.requireNonNull(relatedReference);
+		return this;
 	}
 
-	@XmlElement(name = "Rsn", required = true)
 	public RejectionReason2 getReason() {
 		return reason;
 	}
 
-	public void setReason(RejectionReason2 reason) {
-		this.reason = reason;
+	public MessageRejectV01 setReason(RejectionReason2 reason) {
+		this.reason = Objects.requireNonNull(reason);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:admi.002.01.01")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:admi.002.001.01")
 	static public class Document {
 		@XmlElement(name = "admi.002.001.01", required = true)
 		public MessageRejectV01 messageBody;

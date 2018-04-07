@@ -25,9 +25,10 @@ import com.tools20022.repository.area.AdministrationLatestVersion;
 import com.tools20022.repository.datatype.Exact4AlphaNumericText;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.msg.RequestDetails19;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -74,16 +75,16 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "ProcessingRequestV01", propOrder = {"messageIdentification", "settlementSessionIdentifier", "request"})
 public class ProcessingRequestV01 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "MsgId", required = true)
 	protected Max35Text messageIdentification;
 	/**
-	 * Unique and unambiguous identifier for the message, as assigned by the
-	 * sender.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -105,7 +106,7 @@ public class ProcessingRequestV01 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmMessageIdentification = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ProcessingRequestV01, Max35Text> mmMessageIdentification = new MMMessageBuildingBlock<ProcessingRequestV01, Max35Text>() {
 		{
 			xmlTag = "MsgId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -116,19 +117,21 @@ public class ProcessingRequestV01 {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ProcessingRequestV01.class.getMethod("getMessageIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(ProcessingRequestV01 obj) {
+			return obj.getMessageIdentification();
+		}
+
+		@Override
+		public void setValue(ProcessingRequestV01 obj, Max35Text value) {
+			obj.setMessageIdentification(value);
 		}
 	};
+	@XmlElement(name = "SttlmSsnIdr")
 	protected Exact4AlphaNumericText settlementSessionIdentifier;
 	/**
-	 * Indicates the requested CLS Settlement Session that the related trade is
-	 * part of.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -151,7 +154,7 @@ public class ProcessingRequestV01 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSettlementSessionIdentifier = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ProcessingRequestV01, Optional<Exact4AlphaNumericText>> mmSettlementSessionIdentifier = new MMMessageBuildingBlock<ProcessingRequestV01, Optional<Exact4AlphaNumericText>>() {
 		{
 			xmlTag = "SttlmSsnIdr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -162,18 +165,21 @@ public class ProcessingRequestV01 {
 			simpleType_lazy = () -> Exact4AlphaNumericText.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ProcessingRequestV01.class.getMethod("getSettlementSessionIdentifier", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<Exact4AlphaNumericText> getValue(ProcessingRequestV01 obj) {
+			return obj.getSettlementSessionIdentifier();
+		}
+
+		@Override
+		public void setValue(ProcessingRequestV01 obj, Optional<Exact4AlphaNumericText> value) {
+			obj.setSettlementSessionIdentifier(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "Req", required = true)
 	protected RequestDetails19 request;
 	/**
-	 * Contains the details of the processing request.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -194,7 +200,7 @@ public class ProcessingRequestV01 {
 	 * definition} = "Contains the details of the processing request."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmRequest = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ProcessingRequestV01, RequestDetails19> mmRequest = new MMMessageBuildingBlock<ProcessingRequestV01, RequestDetails19>() {
 		{
 			xmlTag = "Req";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -205,12 +211,14 @@ public class ProcessingRequestV01 {
 			complexType_lazy = () -> RequestDetails19.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ProcessingRequestV01.class.getMethod("getRequest", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public RequestDetails19 getValue(ProcessingRequestV01 obj) {
+			return obj.getRequest();
+		}
+
+		@Override
+		public void setValue(ProcessingRequestV01 obj, RequestDetails19 value) {
+			obj.setRequest(value);
 		}
 	};
 
@@ -243,34 +251,34 @@ public class ProcessingRequestV01 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "MsgId", required = true)
 	public Max35Text getMessageIdentification() {
 		return messageIdentification;
 	}
 
-	public void setMessageIdentification(Max35Text messageIdentification) {
-		this.messageIdentification = messageIdentification;
+	public ProcessingRequestV01 setMessageIdentification(Max35Text messageIdentification) {
+		this.messageIdentification = Objects.requireNonNull(messageIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "SttlmSsnIdr")
-	public Exact4AlphaNumericText getSettlementSessionIdentifier() {
-		return settlementSessionIdentifier;
+	public Optional<Exact4AlphaNumericText> getSettlementSessionIdentifier() {
+		return settlementSessionIdentifier == null ? Optional.empty() : Optional.of(settlementSessionIdentifier);
 	}
 
-	public void setSettlementSessionIdentifier(Exact4AlphaNumericText settlementSessionIdentifier) {
+	public ProcessingRequestV01 setSettlementSessionIdentifier(Exact4AlphaNumericText settlementSessionIdentifier) {
 		this.settlementSessionIdentifier = settlementSessionIdentifier;
+		return this;
 	}
 
-	@XmlElement(name = "Req", required = true)
 	public RequestDetails19 getRequest() {
 		return request;
 	}
 
-	public void setRequest(RequestDetails19 request) {
-		this.request = request;
+	public ProcessingRequestV01 setRequest(RequestDetails19 request) {
+		this.request = Objects.requireNonNull(request);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:admi.017.01.01")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:admi.017.001.01")
 	static public class Document {
 		@XmlElement(name = "PrcgReq", required = true)
 		public ProcessingRequestV01 messageBody;

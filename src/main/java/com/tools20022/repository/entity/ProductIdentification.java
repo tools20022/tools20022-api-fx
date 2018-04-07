@@ -20,10 +20,12 @@ package com.tools20022.repository.entity;
 import com.tools20022.metamodel.*;
 import com.tools20022.repository.codeset.ProductIdentifierCode;
 import com.tools20022.repository.datatype.Max35Text;
+import com.tools20022.repository.entity.Product;
 import com.tools20022.repository.GeneratedRepository;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Information used to identify a product.
@@ -64,8 +66,8 @@ import java.util.concurrent.atomic.AtomicReference;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -81,8 +83,8 @@ public class ProductIdentification {
 	final static private AtomicReference<MMBusinessComponent> mmObject_lazy = new AtomicReference<>();
 	protected Max35Text identifier;
 	/**
-	 * Specifies the product identifier.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -105,7 +107,7 @@ public class ProductIdentification {
 	 * definition} = "Specifies the product identifier."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmIdentifier = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<ProductIdentification, Max35Text> mmIdentifier = new MMBusinessAttribute<ProductIdentification, Max35Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.ProductIdentification.mmObject();
@@ -117,18 +119,20 @@ public class ProductIdentification {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ProductIdentification.class.getMethod("getIdentifier", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(ProductIdentification obj) {
+			return obj.getIdentifier();
+		}
+
+		@Override
+		public void setValue(ProductIdentification obj, Max35Text value) {
+			obj.setIdentifier(value);
 		}
 	};
 	protected Product product;
 	/**
-	 * Specifies the product for which an identification is specified.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -159,7 +163,7 @@ public class ProductIdentification {
 	 * "Specifies the product for which an identification is specified."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmProduct = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<ProductIdentification, Optional<Product>> mmProduct = new MMBusinessAssociationEnd<ProductIdentification, Optional<Product>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.ProductIdentification.mmObject();
@@ -168,15 +172,25 @@ public class ProductIdentification {
 			definition = "Specifies the product for which an identification is specified.";
 			maxOccurs = 1;
 			minOccurs = 0;
-			opposite_lazy = () -> com.tools20022.repository.entity.Product.mmProductIdentification;
+			opposite_lazy = () -> Product.mmProductIdentification;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.Product.mmObject();
+			type_lazy = () -> Product.mmObject();
+		}
+
+		@Override
+		public Optional<Product> getValue(ProductIdentification obj) {
+			return obj.getProduct();
+		}
+
+		@Override
+		public void setValue(ProductIdentification obj, Optional<Product> value) {
+			obj.setProduct(value.orElse(null));
 		}
 	};
 	protected ProductIdentifierCode type;
 	/**
-	 * Specifies the type of product identifier by means of a code.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -201,7 +215,7 @@ public class ProductIdentification {
 	 * "Specifies the type of product identifier by means of a code."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmType = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<ProductIdentification, ProductIdentifierCode> mmType = new MMBusinessAttribute<ProductIdentification, ProductIdentifierCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.ProductIdentification.mmObject();
@@ -213,18 +227,20 @@ public class ProductIdentification {
 			simpleType_lazy = () -> ProductIdentifierCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ProductIdentification.class.getMethod("getType", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public ProductIdentifierCode getValue(ProductIdentification obj) {
+			return obj.getType();
+		}
+
+		@Override
+		public void setValue(ProductIdentification obj, ProductIdentifierCode value) {
+			obj.setType(value);
 		}
 	};
 	protected Max35Text globalSerialIdentifier;
 	/**
-	 * Unique global serial identifier for a product instance.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -247,7 +263,7 @@ public class ProductIdentification {
 	 * definition} = "Unique global serial identifier for a product instance."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmGlobalSerialIdentifier = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<ProductIdentification, Max35Text> mmGlobalSerialIdentifier = new MMBusinessAttribute<ProductIdentification, Max35Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.ProductIdentification.mmObject();
@@ -259,23 +275,25 @@ public class ProductIdentification {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ProductIdentification.class.getMethod("getGlobalSerialIdentifier", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(ProductIdentification obj) {
+			return obj.getGlobalSerialIdentifier();
+		}
+
+		@Override
+		public void setValue(ProductIdentification obj, Max35Text value) {
+			obj.setGlobalSerialIdentifier(value);
 		}
 	};
 
 	static public MMBusinessComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMBusinessComponent() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "ProductIdentification";
 				definition = "Information used to identify a product.";
-				associationDomain_lazy = () -> Arrays.asList(com.tools20022.repository.entity.Product.mmProductIdentification);
+				associationDomain_lazy = () -> Arrays.asList(Product.mmProductIdentification);
 				element_lazy = () -> Arrays.asList(com.tools20022.repository.entity.ProductIdentification.mmIdentifier, com.tools20022.repository.entity.ProductIdentification.mmProduct,
 						com.tools20022.repository.entity.ProductIdentification.mmType, com.tools20022.repository.entity.ProductIdentification.mmGlobalSerialIdentifier);
 			}
@@ -292,31 +310,35 @@ public class ProductIdentification {
 		return identifier;
 	}
 
-	public void setIdentifier(Max35Text identifier) {
-		this.identifier = identifier;
+	public ProductIdentification setIdentifier(Max35Text identifier) {
+		this.identifier = Objects.requireNonNull(identifier);
+		return this;
 	}
 
-	public Product getProduct() {
-		return product;
+	public Optional<Product> getProduct() {
+		return product == null ? Optional.empty() : Optional.of(product);
 	}
 
-	public void setProduct(com.tools20022.repository.entity.Product product) {
+	public ProductIdentification setProduct(Product product) {
 		this.product = product;
+		return this;
 	}
 
 	public ProductIdentifierCode getType() {
 		return type;
 	}
 
-	public void setType(ProductIdentifierCode type) {
-		this.type = type;
+	public ProductIdentification setType(ProductIdentifierCode type) {
+		this.type = Objects.requireNonNull(type);
+		return this;
 	}
 
 	public Max35Text getGlobalSerialIdentifier() {
 		return globalSerialIdentifier;
 	}
 
-	public void setGlobalSerialIdentifier(Max35Text globalSerialIdentifier) {
-		this.globalSerialIdentifier = globalSerialIdentifier;
+	public ProductIdentification setGlobalSerialIdentifier(Max35Text globalSerialIdentifier) {
+		this.globalSerialIdentifier = Objects.requireNonNull(globalSerialIdentifier);
+		return this;
 	}
 }

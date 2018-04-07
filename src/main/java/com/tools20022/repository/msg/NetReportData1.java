@@ -28,8 +28,11 @@ import com.tools20022.repository.datatype.ISODateTime;
 import com.tools20022.repository.datatype.ISOTime;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.GeneratedRepository;
+import com.tools20022.repository.msg.Pagination;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -82,8 +85,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -94,17 +97,16 @@ import javax.xml.bind.annotation.XmlType;
  * definition} = "Specifies the meta data associated with a net report."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "NetReportData1", propOrder = {"messageIdentification", "creationDateTime", "nettingCutOffTime", "reportDate", "valueDate", "reportType", "netReportServicer", "netServiceType", "messagePagination"})
 public class NetReportData1 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "MsgId", required = true)
 	protected Max35Text messageIdentification;
 	/**
-	 * Unique and unambiguous identifier for a message, as assigned by the
-	 * Sender. This unique identifier can be used for cross-referencing purposes
-	 * in subsequent messages.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -130,9 +132,9 @@ public class NetReportData1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmMessageIdentification = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NetReportData1, Max35Text> mmMessageIdentification = new MMMessageAttribute<NetReportData1, Max35Text>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "MsgId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -142,11 +144,22 @@ public class NetReportData1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(NetReportData1 obj) {
+			return obj.getMessageIdentification();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, Max35Text value) {
+			obj.setMessageIdentification(value);
+		}
 	};
+	@XmlElement(name = "CreDtTm", required = true)
 	protected ISODateTime creationDateTime;
 	/**
-	 * Date and time at which the net report was generated.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -170,9 +183,9 @@ public class NetReportData1 {
 	 * definition} = "Date and time at which the net report was generated."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmCreationDateTime = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NetReportData1, ISODateTime> mmCreationDateTime = new MMMessageAttribute<NetReportData1, ISODateTime>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "CreDtTm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -182,12 +195,22 @@ public class NetReportData1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> ISODateTime.mmObject();
 		}
+
+		@Override
+		public ISODateTime getValue(NetReportData1 obj) {
+			return obj.getCreationDateTime();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, ISODateTime value) {
+			obj.setCreationDateTime(value);
+		}
 	};
+	@XmlElement(name = "NetgCutOffTm", required = true)
 	protected ISOTime nettingCutOffTime;
 	/**
-	 * Provides the cut off time that has been passed, resulting in the
-	 * generation of the net report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -213,9 +236,9 @@ public class NetReportData1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmNettingCutOffTime = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NetReportData1, ISOTime> mmNettingCutOffTime = new MMMessageAttribute<NetReportData1, ISOTime>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "NetgCutOffTm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -225,11 +248,22 @@ public class NetReportData1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> ISOTime.mmObject();
 		}
+
+		@Override
+		public ISOTime getValue(NetReportData1 obj) {
+			return obj.getNettingCutOffTime();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, ISOTime value) {
+			obj.setNettingCutOffTime(value);
+		}
 	};
+	@XmlElement(name = "RptDt", required = true)
 	protected ISODate reportDate;
 	/**
-	 * Specifies the value date on which the net report was generated.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -254,9 +288,9 @@ public class NetReportData1 {
 	 * "Specifies the value date on which the net report was generated."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmReportDate = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NetReportData1, ISODate> mmReportDate = new MMMessageAttribute<NetReportData1, ISODate>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "RptDt";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -266,12 +300,22 @@ public class NetReportData1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> ISODate.mmObject();
 		}
+
+		@Override
+		public ISODate getValue(NetReportData1 obj) {
+			return obj.getReportDate();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, ISODate value) {
+			obj.setReportDate(value);
+		}
 	};
+	@XmlElement(name = "ValDt", required = true)
 	protected ISODate valueDate;
 	/**
-	 * Specifies the value date for the trades used in the generation of the net
-	 * report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -297,9 +341,9 @@ public class NetReportData1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmValueDate = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NetReportData1, ISODate> mmValueDate = new MMMessageAttribute<NetReportData1, ISODate>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "ValDt";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -309,12 +353,22 @@ public class NetReportData1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> ISODate.mmObject();
 		}
+
+		@Override
+		public ISODate getValue(NetReportData1 obj) {
+			return obj.getValueDate();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, ISODate value) {
+			obj.setValueDate(value);
+		}
 	};
+	@XmlElement(name = "RptTp")
 	protected Max35Text reportType;
 	/**
-	 * Specifies the type of net report, indicating how the obligations have
-	 * been calculated.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -340,9 +394,9 @@ public class NetReportData1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmReportType = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NetReportData1, Optional<Max35Text>> mmReportType = new MMMessageAttribute<NetReportData1, Optional<Max35Text>>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "RptTp";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -352,11 +406,22 @@ public class NetReportData1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max35Text> getValue(NetReportData1 obj) {
+			return obj.getReportType();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, Optional<Max35Text> value) {
+			obj.setReportType(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "NetRptSvcr")
 	protected PartyIdentification73Choice netReportServicer;
 	/**
-	 * Describes the central system responsible for generating the net report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -382,9 +447,9 @@ public class NetReportData1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmNetReportServicer = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<NetReportData1, Optional<PartyIdentification73Choice>> mmNetReportServicer = new MMMessageAssociationEnd<NetReportData1, Optional<PartyIdentification73Choice>>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "NetRptSvcr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -395,11 +460,22 @@ public class NetReportData1 {
 			isComposite = true;
 			type_lazy = () -> PartyIdentification73Choice.mmObject();
 		}
+
+		@Override
+		public Optional<PartyIdentification73Choice> getValue(NetReportData1 obj) {
+			return obj.getNetReportServicer();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, Optional<PartyIdentification73Choice> value) {
+			obj.setNetReportServicer(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "NetSvcTp")
 	protected Max35Text netServiceType;
 	/**
-	 * Describes the type of netting service supporting the net report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -424,9 +500,9 @@ public class NetReportData1 {
 	 * "Describes the type of netting service supporting the net report."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmNetServiceType = new MMMessageAttribute() {
+	public static final MMMessageAttribute<NetReportData1, Optional<Max35Text>> mmNetServiceType = new MMMessageAttribute<NetReportData1, Optional<Max35Text>>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "NetSvcTp";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -436,13 +512,22 @@ public class NetReportData1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max35Text> getValue(NetReportData1 obj) {
+			return obj.getNetServiceType();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, Optional<Max35Text> value) {
+			obj.setNetServiceType(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "MsgPgntn")
 	protected Pagination messagePagination;
 	/**
-	 * Page number of the message (within the net report) and continuation
-	 * indicator to indicate that the report is to continue or that the message
-	 * is the last page of the report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -466,9 +551,9 @@ public class NetReportData1 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmMessagePagination = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<NetReportData1, Optional<Pagination>> mmMessagePagination = new MMMessageAssociationEnd<NetReportData1, Optional<Pagination>>() {
 		{
-			componentContext_lazy = () -> NetReportData1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.NetReportData1.mmObject();
 			isDerived = false;
 			xmlTag = "MsgPgntn";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -477,17 +562,29 @@ public class NetReportData1 {
 			maxOccurs = 1;
 			minOccurs = 0;
 			isComposite = true;
-			type_lazy = () -> com.tools20022.repository.msg.Pagination.mmObject();
+			type_lazy = () -> Pagination.mmObject();
+		}
+
+		@Override
+		public Optional<Pagination> getValue(NetReportData1 obj) {
+			return obj.getMessagePagination();
+		}
+
+		@Override
+		public void setValue(NetReportData1 obj, Optional<Pagination> value) {
+			obj.setMessagePagination(value.orElse(null));
 		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(NetReportData1.mmMessageIdentification, NetReportData1.mmCreationDateTime, NetReportData1.mmNettingCutOffTime, NetReportData1.mmReportDate, NetReportData1.mmValueDate,
-						NetReportData1.mmReportType, NetReportData1.mmNetReportServicer, NetReportData1.mmNetServiceType, NetReportData1.mmMessagePagination);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.NetReportData1.mmMessageIdentification, com.tools20022.repository.msg.NetReportData1.mmCreationDateTime,
+						com.tools20022.repository.msg.NetReportData1.mmNettingCutOffTime, com.tools20022.repository.msg.NetReportData1.mmReportDate, com.tools20022.repository.msg.NetReportData1.mmValueDate,
+						com.tools20022.repository.msg.NetReportData1.mmReportType, com.tools20022.repository.msg.NetReportData1.mmNetReportServicer, com.tools20022.repository.msg.NetReportData1.mmNetServiceType,
+						com.tools20022.repository.msg.NetReportData1.mmMessagePagination);
 				messageBuildingBlock_lazy = () -> Arrays.asList(NetReportV01.mmNetReportData);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "NetReportData1";
 				definition = "Specifies the meta data associated with a net report.";
@@ -496,84 +593,84 @@ public class NetReportData1 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "MsgId", required = true)
 	public Max35Text getMessageIdentification() {
 		return messageIdentification;
 	}
 
-	public void setMessageIdentification(Max35Text messageIdentification) {
-		this.messageIdentification = messageIdentification;
+	public NetReportData1 setMessageIdentification(Max35Text messageIdentification) {
+		this.messageIdentification = Objects.requireNonNull(messageIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "CreDtTm", required = true)
 	public ISODateTime getCreationDateTime() {
 		return creationDateTime;
 	}
 
-	public void setCreationDateTime(ISODateTime creationDateTime) {
-		this.creationDateTime = creationDateTime;
+	public NetReportData1 setCreationDateTime(ISODateTime creationDateTime) {
+		this.creationDateTime = Objects.requireNonNull(creationDateTime);
+		return this;
 	}
 
-	@XmlElement(name = "NetgCutOffTm", required = true)
 	public ISOTime getNettingCutOffTime() {
 		return nettingCutOffTime;
 	}
 
-	public void setNettingCutOffTime(ISOTime nettingCutOffTime) {
-		this.nettingCutOffTime = nettingCutOffTime;
+	public NetReportData1 setNettingCutOffTime(ISOTime nettingCutOffTime) {
+		this.nettingCutOffTime = Objects.requireNonNull(nettingCutOffTime);
+		return this;
 	}
 
-	@XmlElement(name = "RptDt", required = true)
 	public ISODate getReportDate() {
 		return reportDate;
 	}
 
-	public void setReportDate(ISODate reportDate) {
-		this.reportDate = reportDate;
+	public NetReportData1 setReportDate(ISODate reportDate) {
+		this.reportDate = Objects.requireNonNull(reportDate);
+		return this;
 	}
 
-	@XmlElement(name = "ValDt", required = true)
 	public ISODate getValueDate() {
 		return valueDate;
 	}
 
-	public void setValueDate(ISODate valueDate) {
-		this.valueDate = valueDate;
+	public NetReportData1 setValueDate(ISODate valueDate) {
+		this.valueDate = Objects.requireNonNull(valueDate);
+		return this;
 	}
 
-	@XmlElement(name = "RptTp")
-	public Max35Text getReportType() {
-		return reportType;
+	public Optional<Max35Text> getReportType() {
+		return reportType == null ? Optional.empty() : Optional.of(reportType);
 	}
 
-	public void setReportType(Max35Text reportType) {
+	public NetReportData1 setReportType(Max35Text reportType) {
 		this.reportType = reportType;
+		return this;
 	}
 
-	@XmlElement(name = "NetRptSvcr")
-	public PartyIdentification73Choice getNetReportServicer() {
-		return netReportServicer;
+	public Optional<PartyIdentification73Choice> getNetReportServicer() {
+		return netReportServicer == null ? Optional.empty() : Optional.of(netReportServicer);
 	}
 
-	public void setNetReportServicer(PartyIdentification73Choice netReportServicer) {
+	public NetReportData1 setNetReportServicer(PartyIdentification73Choice netReportServicer) {
 		this.netReportServicer = netReportServicer;
+		return this;
 	}
 
-	@XmlElement(name = "NetSvcTp")
-	public Max35Text getNetServiceType() {
-		return netServiceType;
+	public Optional<Max35Text> getNetServiceType() {
+		return netServiceType == null ? Optional.empty() : Optional.of(netServiceType);
 	}
 
-	public void setNetServiceType(Max35Text netServiceType) {
+	public NetReportData1 setNetServiceType(Max35Text netServiceType) {
 		this.netServiceType = netServiceType;
+		return this;
 	}
 
-	@XmlElement(name = "MsgPgntn")
-	public Pagination getMessagePagination() {
-		return messagePagination;
+	public Optional<Pagination> getMessagePagination() {
+		return messagePagination == null ? Optional.empty() : Optional.of(messagePagination);
 	}
 
-	public void setMessagePagination(com.tools20022.repository.msg.Pagination messagePagination) {
+	public NetReportData1 setMessagePagination(Pagination messagePagination) {
 		this.messagePagination = messagePagination;
+		return this;
 	}
 }

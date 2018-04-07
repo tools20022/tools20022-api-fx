@@ -25,6 +25,7 @@ import com.tools20022.repository.datatype.Max70Text;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -48,8 +49,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -60,15 +61,16 @@ import javax.xml.bind.annotation.XmlType;
  * definition} = "Name and value of a parameter being returned."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "ReportParameter1", propOrder = {"name", "value"})
 public class ReportParameter1 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "Nm", required = true)
 	protected Max70Text name;
 	/**
-	 * Name or type of the parameter being returned.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -93,9 +95,9 @@ public class ReportParameter1 {
 	 * definition} = "Name or type of the parameter being returned."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmName = new MMMessageAttribute() {
+	public static final MMMessageAttribute<ReportParameter1, Max70Text> mmName = new MMMessageAttribute<ReportParameter1, Max70Text>() {
 		{
-			componentContext_lazy = () -> ReportParameter1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.ReportParameter1.mmObject();
 			isDerived = false;
 			xmlTag = "Nm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -105,11 +107,22 @@ public class ReportParameter1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max70Text.mmObject();
 		}
+
+		@Override
+		public Max70Text getValue(ReportParameter1 obj) {
+			return obj.getName();
+		}
+
+		@Override
+		public void setValue(ReportParameter1 obj, Max70Text value) {
+			obj.setName(value);
+		}
 	};
+	@XmlElement(name = "Val", required = true)
 	protected Max350Text value;
 	/**
-	 * Value of the parameter being returned.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -134,9 +147,9 @@ public class ReportParameter1 {
 	 * definition} = "Value of the parameter being returned."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmValue = new MMMessageAttribute() {
+	public static final MMMessageAttribute<ReportParameter1, Max350Text> mmValue = new MMMessageAttribute<ReportParameter1, Max350Text>() {
 		{
-			componentContext_lazy = () -> ReportParameter1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.ReportParameter1.mmObject();
 			isDerived = false;
 			xmlTag = "Val";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -146,13 +159,23 @@ public class ReportParameter1 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max350Text.mmObject();
 		}
+
+		@Override
+		public Max350Text getValue(ReportParameter1 obj) {
+			return obj.getValue();
+		}
+
+		@Override
+		public void setValue(ReportParameter1 obj, Max350Text value) {
+			obj.setValue(value);
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(ReportParameter1.mmName, ReportParameter1.mmValue);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.ReportParameter1.mmName, com.tools20022.repository.msg.ReportParameter1.mmValue);
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "ReportParameter1";
 				definition = "Name and value of a parameter being returned.";
@@ -161,21 +184,21 @@ public class ReportParameter1 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "Nm", required = true)
 	public Max70Text getName() {
 		return name;
 	}
 
-	public void setName(Max70Text name) {
-		this.name = name;
+	public ReportParameter1 setName(Max70Text name) {
+		this.name = Objects.requireNonNull(name);
+		return this;
 	}
 
-	@XmlElement(name = "Val", required = true)
 	public Max350Text getValue() {
 		return value;
 	}
 
-	public void setValue(Max350Text value) {
-		this.value = value;
+	public ReportParameter1 setValue(Max350Text value) {
+		this.value = Objects.requireNonNull(value);
+		return this;
 	}
 }

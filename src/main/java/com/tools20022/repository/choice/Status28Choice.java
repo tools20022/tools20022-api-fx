@@ -26,6 +26,7 @@ import com.tools20022.repository.entity.TreasuryTradeSettlementStatus;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -54,8 +55,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -66,15 +67,16 @@ import javax.xml.bind.annotation.XmlType;
  * definition} = "Specifies the status."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "Status28Choice", propOrder = {"code", "proprietary"})
 public class Status28Choice {
 
 	final static private AtomicReference<MMChoiceComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "Cd", required = true)
 	protected TradeStatus7Code code;
 	/**
-	 * Status expressed as a code.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -105,10 +107,10 @@ public class Status28Choice {
 	 * definition} = "Status expressed as a code."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmCode = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Status28Choice, TradeStatus7Code> mmCode = new MMMessageAttribute<Status28Choice, TradeStatus7Code>() {
 		{
 			businessElementTrace_lazy = () -> TreasuryTradeSettlementStatus.mmTradeStatus;
-			componentContext_lazy = () -> Status28Choice.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.choice.Status28Choice.mmObject();
 			isDerived = false;
 			xmlTag = "Cd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -118,11 +120,22 @@ public class Status28Choice {
 			minOccurs = 1;
 			simpleType_lazy = () -> TradeStatus7Code.mmObject();
 		}
+
+		@Override
+		public TradeStatus7Code getValue(Status28Choice obj) {
+			return obj.getCode();
+		}
+
+		@Override
+		public void setValue(Status28Choice obj, TradeStatus7Code value) {
+			obj.setCode(value);
+		}
 	};
+	@XmlElement(name = "Prtry", required = true)
 	protected Max35Text proprietary;
 	/**
-	 * Status expressed as a proprietary form.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -152,10 +165,10 @@ public class Status28Choice {
 	 * definition} = "Status expressed as a proprietary form."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmProprietary = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Status28Choice, Max35Text> mmProprietary = new MMMessageAttribute<Status28Choice, Max35Text>() {
 		{
 			businessElementTrace_lazy = () -> TreasuryTradeSettlementStatus.mmTradeStatus;
-			componentContext_lazy = () -> Status28Choice.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.choice.Status28Choice.mmObject();
 			isDerived = false;
 			xmlTag = "Prtry";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -165,14 +178,24 @@ public class Status28Choice {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(Status28Choice obj) {
+			return obj.getProprietary();
+		}
+
+		@Override
+		public void setValue(Status28Choice obj, Max35Text value) {
+			obj.setProprietary(value);
+		}
 	};
 
 	final static public MMChoiceComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMChoiceComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(Status28Choice.mmCode, Status28Choice.mmProprietary);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.choice.Status28Choice.mmCode, com.tools20022.repository.choice.Status28Choice.mmProprietary);
 				trace_lazy = () -> TreasuryTradeSettlementStatus.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "Status28Choice";
 				definition = "Specifies the status.";
@@ -181,21 +204,21 @@ public class Status28Choice {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "Cd", required = true)
 	public TradeStatus7Code getCode() {
 		return code;
 	}
 
-	public void setCode(TradeStatus7Code code) {
-		this.code = code;
+	public Status28Choice setCode(TradeStatus7Code code) {
+		this.code = Objects.requireNonNull(code);
+		return this;
 	}
 
-	@XmlElement(name = "Prtry", required = true)
 	public Max35Text getProprietary() {
 		return proprietary;
 	}
 
-	public void setProprietary(Max35Text proprietary) {
-		this.proprietary = proprietary;
+	public Status28Choice setProprietary(Max35Text proprietary) {
+		this.proprietary = Objects.requireNonNull(proprietary);
+		return this;
 	}
 }

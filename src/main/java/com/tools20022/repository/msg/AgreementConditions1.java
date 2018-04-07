@@ -28,6 +28,8 @@ import com.tools20022.repository.entity.MasterAgreement;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -57,8 +59,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -69,15 +71,16 @@ import javax.xml.bind.annotation.XmlType;
  * definition} = "Specifies the type, date and version of the agreement."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "AgreementConditions1", propOrder = {"agreementCode", "date", "version"})
 public class AgreementConditions1 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "AgrmtCd", required = true)
 	protected Max6AlphaText agreementCode;
 	/**
-	 * Specifies the type of agreement
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -105,27 +108,38 @@ public class AgreementConditions1 {
 	 * name} = "AgreementCode"</li>
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
-	 * definition} = "Specifies the type of agreement"</li>
+	 * definition} = "Specifies the type of agreement."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmAgreementCode = new MMMessageAttribute() {
+	public static final MMMessageAttribute<AgreementConditions1, Max6AlphaText> mmAgreementCode = new MMMessageAttribute<AgreementConditions1, Max6AlphaText>() {
 		{
 			businessElementTrace_lazy = () -> MasterAgreement.mmMasterAgreementType;
-			componentContext_lazy = () -> AgreementConditions1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.AgreementConditions1.mmObject();
 			isDerived = false;
 			xmlTag = "AgrmtCd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "AgreementCode";
-			definition = "Specifies the type of agreement";
+			definition = "Specifies the type of agreement.";
 			maxOccurs = 1;
 			minOccurs = 1;
 			simpleType_lazy = () -> Max6AlphaText.mmObject();
 		}
+
+		@Override
+		public Max6AlphaText getValue(AgreementConditions1 obj) {
+			return obj.getAgreementCode();
+		}
+
+		@Override
+		public void setValue(AgreementConditions1 obj, Max6AlphaText value) {
+			obj.setAgreementCode(value);
+		}
 	};
+	@XmlElement(name = "Dt")
 	protected ISODate date;
 	/**
-	 * Specifies the date of the agreement.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -155,10 +169,10 @@ public class AgreementConditions1 {
 	 * definition} = "Specifies the date of the agreement."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmDate = new MMMessageAttribute() {
+	public static final MMMessageAttribute<AgreementConditions1, Optional<ISODate>> mmDate = new MMMessageAttribute<AgreementConditions1, Optional<ISODate>>() {
 		{
 			businessElementTrace_lazy = () -> Agreement.mmDateSigned;
-			componentContext_lazy = () -> AgreementConditions1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.AgreementConditions1.mmObject();
 			isDerived = false;
 			xmlTag = "Dt";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -168,11 +182,22 @@ public class AgreementConditions1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> ISODate.mmObject();
 		}
+
+		@Override
+		public Optional<ISODate> getValue(AgreementConditions1 obj) {
+			return obj.getDate();
+		}
+
+		@Override
+		public void setValue(AgreementConditions1 obj, Optional<ISODate> value) {
+			obj.setDate(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "Vrsn")
 	protected Exact4NumericText version;
 	/**
-	 * Specifies the version of the agreement.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -203,10 +228,10 @@ public class AgreementConditions1 {
 	 * definition} = "Specifies the version of the agreement."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmVersion = new MMMessageAttribute() {
+	public static final MMMessageAttribute<AgreementConditions1, Optional<Exact4NumericText>> mmVersion = new MMMessageAttribute<AgreementConditions1, Optional<Exact4NumericText>>() {
 		{
 			businessElementTrace_lazy = () -> Agreement.mmVersion;
-			componentContext_lazy = () -> AgreementConditions1.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.AgreementConditions1.mmObject();
 			isDerived = false;
 			xmlTag = "Vrsn";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -216,14 +241,25 @@ public class AgreementConditions1 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Exact4NumericText.mmObject();
 		}
+
+		@Override
+		public Optional<Exact4NumericText> getValue(AgreementConditions1 obj) {
+			return obj.getVersion();
+		}
+
+		@Override
+		public void setValue(AgreementConditions1 obj, Optional<Exact4NumericText> value) {
+			obj.setVersion(value.orElse(null));
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(AgreementConditions1.mmAgreementCode, AgreementConditions1.mmDate, AgreementConditions1.mmVersion);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.AgreementConditions1.mmAgreementCode, com.tools20022.repository.msg.AgreementConditions1.mmDate,
+						com.tools20022.repository.msg.AgreementConditions1.mmVersion);
 				trace_lazy = () -> MasterAgreement.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "AgreementConditions1";
 				definition = "Specifies the type, date and version of the agreement.";
@@ -232,30 +268,30 @@ public class AgreementConditions1 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "AgrmtCd", required = true)
 	public Max6AlphaText getAgreementCode() {
 		return agreementCode;
 	}
 
-	public void setAgreementCode(Max6AlphaText agreementCode) {
-		this.agreementCode = agreementCode;
+	public AgreementConditions1 setAgreementCode(Max6AlphaText agreementCode) {
+		this.agreementCode = Objects.requireNonNull(agreementCode);
+		return this;
 	}
 
-	@XmlElement(name = "Dt")
-	public ISODate getDate() {
-		return date;
+	public Optional<ISODate> getDate() {
+		return date == null ? Optional.empty() : Optional.of(date);
 	}
 
-	public void setDate(ISODate date) {
+	public AgreementConditions1 setDate(ISODate date) {
 		this.date = date;
+		return this;
 	}
 
-	@XmlElement(name = "Vrsn")
-	public Exact4NumericText getVersion() {
-		return version;
+	public Optional<Exact4NumericText> getVersion() {
+		return version == null ? Optional.empty() : Optional.of(version);
 	}
 
-	public void setVersion(Exact4NumericText version) {
+	public AgreementConditions1 setVersion(Exact4NumericText version) {
 		this.version = version;
+		return this;
 	}
 }

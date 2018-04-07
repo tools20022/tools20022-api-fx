@@ -38,16 +38,16 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <ul>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicatorCode#FullyCollateralised
- * CollateralisationIndicatorCode.mmFullyCollateralised}</li>
+ * CollateralisationIndicatorCode.FullyCollateralised}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicatorCode#OneWayCollateralised
- * CollateralisationIndicatorCode.mmOneWayCollateralised}</li>
+ * CollateralisationIndicatorCode.OneWayCollateralised}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicatorCode#PartiallyCollateralised
- * CollateralisationIndicatorCode.mmPartiallyCollateralised}</li>
+ * CollateralisationIndicatorCode.PartiallyCollateralised}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicatorCode#Uncollateralised
- * CollateralisationIndicatorCode.mmUncollateralised}</li>
+ * CollateralisationIndicatorCode.Uncollateralised}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getDerivation derivation}
@@ -61,8 +61,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getExample
  * example} =
  * <ul>
@@ -211,7 +211,7 @@ public class CollateralisationIndicatorCode extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				example = Arrays.asList("FULL");
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "CollateralisationIndicatorCode";

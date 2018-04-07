@@ -23,10 +23,8 @@ import com.tools20022.metamodel.MMMessageDefinitionIdentifier;
 import com.tools20022.metamodel.MMRegistrationStatus;
 import com.tools20022.repository.area.ForeignExchangeTradeLatestVersion;
 import com.tools20022.repository.msg.*;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -101,6 +99,19 @@ import javax.xml.bind.annotation.*;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMMessageDefinition#getMessageDefinitionIdentifier
  * messageDefinitionIdentifier} = {@code fxtr.017.001.04}</li>
+ * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getConstraint
+ * constraint} =
+ * <ul>
+ * <li>
+ * {@linkplain com.tools20022.repository.constraints.ConstraintSplitTradeFalsePresenceRule#for_fxtr_ForeignExchangeTradeStatusAndDetailsNotificationV04
+ * ConstraintSplitTradeFalsePresenceRule.
+ * for_fxtr_ForeignExchangeTradeStatusAndDetailsNotificationV04}</li>
+ * <li>
+ * {@linkplain com.tools20022.repository.constraints.ConstraintSplitTradeTruePresenceRule#for_fxtr_ForeignExchangeTradeStatusAndDetailsNotificationV04
+ * ConstraintSplitTradeTruePresenceRule.
+ * for_fxtr_ForeignExchangeTradeStatusAndDetailsNotificationV04}</li>
+ * </ul>
+ * </li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -113,17 +124,17 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "ForeignExchangeTradeStatusAndDetailsNotificationV04", propOrder = {"statusDetails", "tradeInformation", "tradingSideIdentification", "counterpartySideIdentification", "tradeAmounts", "agreedRate",
 		"nonDeliverableForwardConditions", "tradingSideSettlementInstructions", "counterpartySideSettlementInstructions", "generalInformation", "splitTradeInformation", "regulatoryReporting", "supplementaryData"})
 public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "StsDtls", required = true)
 	protected TradeData14 statusDetails;
 	/**
-	 * Provides information on the status of a foreign exchange trade in the
-	 * central system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -145,7 +156,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmStatusDetails = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradeData14> mmStatusDetails = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradeData14>() {
 		{
 			xmlTag = "StsDtls";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -156,18 +167,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> TradeData14.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getStatusDetails", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public TradeData14 getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getStatusDetails();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, TradeData14 value) {
+			obj.setStatusDetails(value);
 		}
 	};
+	@XmlElement(name = "TradInf", required = true)
 	protected TradeAgreement12 tradeInformation;
 	/**
-	 * General information related to the foreign exchange trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -189,7 +203,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * "General information related to the foreign exchange trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmTradeInformation = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradeAgreement12> mmTradeInformation = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradeAgreement12>() {
 		{
 			xmlTag = "TradInf";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -200,18 +214,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> TradeAgreement12.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getTradeInformation", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public TradeAgreement12 getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getTradeInformation();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, TradeAgreement12 value) {
+			obj.setTradeInformation(value);
 		}
 	};
+	@XmlElement(name = "TradgSdId", required = true)
 	protected TradePartyIdentification6 tradingSideIdentification;
 	/**
-	 * Party(ies) on the trading side of the foreign exchange trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -233,7 +250,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * "Party(ies) on the trading side of the foreign exchange trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmTradingSideIdentification = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradePartyIdentification6> mmTradingSideIdentification = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradePartyIdentification6>() {
 		{
 			xmlTag = "TradgSdId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -244,18 +261,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> TradePartyIdentification6.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getTradingSideIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public TradePartyIdentification6 getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getTradingSideIdentification();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, TradePartyIdentification6 value) {
+			obj.setTradingSideIdentification(value);
 		}
 	};
+	@XmlElement(name = "CtrPtySdId", required = true)
 	protected TradePartyIdentification6 counterpartySideIdentification;
 	/**
-	 * Party(ies) on the counterparty side of the foreign exchange trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -277,7 +297,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * "Party(ies) on the counterparty side of the foreign exchange trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmCounterpartySideIdentification = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradePartyIdentification6> mmCounterpartySideIdentification = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, TradePartyIdentification6>() {
 		{
 			xmlTag = "CtrPtySdId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -288,18 +308,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> TradePartyIdentification6.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getCounterpartySideIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public TradePartyIdentification6 getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getCounterpartySideIdentification();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, TradePartyIdentification6 value) {
+			obj.setCounterpartySideIdentification(value);
 		}
 	};
+	@XmlElement(name = "TradAmts", required = true)
 	protected AmountsAndValueDate1 tradeAmounts;
 	/**
-	 * Amounts of the foreign exchange trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -320,7 +343,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * definition} = "Amounts of the foreign exchange trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmTradeAmounts = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, AmountsAndValueDate1> mmTradeAmounts = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, AmountsAndValueDate1>() {
 		{
 			xmlTag = "TradAmts";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -331,18 +354,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> AmountsAndValueDate1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getTradeAmounts", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public AmountsAndValueDate1 getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getTradeAmounts();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, AmountsAndValueDate1 value) {
+			obj.setTradeAmounts(value);
 		}
 	};
+	@XmlElement(name = "AgrdRate", required = true)
 	protected AgreedRate3 agreedRate;
 	/**
-	 * Exchange rate as agreed by the traders.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -362,7 +388,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * definition} = "Exchange rate as agreed by the traders."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmAgreedRate = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, AgreedRate3> mmAgreedRate = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, AgreedRate3>() {
 		{
 			xmlTag = "AgrdRate";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -373,18 +399,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> AgreedRate3.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getAgreedRate", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public AgreedRate3 getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getAgreedRate();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, AgreedRate3 value) {
+			obj.setAgreedRate(value);
 		}
 	};
+	@XmlElement(name = "NDFConds")
 	protected NonDeliverableForwardConditions2 nonDeliverableForwardConditions;
 	/**
-	 * Provides the opening and fixing information for an NDF trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -406,7 +435,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * "Provides the opening and fixing information for an NDF trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmNonDeliverableForwardConditions = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<NonDeliverableForwardConditions2>> mmNonDeliverableForwardConditions = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<NonDeliverableForwardConditions2>>() {
 		{
 			xmlTag = "NDFConds";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -417,18 +446,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> NonDeliverableForwardConditions2.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getNonDeliverableForwardConditions", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<NonDeliverableForwardConditions2> getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getNonDeliverableForwardConditions();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, Optional<NonDeliverableForwardConditions2> value) {
+			obj.setNonDeliverableForwardConditions(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "TradgSdSttlmInstrs")
 	protected SettlementParties29 tradingSideSettlementInstructions;
 	/**
-	 * Settlement instructions for the amounts received by the trading side.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -450,7 +482,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * "Settlement instructions for the amounts received by the trading side."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmTradingSideSettlementInstructions = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<SettlementParties29>> mmTradingSideSettlementInstructions = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<SettlementParties29>>() {
 		{
 			xmlTag = "TradgSdSttlmInstrs";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -461,18 +493,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> SettlementParties29.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getTradingSideSettlementInstructions", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<SettlementParties29> getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getTradingSideSettlementInstructions();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, Optional<SettlementParties29> value) {
+			obj.setTradingSideSettlementInstructions(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "CtrPtySdSttlmInstrs")
 	protected SettlementParties29 counterpartySideSettlementInstructions;
 	/**
-	 * Settlement instructions for the amounts received by the counterparty.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -494,7 +529,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * "Settlement instructions for the amounts received by the counterparty."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmCounterpartySideSettlementInstructions = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<SettlementParties29>> mmCounterpartySideSettlementInstructions = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<SettlementParties29>>() {
 		{
 			xmlTag = "CtrPtySdSttlmInstrs";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -505,18 +540,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> SettlementParties29.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getCounterpartySideSettlementInstructions", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<SettlementParties29> getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getCounterpartySideSettlementInstructions();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, Optional<SettlementParties29> value) {
+			obj.setCounterpartySideSettlementInstructions(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "GnlInf")
 	protected GeneralInformation5 generalInformation;
 	/**
-	 * Additional Information about the foreign exchange trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -537,7 +575,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * definition} = "Additional Information about the foreign exchange trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmGeneralInformation = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<GeneralInformation5>> mmGeneralInformation = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<GeneralInformation5>>() {
 		{
 			xmlTag = "GnlInf";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -548,18 +586,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> GeneralInformation5.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getGeneralInformation", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<GeneralInformation5> getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getGeneralInformation();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, Optional<GeneralInformation5> value) {
+			obj.setGeneralInformation(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "SpltTradInf")
 	protected List<SplitTradeDetails3> splitTradeInformation;
 	/**
-	 * Details of the split trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -580,7 +621,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * definition} = "Details of the split trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSplitTradeInformation = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, List<SplitTradeDetails3>> mmSplitTradeInformation = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, List<SplitTradeDetails3>>() {
 		{
 			xmlTag = "SpltTradInf";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -590,20 +631,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> SplitTradeDetails3.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getSplitTradeInformation", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<SplitTradeDetails3> getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getSplitTradeInformation();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, List<SplitTradeDetails3> value) {
+			obj.setSplitTradeInformation(value);
 		}
 	};
+	@XmlElement(name = "RgltryRptg")
 	protected RegulatoryReporting6 regulatoryReporting;
 	/**
-	 * Information that is to be provided to trade repositories in the context
-	 * of the regulatory standards around over-the-counter (OTC) derivatives,
-	 * central counterparties and trade repositories.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -626,7 +668,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmRegulatoryReporting = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<RegulatoryReporting6>> mmRegulatoryReporting = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, Optional<RegulatoryReporting6>>() {
 		{
 			xmlTag = "RgltryRptg";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -637,19 +679,21 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> RegulatoryReporting6.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getRegulatoryReporting", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<RegulatoryReporting6> getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getRegulatoryReporting();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, Optional<RegulatoryReporting6> value) {
+			obj.setRegulatoryReporting(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "SplmtryData")
 	protected List<SupplementaryData1> supplementaryData;
 	/**
-	 * Additional information that cannot be captured in the structured elements
-	 * and/or any other specific block.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -672,7 +716,7 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSupplementaryData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, List<SupplementaryData1>> mmSupplementaryData = new MMMessageBuildingBlock<ForeignExchangeTradeStatusAndDetailsNotificationV04, List<SupplementaryData1>>() {
 		{
 			xmlTag = "SplmtryData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -682,18 +726,22 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 			complexType_lazy = () -> SupplementaryData1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return ForeignExchangeTradeStatusAndDetailsNotificationV04.class.getMethod("getSupplementaryData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<SupplementaryData1> getValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj) {
+			return obj.getSupplementaryData();
+		}
+
+		@Override
+		public void setValue(ForeignExchangeTradeStatusAndDetailsNotificationV04 obj, List<SupplementaryData1> value) {
+			obj.setSupplementaryData(value);
 		}
 	};
 
 	final static public MMMessageDefinition mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageDefinition() {
 			{
+				constraint_lazy = () -> Arrays.asList(com.tools20022.repository.constraints.ConstraintSplitTradeFalsePresenceRule.for_fxtr_ForeignExchangeTradeStatusAndDetailsNotificationV04,
+						com.tools20022.repository.constraints.ConstraintSplitTradeTruePresenceRule.for_fxtr_ForeignExchangeTradeStatusAndDetailsNotificationV04);
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "ForeignExchangeTradeStatusAndDetailsNotificationV04";
 				definition = "Scope\r\r\nThe ForeignExchangeTradeStatusAndDetails message is sent by a central system to the participant to provide notification of the status and details of a foreign exchange trade.\r\r\nUsage\r\r\nThe notification is sent by a central settlement system to the two trading parties after it has received foreign exchange trade instructions from both.";
@@ -730,124 +778,124 @@ public class ForeignExchangeTradeStatusAndDetailsNotificationV04 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "StsDtls", required = true)
 	public TradeData14 getStatusDetails() {
 		return statusDetails;
 	}
 
-	public void setStatusDetails(TradeData14 statusDetails) {
-		this.statusDetails = statusDetails;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setStatusDetails(TradeData14 statusDetails) {
+		this.statusDetails = Objects.requireNonNull(statusDetails);
+		return this;
 	}
 
-	@XmlElement(name = "TradInf", required = true)
 	public TradeAgreement12 getTradeInformation() {
 		return tradeInformation;
 	}
 
-	public void setTradeInformation(TradeAgreement12 tradeInformation) {
-		this.tradeInformation = tradeInformation;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setTradeInformation(TradeAgreement12 tradeInformation) {
+		this.tradeInformation = Objects.requireNonNull(tradeInformation);
+		return this;
 	}
 
-	@XmlElement(name = "TradgSdId", required = true)
 	public TradePartyIdentification6 getTradingSideIdentification() {
 		return tradingSideIdentification;
 	}
 
-	public void setTradingSideIdentification(TradePartyIdentification6 tradingSideIdentification) {
-		this.tradingSideIdentification = tradingSideIdentification;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setTradingSideIdentification(TradePartyIdentification6 tradingSideIdentification) {
+		this.tradingSideIdentification = Objects.requireNonNull(tradingSideIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "CtrPtySdId", required = true)
 	public TradePartyIdentification6 getCounterpartySideIdentification() {
 		return counterpartySideIdentification;
 	}
 
-	public void setCounterpartySideIdentification(TradePartyIdentification6 counterpartySideIdentification) {
-		this.counterpartySideIdentification = counterpartySideIdentification;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setCounterpartySideIdentification(TradePartyIdentification6 counterpartySideIdentification) {
+		this.counterpartySideIdentification = Objects.requireNonNull(counterpartySideIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "TradAmts", required = true)
 	public AmountsAndValueDate1 getTradeAmounts() {
 		return tradeAmounts;
 	}
 
-	public void setTradeAmounts(AmountsAndValueDate1 tradeAmounts) {
-		this.tradeAmounts = tradeAmounts;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setTradeAmounts(AmountsAndValueDate1 tradeAmounts) {
+		this.tradeAmounts = Objects.requireNonNull(tradeAmounts);
+		return this;
 	}
 
-	@XmlElement(name = "AgrdRate", required = true)
 	public AgreedRate3 getAgreedRate() {
 		return agreedRate;
 	}
 
-	public void setAgreedRate(AgreedRate3 agreedRate) {
-		this.agreedRate = agreedRate;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setAgreedRate(AgreedRate3 agreedRate) {
+		this.agreedRate = Objects.requireNonNull(agreedRate);
+		return this;
 	}
 
-	@XmlElement(name = "NDFConds")
-	public NonDeliverableForwardConditions2 getNonDeliverableForwardConditions() {
-		return nonDeliverableForwardConditions;
+	public Optional<NonDeliverableForwardConditions2> getNonDeliverableForwardConditions() {
+		return nonDeliverableForwardConditions == null ? Optional.empty() : Optional.of(nonDeliverableForwardConditions);
 	}
 
-	public void setNonDeliverableForwardConditions(NonDeliverableForwardConditions2 nonDeliverableForwardConditions) {
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setNonDeliverableForwardConditions(NonDeliverableForwardConditions2 nonDeliverableForwardConditions) {
 		this.nonDeliverableForwardConditions = nonDeliverableForwardConditions;
+		return this;
 	}
 
-	@XmlElement(name = "TradgSdSttlmInstrs")
-	public SettlementParties29 getTradingSideSettlementInstructions() {
-		return tradingSideSettlementInstructions;
+	public Optional<SettlementParties29> getTradingSideSettlementInstructions() {
+		return tradingSideSettlementInstructions == null ? Optional.empty() : Optional.of(tradingSideSettlementInstructions);
 	}
 
-	public void setTradingSideSettlementInstructions(SettlementParties29 tradingSideSettlementInstructions) {
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setTradingSideSettlementInstructions(SettlementParties29 tradingSideSettlementInstructions) {
 		this.tradingSideSettlementInstructions = tradingSideSettlementInstructions;
+		return this;
 	}
 
-	@XmlElement(name = "CtrPtySdSttlmInstrs")
-	public SettlementParties29 getCounterpartySideSettlementInstructions() {
-		return counterpartySideSettlementInstructions;
+	public Optional<SettlementParties29> getCounterpartySideSettlementInstructions() {
+		return counterpartySideSettlementInstructions == null ? Optional.empty() : Optional.of(counterpartySideSettlementInstructions);
 	}
 
-	public void setCounterpartySideSettlementInstructions(SettlementParties29 counterpartySideSettlementInstructions) {
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setCounterpartySideSettlementInstructions(SettlementParties29 counterpartySideSettlementInstructions) {
 		this.counterpartySideSettlementInstructions = counterpartySideSettlementInstructions;
+		return this;
 	}
 
-	@XmlElement(name = "GnlInf")
-	public GeneralInformation5 getGeneralInformation() {
-		return generalInformation;
+	public Optional<GeneralInformation5> getGeneralInformation() {
+		return generalInformation == null ? Optional.empty() : Optional.of(generalInformation);
 	}
 
-	public void setGeneralInformation(GeneralInformation5 generalInformation) {
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setGeneralInformation(GeneralInformation5 generalInformation) {
 		this.generalInformation = generalInformation;
+		return this;
 	}
 
-	@XmlElement(name = "SpltTradInf")
 	public List<SplitTradeDetails3> getSplitTradeInformation() {
-		return splitTradeInformation;
+		return splitTradeInformation == null ? splitTradeInformation = new ArrayList<>() : splitTradeInformation;
 	}
 
-	public void setSplitTradeInformation(List<SplitTradeDetails3> splitTradeInformation) {
-		this.splitTradeInformation = splitTradeInformation;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setSplitTradeInformation(List<SplitTradeDetails3> splitTradeInformation) {
+		this.splitTradeInformation = Objects.requireNonNull(splitTradeInformation);
+		return this;
 	}
 
-	@XmlElement(name = "RgltryRptg")
-	public RegulatoryReporting6 getRegulatoryReporting() {
-		return regulatoryReporting;
+	public Optional<RegulatoryReporting6> getRegulatoryReporting() {
+		return regulatoryReporting == null ? Optional.empty() : Optional.of(regulatoryReporting);
 	}
 
-	public void setRegulatoryReporting(RegulatoryReporting6 regulatoryReporting) {
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setRegulatoryReporting(RegulatoryReporting6 regulatoryReporting) {
 		this.regulatoryReporting = regulatoryReporting;
+		return this;
 	}
 
-	@XmlElement(name = "SplmtryData")
 	public List<SupplementaryData1> getSupplementaryData() {
-		return supplementaryData;
+		return supplementaryData == null ? supplementaryData = new ArrayList<>() : supplementaryData;
 	}
 
-	public void setSupplementaryData(List<SupplementaryData1> supplementaryData) {
-		this.supplementaryData = supplementaryData;
+	public ForeignExchangeTradeStatusAndDetailsNotificationV04 setSupplementaryData(List<SupplementaryData1> supplementaryData) {
+		this.supplementaryData = Objects.requireNonNull(supplementaryData);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:fxtr.017.04.04")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:fxtr.017.001.04")
 	static public class Document {
 		@XmlElement(name = "FXTradStsAndDtlsNtfctn", required = true)
 		public ForeignExchangeTradeStatusAndDetailsNotificationV04 messageBody;

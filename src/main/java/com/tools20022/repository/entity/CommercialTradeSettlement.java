@@ -21,11 +21,10 @@ import com.tools20022.metamodel.MMAggregation;
 import com.tools20022.metamodel.MMBusinessAssociationEnd;
 import com.tools20022.metamodel.MMBusinessComponent;
 import com.tools20022.metamodel.MMRegistrationStatus;
-import com.tools20022.repository.entity.Settlement;
+import com.tools20022.repository.entity.*;
 import com.tools20022.repository.GeneratedRepository;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 
 /**
  * Settlement of a commercial trade, that is, the instruction to deliver goods
@@ -83,8 +82,8 @@ import java.util.List;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -102,8 +101,8 @@ public class CommercialTradeSettlement extends Settlement {
 	final static private AtomicReference<MMBusinessComponent> mmObject_lazy = new AtomicReference<>();
 	protected List<com.tools20022.repository.entity.Payment> payment;
 	/**
-	 * Settlement of the payment side of a commercial trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -133,7 +132,7 @@ public class CommercialTradeSettlement extends Settlement {
 	 * definition} = "Settlement of the payment side of a commercial trade."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmPayment = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<CommercialTradeSettlement, List<Payment>> mmPayment = new MMBusinessAssociationEnd<CommercialTradeSettlement, List<Payment>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.CommercialTradeSettlement.mmObject();
@@ -145,11 +144,21 @@ public class CommercialTradeSettlement extends Settlement {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.Payment.mmObject();
 		}
+
+		@Override
+		public List<Payment> getValue(CommercialTradeSettlement obj) {
+			return obj.getPayment();
+		}
+
+		@Override
+		public void setValue(CommercialTradeSettlement obj, List<Payment> value) {
+			obj.setPayment(value);
+		}
 	};
 	protected List<com.tools20022.repository.entity.Invoice> invoice;
 	/**
-	 * Specifies for which invoice the settlement takes place.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -179,7 +188,7 @@ public class CommercialTradeSettlement extends Settlement {
 	 * definition} = "Specifies for which invoice the settlement takes place."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmInvoice = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<CommercialTradeSettlement, List<Invoice>> mmInvoice = new MMBusinessAssociationEnd<CommercialTradeSettlement, List<Invoice>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.CommercialTradeSettlement.mmObject();
@@ -191,11 +200,21 @@ public class CommercialTradeSettlement extends Settlement {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.Invoice.mmObject();
 		}
+
+		@Override
+		public List<Invoice> getValue(CommercialTradeSettlement obj) {
+			return obj.getInvoice();
+		}
+
+		@Override
+		public void setValue(CommercialTradeSettlement obj, List<Invoice> value) {
+			obj.setInvoice(value);
+		}
 	};
 	protected List<com.tools20022.repository.entity.LetterOfCredit> letterOfCredit;
 	/**
-	 * Written undertaking by a bank to honour a demand for payment.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -227,7 +246,7 @@ public class CommercialTradeSettlement extends Settlement {
 	 * "Written undertaking by a bank to honour a demand for payment."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmLetterOfCredit = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<CommercialTradeSettlement, List<LetterOfCredit>> mmLetterOfCredit = new MMBusinessAssociationEnd<CommercialTradeSettlement, List<LetterOfCredit>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.CommercialTradeSettlement.mmObject();
@@ -239,11 +258,21 @@ public class CommercialTradeSettlement extends Settlement {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.LetterOfCredit.mmObject();
 		}
+
+		@Override
+		public List<LetterOfCredit> getValue(CommercialTradeSettlement obj) {
+			return obj.getLetterOfCredit();
+		}
+
+		@Override
+		public void setValue(CommercialTradeSettlement obj, List<LetterOfCredit> value) {
+			obj.setLetterOfCredit(value);
+		}
 	};
 	protected List<com.tools20022.repository.entity.ProductDelivery> productDelivery;
 	/**
-	 * Delivery of the goods or services to the buyer.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -274,7 +303,7 @@ public class CommercialTradeSettlement extends Settlement {
 	 * definition} = "Delivery of the goods or services to the buyer."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmProductDelivery = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<CommercialTradeSettlement, List<ProductDelivery>> mmProductDelivery = new MMBusinessAssociationEnd<CommercialTradeSettlement, List<ProductDelivery>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.CommercialTradeSettlement.mmObject();
@@ -286,11 +315,21 @@ public class CommercialTradeSettlement extends Settlement {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.ProductDelivery.mmObject();
 		}
+
+		@Override
+		public List<ProductDelivery> getValue(CommercialTradeSettlement obj) {
+			return obj.getProductDelivery();
+		}
+
+		@Override
+		public void setValue(CommercialTradeSettlement obj, List<ProductDelivery> value) {
+			obj.setProductDelivery(value);
+		}
 	};
 	protected CommercialTrade commercialTrade;
 	/**
-	 * Specifies the commercial trade which is settled.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -321,7 +360,7 @@ public class CommercialTradeSettlement extends Settlement {
 	 * definition} = "Specifies the commercial trade which is settled."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmCommercialTrade = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<CommercialTradeSettlement, Optional<CommercialTrade>> mmCommercialTrade = new MMBusinessAssociationEnd<CommercialTradeSettlement, Optional<CommercialTrade>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.CommercialTradeSettlement.mmObject();
@@ -334,12 +373,22 @@ public class CommercialTradeSettlement extends Settlement {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.CommercialTrade.mmObject();
 		}
+
+		@Override
+		public Optional<CommercialTrade> getValue(CommercialTradeSettlement obj) {
+			return obj.getCommercialTrade();
+		}
+
+		@Override
+		public void setValue(CommercialTradeSettlement obj, Optional<CommercialTrade> value) {
+			obj.setCommercialTrade(value.orElse(null));
+		}
 	};
 
 	static public MMBusinessComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMBusinessComponent() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "CommercialTradeSettlement";
 				definition = "Settlement of a commercial trade, that is, the instruction to deliver goods or services against the payment of an amount of money.";
@@ -360,42 +409,47 @@ public class CommercialTradeSettlement extends Settlement {
 	}
 
 	public List<Payment> getPayment() {
-		return payment;
+		return payment == null ? payment = new ArrayList<>() : payment;
 	}
 
-	public void setPayment(List<com.tools20022.repository.entity.Payment> payment) {
-		this.payment = payment;
+	public CommercialTradeSettlement setPayment(List<com.tools20022.repository.entity.Payment> payment) {
+		this.payment = Objects.requireNonNull(payment);
+		return this;
 	}
 
 	public List<Invoice> getInvoice() {
-		return invoice;
+		return invoice == null ? invoice = new ArrayList<>() : invoice;
 	}
 
-	public void setInvoice(List<com.tools20022.repository.entity.Invoice> invoice) {
-		this.invoice = invoice;
+	public CommercialTradeSettlement setInvoice(List<com.tools20022.repository.entity.Invoice> invoice) {
+		this.invoice = Objects.requireNonNull(invoice);
+		return this;
 	}
 
 	public List<LetterOfCredit> getLetterOfCredit() {
-		return letterOfCredit;
+		return letterOfCredit == null ? letterOfCredit = new ArrayList<>() : letterOfCredit;
 	}
 
-	public void setLetterOfCredit(List<com.tools20022.repository.entity.LetterOfCredit> letterOfCredit) {
-		this.letterOfCredit = letterOfCredit;
+	public CommercialTradeSettlement setLetterOfCredit(List<com.tools20022.repository.entity.LetterOfCredit> letterOfCredit) {
+		this.letterOfCredit = Objects.requireNonNull(letterOfCredit);
+		return this;
 	}
 
 	public List<ProductDelivery> getProductDelivery() {
-		return productDelivery;
+		return productDelivery == null ? productDelivery = new ArrayList<>() : productDelivery;
 	}
 
-	public void setProductDelivery(List<com.tools20022.repository.entity.ProductDelivery> productDelivery) {
-		this.productDelivery = productDelivery;
+	public CommercialTradeSettlement setProductDelivery(List<com.tools20022.repository.entity.ProductDelivery> productDelivery) {
+		this.productDelivery = Objects.requireNonNull(productDelivery);
+		return this;
 	}
 
-	public CommercialTrade getCommercialTrade() {
-		return commercialTrade;
+	public Optional<CommercialTrade> getCommercialTrade() {
+		return commercialTrade == null ? Optional.empty() : Optional.of(commercialTrade);
 	}
 
-	public void setCommercialTrade(com.tools20022.repository.entity.CommercialTrade commercialTrade) {
+	public CommercialTradeSettlement setCommercialTrade(com.tools20022.repository.entity.CommercialTrade commercialTrade) {
 		this.commercialTrade = commercialTrade;
+		return this;
 	}
 }

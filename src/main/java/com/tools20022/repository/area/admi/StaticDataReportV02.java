@@ -26,10 +26,8 @@ import com.tools20022.repository.datatype.Exact4AlphaNumericText;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.msg.RequestDetails5;
 import com.tools20022.repository.msg.SupplementaryData1;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -79,16 +77,16 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "StaticDataReportV02", propOrder = {"messageIdentification", "settlementSessionIdentifier", "reportDetails", "supplementaryData"})
 public class StaticDataReportV02 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "MsgId", required = true)
 	protected Max35Text messageIdentification;
 	/**
-	 * Unique and unambiguous identifier for the message, as assigned by the
-	 * sender.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -110,7 +108,7 @@ public class StaticDataReportV02 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmMessageIdentification = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<StaticDataReportV02, Max35Text> mmMessageIdentification = new MMMessageBuildingBlock<StaticDataReportV02, Max35Text>() {
 		{
 			xmlTag = "MsgId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -121,19 +119,21 @@ public class StaticDataReportV02 {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StaticDataReportV02.class.getMethod("getMessageIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(StaticDataReportV02 obj) {
+			return obj.getMessageIdentification();
+		}
+
+		@Override
+		public void setValue(StaticDataReportV02 obj, Max35Text value) {
+			obj.setMessageIdentification(value);
 		}
 	};
+	@XmlElement(name = "SttlmSsnIdr")
 	protected Exact4AlphaNumericText settlementSessionIdentifier;
 	/**
-	 * To indicate the requested CLS Settlement Session that the related trade
-	 * is part of.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -156,7 +156,7 @@ public class StaticDataReportV02 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSettlementSessionIdentifier = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<StaticDataReportV02, Optional<Exact4AlphaNumericText>> mmSettlementSessionIdentifier = new MMMessageBuildingBlock<StaticDataReportV02, Optional<Exact4AlphaNumericText>>() {
 		{
 			xmlTag = "SttlmSsnIdr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -167,18 +167,21 @@ public class StaticDataReportV02 {
 			simpleType_lazy = () -> Exact4AlphaNumericText.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StaticDataReportV02.class.getMethod("getSettlementSessionIdentifier", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<Exact4AlphaNumericText> getValue(StaticDataReportV02 obj) {
+			return obj.getSettlementSessionIdentifier();
+		}
+
+		@Override
+		public void setValue(StaticDataReportV02 obj, Optional<Exact4AlphaNumericText> value) {
+			obj.setSettlementSessionIdentifier(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "RptDtls", required = true)
 	protected RequestDetails5 reportDetails;
 	/**
-	 * Report type and returned data.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -198,7 +201,7 @@ public class StaticDataReportV02 {
 	 * definition} = "Report type and returned data."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmReportDetails = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<StaticDataReportV02, RequestDetails5> mmReportDetails = new MMMessageBuildingBlock<StaticDataReportV02, RequestDetails5>() {
 		{
 			xmlTag = "RptDtls";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -209,19 +212,21 @@ public class StaticDataReportV02 {
 			complexType_lazy = () -> RequestDetails5.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StaticDataReportV02.class.getMethod("getReportDetails", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public RequestDetails5 getValue(StaticDataReportV02 obj) {
+			return obj.getReportDetails();
+		}
+
+		@Override
+		public void setValue(StaticDataReportV02 obj, RequestDetails5 value) {
+			obj.setReportDetails(value);
 		}
 	};
+	@XmlElement(name = "SplmtryData")
 	protected List<SupplementaryData1> supplementaryData;
 	/**
-	 * Additional information that cannot be captured in the structured elements
-	 * and/or any other specific block.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -244,7 +249,7 @@ public class StaticDataReportV02 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSupplementaryData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<StaticDataReportV02, List<SupplementaryData1>> mmSupplementaryData = new MMMessageBuildingBlock<StaticDataReportV02, List<SupplementaryData1>>() {
 		{
 			xmlTag = "SplmtryData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -254,12 +259,14 @@ public class StaticDataReportV02 {
 			complexType_lazy = () -> SupplementaryData1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StaticDataReportV02.class.getMethod("getSupplementaryData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<SupplementaryData1> getValue(StaticDataReportV02 obj) {
+			return obj.getSupplementaryData();
+		}
+
+		@Override
+		public void setValue(StaticDataReportV02 obj, List<SupplementaryData1> value) {
+			obj.setSupplementaryData(value);
 		}
 	};
 
@@ -292,43 +299,43 @@ public class StaticDataReportV02 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "MsgId", required = true)
 	public Max35Text getMessageIdentification() {
 		return messageIdentification;
 	}
 
-	public void setMessageIdentification(Max35Text messageIdentification) {
-		this.messageIdentification = messageIdentification;
+	public StaticDataReportV02 setMessageIdentification(Max35Text messageIdentification) {
+		this.messageIdentification = Objects.requireNonNull(messageIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "SttlmSsnIdr")
-	public Exact4AlphaNumericText getSettlementSessionIdentifier() {
-		return settlementSessionIdentifier;
+	public Optional<Exact4AlphaNumericText> getSettlementSessionIdentifier() {
+		return settlementSessionIdentifier == null ? Optional.empty() : Optional.of(settlementSessionIdentifier);
 	}
 
-	public void setSettlementSessionIdentifier(Exact4AlphaNumericText settlementSessionIdentifier) {
+	public StaticDataReportV02 setSettlementSessionIdentifier(Exact4AlphaNumericText settlementSessionIdentifier) {
 		this.settlementSessionIdentifier = settlementSessionIdentifier;
+		return this;
 	}
 
-	@XmlElement(name = "RptDtls", required = true)
 	public RequestDetails5 getReportDetails() {
 		return reportDetails;
 	}
 
-	public void setReportDetails(RequestDetails5 reportDetails) {
-		this.reportDetails = reportDetails;
+	public StaticDataReportV02 setReportDetails(RequestDetails5 reportDetails) {
+		this.reportDetails = Objects.requireNonNull(reportDetails);
+		return this;
 	}
 
-	@XmlElement(name = "SplmtryData")
 	public List<SupplementaryData1> getSupplementaryData() {
-		return supplementaryData;
+		return supplementaryData == null ? supplementaryData = new ArrayList<>() : supplementaryData;
 	}
 
-	public void setSupplementaryData(List<SupplementaryData1> supplementaryData) {
-		this.supplementaryData = supplementaryData;
+	public StaticDataReportV02 setSupplementaryData(List<SupplementaryData1> supplementaryData) {
+		this.supplementaryData = Objects.requireNonNull(supplementaryData);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:admi.010.02.02")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:admi.010.001.02")
 	static public class Document {
 		@XmlElement(name = "StatcDataRpt", required = true)
 		public StaticDataReportV02 messageBody;

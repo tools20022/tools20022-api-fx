@@ -26,10 +26,8 @@ import com.tools20022.repository.choice.PartyIdentification73Choice;
 import com.tools20022.repository.msg.NetObligation1;
 import com.tools20022.repository.msg.NetReportData1;
 import com.tools20022.repository.msg.SupplementaryData1;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -71,6 +69,14 @@ import javax.xml.bind.annotation.*;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMMessageDefinition#getMessageDefinitionIdentifier
  * messageDefinitionIdentifier} = {@code camt.088.001.01}</li>
+ * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getConstraint
+ * constraint} =
+ * <ul>
+ * <li>
+ * {@linkplain com.tools20022.repository.constraints.ConstraintCounterpartyIdentificationRule#for_camt_NetReportV01
+ * ConstraintCounterpartyIdentificationRule.for_camt_NetReportV01}</li>
+ * </ul>
+ * </li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -83,15 +89,16 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "NetReportV01", propOrder = {"netReportData", "netServiceParticipantIdentification", "netServiceCounterpartyIdentification", "netObligation", "supplementaryData"})
 public class NetReportV01 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "NetRptData", required = true)
 	protected NetReportData1 netReportData;
 	/**
-	 * Specifies the meta data associated with the net report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -111,7 +118,7 @@ public class NetReportV01 {
 	 * definition} = "Specifies the meta data associated with the net report."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmNetReportData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<NetReportV01, NetReportData1> mmNetReportData = new MMMessageBuildingBlock<NetReportV01, NetReportData1>() {
 		{
 			xmlTag = "NetRptData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -122,18 +129,21 @@ public class NetReportV01 {
 			complexType_lazy = () -> NetReportData1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetReportV01.class.getMethod("getNetReportData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public NetReportData1 getValue(NetReportV01 obj) {
+			return obj.getNetReportData();
+		}
+
+		@Override
+		public void setValue(NetReportV01 obj, NetReportData1 value) {
+			obj.setNetReportData(value);
 		}
 	};
+	@XmlElement(name = "NetSvcPtcptId", required = true)
 	protected PartyIdentification73Choice netServiceParticipantIdentification;
 	/**
-	 * Describes the participant receiving the net report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -154,7 +164,7 @@ public class NetReportV01 {
 	 * definition} = "Describes the participant receiving the net report."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmNetServiceParticipantIdentification = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<NetReportV01, PartyIdentification73Choice> mmNetServiceParticipantIdentification = new MMMessageBuildingBlock<NetReportV01, PartyIdentification73Choice>() {
 		{
 			xmlTag = "NetSvcPtcptId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -165,19 +175,21 @@ public class NetReportV01 {
 			complexType_lazy = () -> PartyIdentification73Choice.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetReportV01.class.getMethod("getNetServiceParticipantIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public PartyIdentification73Choice getValue(NetReportV01 obj) {
+			return obj.getNetServiceParticipantIdentification();
+		}
+
+		@Override
+		public void setValue(NetReportV01 obj, PartyIdentification73Choice value) {
+			obj.setNetServiceParticipantIdentification(value);
 		}
 	};
+	@XmlElement(name = "NetSvcCtrPtyId")
 	protected PartyIdentification73Choice netServiceCounterpartyIdentification;
 	/**
-	 * Describes the counterparty participant involved in (all of) the
-	 * obligations of the report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -200,7 +212,7 @@ public class NetReportV01 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmNetServiceCounterpartyIdentification = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<NetReportV01, Optional<PartyIdentification73Choice>> mmNetServiceCounterpartyIdentification = new MMMessageBuildingBlock<NetReportV01, Optional<PartyIdentification73Choice>>() {
 		{
 			xmlTag = "NetSvcCtrPtyId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -211,19 +223,21 @@ public class NetReportV01 {
 			complexType_lazy = () -> PartyIdentification73Choice.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetReportV01.class.getMethod("getNetServiceCounterpartyIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<PartyIdentification73Choice> getValue(NetReportV01 obj) {
+			return obj.getNetServiceCounterpartyIdentification();
+		}
+
+		@Override
+		public void setValue(NetReportV01 obj, Optional<PartyIdentification73Choice> value) {
+			obj.setNetServiceCounterpartyIdentification(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "NetOblgtn", required = true)
 	protected List<NetObligation1> netObligation;
 	/**
-	 * Provides the amount, direct parties or netting groups involved in the
-	 * obligation.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -245,7 +259,7 @@ public class NetReportV01 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmNetObligation = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<NetReportV01, List<NetObligation1>> mmNetObligation = new MMMessageBuildingBlock<NetReportV01, List<NetObligation1>>() {
 		{
 			xmlTag = "NetOblgtn";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -255,19 +269,21 @@ public class NetReportV01 {
 			complexType_lazy = () -> NetObligation1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetReportV01.class.getMethod("getNetObligation", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<NetObligation1> getValue(NetReportV01 obj) {
+			return obj.getNetObligation();
+		}
+
+		@Override
+		public void setValue(NetReportV01 obj, List<NetObligation1> value) {
+			obj.setNetObligation(value);
 		}
 	};
+	@XmlElement(name = "SplmtryData")
 	protected List<SupplementaryData1> supplementaryData;
 	/**
-	 * Additional information that cannot be captured in the structured elements
-	 * and/or any other specific block.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -290,7 +306,7 @@ public class NetReportV01 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSupplementaryData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<NetReportV01, List<SupplementaryData1>> mmSupplementaryData = new MMMessageBuildingBlock<NetReportV01, List<SupplementaryData1>>() {
 		{
 			xmlTag = "SplmtryData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -300,18 +316,21 @@ public class NetReportV01 {
 			complexType_lazy = () -> SupplementaryData1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return NetReportV01.class.getMethod("getSupplementaryData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<SupplementaryData1> getValue(NetReportV01 obj) {
+			return obj.getSupplementaryData();
+		}
+
+		@Override
+		public void setValue(NetReportV01 obj, List<SupplementaryData1> value) {
+			obj.setSupplementaryData(value);
 		}
 	};
 
 	final static public MMMessageDefinition mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageDefinition() {
 			{
+				constraint_lazy = () -> Arrays.asList(com.tools20022.repository.constraints.ConstraintCounterpartyIdentificationRule.for_camt_NetReportV01);
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "NetReportV01";
 				definition = "The Net Report message is sent to a participant by a central system to provide details of the of the bi-lateral payment obligations, calculated by the central system per currency.";
@@ -339,52 +358,52 @@ public class NetReportV01 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "NetRptData", required = true)
 	public NetReportData1 getNetReportData() {
 		return netReportData;
 	}
 
-	public void setNetReportData(NetReportData1 netReportData) {
-		this.netReportData = netReportData;
+	public NetReportV01 setNetReportData(NetReportData1 netReportData) {
+		this.netReportData = Objects.requireNonNull(netReportData);
+		return this;
 	}
 
-	@XmlElement(name = "NetSvcPtcptId", required = true)
 	public PartyIdentification73Choice getNetServiceParticipantIdentification() {
 		return netServiceParticipantIdentification;
 	}
 
-	public void setNetServiceParticipantIdentification(PartyIdentification73Choice netServiceParticipantIdentification) {
-		this.netServiceParticipantIdentification = netServiceParticipantIdentification;
+	public NetReportV01 setNetServiceParticipantIdentification(PartyIdentification73Choice netServiceParticipantIdentification) {
+		this.netServiceParticipantIdentification = Objects.requireNonNull(netServiceParticipantIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "NetSvcCtrPtyId")
-	public PartyIdentification73Choice getNetServiceCounterpartyIdentification() {
-		return netServiceCounterpartyIdentification;
+	public Optional<PartyIdentification73Choice> getNetServiceCounterpartyIdentification() {
+		return netServiceCounterpartyIdentification == null ? Optional.empty() : Optional.of(netServiceCounterpartyIdentification);
 	}
 
-	public void setNetServiceCounterpartyIdentification(PartyIdentification73Choice netServiceCounterpartyIdentification) {
+	public NetReportV01 setNetServiceCounterpartyIdentification(PartyIdentification73Choice netServiceCounterpartyIdentification) {
 		this.netServiceCounterpartyIdentification = netServiceCounterpartyIdentification;
+		return this;
 	}
 
-	@XmlElement(name = "NetOblgtn", required = true)
 	public List<NetObligation1> getNetObligation() {
-		return netObligation;
+		return netObligation == null ? netObligation = new ArrayList<>() : netObligation;
 	}
 
-	public void setNetObligation(List<NetObligation1> netObligation) {
-		this.netObligation = netObligation;
+	public NetReportV01 setNetObligation(List<NetObligation1> netObligation) {
+		this.netObligation = Objects.requireNonNull(netObligation);
+		return this;
 	}
 
-	@XmlElement(name = "SplmtryData")
 	public List<SupplementaryData1> getSupplementaryData() {
-		return supplementaryData;
+		return supplementaryData == null ? supplementaryData = new ArrayList<>() : supplementaryData;
 	}
 
-	public void setSupplementaryData(List<SupplementaryData1> supplementaryData) {
-		this.supplementaryData = supplementaryData;
+	public NetReportV01 setSupplementaryData(List<SupplementaryData1> supplementaryData) {
+		this.supplementaryData = Objects.requireNonNull(supplementaryData);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:camt.088.01.01")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:camt.088.001.01")
 	static public class Document {
 		@XmlElement(name = "NetRpt", required = true)
 		public NetReportV01 messageBody;

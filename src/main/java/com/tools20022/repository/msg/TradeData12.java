@@ -28,8 +28,11 @@ import com.tools20022.repository.datatype.ISODateTime;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.entity.*;
 import com.tools20022.repository.GeneratedRepository;
+import com.tools20022.repository.msg.StatusAndSubStatus2;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -88,8 +91,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -100,18 +103,17 @@ import javax.xml.bind.annotation.XmlType;
  * definition} = "Provides information on the status of a trade."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "TradeData12", propOrder = {"messageIdentification", "statusOriginator", "currentStatus", "currentStatusSubType", "currentStatusDateTime", "previousStatus", "previousStatusSubType", "productType",
 		"settlementSessionIdentifier", "linkedReportIdentification"})
 public class TradeData12 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "MsgId", required = true)
 	protected Max35Text messageIdentification;
 	/**
-	 * Identification of the present message assigned by the party issuing the
-	 * message. This identification must be unique amongst all messages of same
-	 * type sent by the same party.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -137,9 +139,9 @@ public class TradeData12 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmMessageIdentification = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Max35Text> mmMessageIdentification = new MMMessageAttribute<TradeData12, Max35Text>() {
 		{
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "MsgId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -149,11 +151,22 @@ public class TradeData12 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(TradeData12 obj) {
+			return obj.getMessageIdentification();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Max35Text value) {
+			obj.setMessageIdentification(value);
+		}
 	};
+	@XmlElement(name = "StsOrgtr")
 	protected Max35Text statusOriginator;
 	/**
-	 * Party that assigned the status to the foreign exchange trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -183,10 +196,10 @@ public class TradeData12 {
 	 * "Party that assigned the status to the foreign exchange trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmStatusOriginator = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Optional<Max35Text>> mmStatusOriginator = new MMMessageAttribute<TradeData12, Optional<Max35Text>>() {
 		{
 			businessElementTrace_lazy = () -> GenericIdentification.mmIdentification;
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "StsOrgtr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -196,11 +209,22 @@ public class TradeData12 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max35Text> getValue(TradeData12 obj) {
+			return obj.getStatusOriginator();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Optional<Max35Text> value) {
+			obj.setStatusOriginator(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "CurSts", required = true)
 	protected StatusAndSubStatus2 currentStatus;
 	/**
-	 * Specifies the new status of the trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -230,10 +254,10 @@ public class TradeData12 {
 	 * definition} = "Specifies the new status of the trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmCurrentStatus = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, StatusAndSubStatus2> mmCurrentStatus = new MMMessageAttribute<TradeData12, StatusAndSubStatus2>() {
 		{
 			businessComponentTrace_lazy = () -> TreasuryTradeSettlementStatus.mmObject();
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "CurSts";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -241,13 +265,24 @@ public class TradeData12 {
 			definition = "Specifies the new status of the trade.";
 			maxOccurs = 1;
 			minOccurs = 1;
-			complexType_lazy = () -> com.tools20022.repository.msg.StatusAndSubStatus2.mmObject();
+			complexType_lazy = () -> StatusAndSubStatus2.mmObject();
+		}
+
+		@Override
+		public StatusAndSubStatus2 getValue(TradeData12 obj) {
+			return obj.getCurrentStatus();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, StatusAndSubStatus2 value) {
+			obj.setCurrentStatus(value);
 		}
 	};
+	@XmlElement(name = "CurStsSubTp")
 	protected StatusSubType2Code currentStatusSubType;
 	/**
-	 * Additional information about the current status of the trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -278,10 +313,10 @@ public class TradeData12 {
 	 * "Additional information about the current status of the trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmCurrentStatusSubType = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Optional<StatusSubType2Code>> mmCurrentStatusSubType = new MMMessageAttribute<TradeData12, Optional<StatusSubType2Code>>() {
 		{
 			businessComponentTrace_lazy = () -> TreasuryTradeSettlementStatus.mmObject();
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "CurStsSubTp";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -291,13 +326,22 @@ public class TradeData12 {
 			minOccurs = 0;
 			simpleType_lazy = () -> StatusSubType2Code.mmObject();
 		}
+
+		@Override
+		public Optional<StatusSubType2Code> getValue(TradeData12 obj) {
+			return obj.getCurrentStatusSubType();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Optional<StatusSubType2Code> value) {
+			obj.setCurrentStatusSubType(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "CurStsDtTm", required = true)
 	protected ISODateTime currentStatusDateTime;
 	/**
-	 * Specifies the date and time at which the current status was assigned to
-	 * all the trades, unless overwritten by a date and time assigned to an
-	 * individual trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -328,10 +372,10 @@ public class TradeData12 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmCurrentStatusDateTime = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, ISODateTime> mmCurrentStatusDateTime = new MMMessageAttribute<TradeData12, ISODateTime>() {
 		{
 			businessElementTrace_lazy = () -> Status.mmStatusDateTime;
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "CurStsDtTm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -341,11 +385,22 @@ public class TradeData12 {
 			minOccurs = 1;
 			simpleType_lazy = () -> ISODateTime.mmObject();
 		}
+
+		@Override
+		public ISODateTime getValue(TradeData12 obj) {
+			return obj.getCurrentStatusDateTime();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, ISODateTime value) {
+			obj.setCurrentStatusDateTime(value);
+		}
 	};
+	@XmlElement(name = "PrvsSts")
 	protected Status28Choice previousStatus;
 	/**
-	 * Specifies the previous status of a trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -375,10 +430,10 @@ public class TradeData12 {
 	 * definition} = "Specifies the previous status of a trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmPreviousStatus = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Optional<Status28Choice>> mmPreviousStatus = new MMMessageAttribute<TradeData12, Optional<Status28Choice>>() {
 		{
 			businessComponentTrace_lazy = () -> TreasuryTradeSettlementStatus.mmObject();
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "PrvsSts";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -388,12 +443,22 @@ public class TradeData12 {
 			minOccurs = 0;
 			complexType_lazy = () -> Status28Choice.mmObject();
 		}
+
+		@Override
+		public Optional<Status28Choice> getValue(TradeData12 obj) {
+			return obj.getPreviousStatus();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Optional<Status28Choice> value) {
+			obj.setPreviousStatus(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "PrvsStsSubTp")
 	protected StatusSubType2Code previousStatusSubType;
 	/**
-	 * Additional information on the previous status of a trade in a central
-	 * system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -425,10 +490,10 @@ public class TradeData12 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmPreviousStatusSubType = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Optional<StatusSubType2Code>> mmPreviousStatusSubType = new MMMessageAttribute<TradeData12, Optional<StatusSubType2Code>>() {
 		{
 			businessComponentTrace_lazy = () -> TreasuryTradeSettlementStatus.mmObject();
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "PrvsStsSubTp";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -438,13 +503,22 @@ public class TradeData12 {
 			minOccurs = 0;
 			simpleType_lazy = () -> StatusSubType2Code.mmObject();
 		}
+
+		@Override
+		public Optional<StatusSubType2Code> getValue(TradeData12 obj) {
+			return obj.getPreviousStatusSubType();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Optional<StatusSubType2Code> value) {
+			obj.setPreviousStatusSubType(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "PdctTp")
 	protected Max35Text productType;
 	/**
-	 * Specifies the product for which the status of the confirmation is
-	 * reported, unless overwritten by a product type assigned to an individual
-	 * trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -475,10 +549,10 @@ public class TradeData12 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmProductType = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Optional<Max35Text>> mmProductType = new MMMessageAttribute<TradeData12, Optional<Max35Text>>() {
 		{
 			businessElementTrace_lazy = () -> ForeignExchangeTrade.mmTypeOfProduct;
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "PdctTp";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -488,12 +562,22 @@ public class TradeData12 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max35Text> getValue(TradeData12 obj) {
+			return obj.getProductType();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Optional<Max35Text> value) {
+			obj.setProductType(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "SttlmSsnIdr")
 	protected Exact4AlphaNumericText settlementSessionIdentifier;
 	/**
-	 * To indicate the requested CLS settlement session that the related trade
-	 * is part of.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -520,9 +604,9 @@ public class TradeData12 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmSettlementSessionIdentifier = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Optional<Exact4AlphaNumericText>> mmSettlementSessionIdentifier = new MMMessageAttribute<TradeData12, Optional<Exact4AlphaNumericText>>() {
 		{
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "SttlmSsnIdr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -532,12 +616,22 @@ public class TradeData12 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Exact4AlphaNumericText.mmObject();
 		}
+
+		@Override
+		public Optional<Exact4AlphaNumericText> getValue(TradeData12 obj) {
+			return obj.getSettlementSessionIdentifier();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Optional<Exact4AlphaNumericText> value) {
+			obj.setSettlementSessionIdentifier(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "LkdRptId")
 	protected Max35Text linkedReportIdentification;
 	/**
-	 * The identification that links the quoted trades with a submitted Report
-	 * issued by a central system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -568,10 +662,10 @@ public class TradeData12 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmLinkedReportIdentification = new MMMessageAttribute() {
+	public static final MMMessageAttribute<TradeData12, Optional<Max35Text>> mmLinkedReportIdentification = new MMMessageAttribute<TradeData12, Optional<Max35Text>>() {
 		{
 			businessElementTrace_lazy = () -> Trade.mmTradeRelatedIdentifications;
-			componentContext_lazy = () -> TradeData12.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.TradeData12.mmObject();
 			isDerived = false;
 			xmlTag = "LkdRptId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -581,16 +675,28 @@ public class TradeData12 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max35Text> getValue(TradeData12 obj) {
+			return obj.getLinkedReportIdentification();
+		}
+
+		@Override
+		public void setValue(TradeData12 obj, Optional<Max35Text> value) {
+			obj.setLinkedReportIdentification(value.orElse(null));
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(TradeData12.mmMessageIdentification, TradeData12.mmStatusOriginator, TradeData12.mmCurrentStatus, TradeData12.mmCurrentStatusSubType, TradeData12.mmCurrentStatusDateTime,
-						TradeData12.mmPreviousStatus, TradeData12.mmPreviousStatusSubType, TradeData12.mmProductType, TradeData12.mmSettlementSessionIdentifier, TradeData12.mmLinkedReportIdentification);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.TradeData12.mmMessageIdentification, com.tools20022.repository.msg.TradeData12.mmStatusOriginator,
+						com.tools20022.repository.msg.TradeData12.mmCurrentStatus, com.tools20022.repository.msg.TradeData12.mmCurrentStatusSubType, com.tools20022.repository.msg.TradeData12.mmCurrentStatusDateTime,
+						com.tools20022.repository.msg.TradeData12.mmPreviousStatus, com.tools20022.repository.msg.TradeData12.mmPreviousStatusSubType, com.tools20022.repository.msg.TradeData12.mmProductType,
+						com.tools20022.repository.msg.TradeData12.mmSettlementSessionIdentifier, com.tools20022.repository.msg.TradeData12.mmLinkedReportIdentification);
 				messageBuildingBlock_lazy = () -> Arrays.asList(ForeignExchangeTradeBulkStatusNotificationV04.mmStatusDetails);
 				trace_lazy = () -> TreasuryTradeSettlementStatus.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "TradeData12";
 				definition = "Provides information on the status of a trade.";
@@ -599,93 +705,93 @@ public class TradeData12 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "MsgId", required = true)
 	public Max35Text getMessageIdentification() {
 		return messageIdentification;
 	}
 
-	public void setMessageIdentification(Max35Text messageIdentification) {
-		this.messageIdentification = messageIdentification;
+	public TradeData12 setMessageIdentification(Max35Text messageIdentification) {
+		this.messageIdentification = Objects.requireNonNull(messageIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "StsOrgtr")
-	public Max35Text getStatusOriginator() {
-		return statusOriginator;
+	public Optional<Max35Text> getStatusOriginator() {
+		return statusOriginator == null ? Optional.empty() : Optional.of(statusOriginator);
 	}
 
-	public void setStatusOriginator(Max35Text statusOriginator) {
+	public TradeData12 setStatusOriginator(Max35Text statusOriginator) {
 		this.statusOriginator = statusOriginator;
+		return this;
 	}
 
-	@XmlElement(name = "CurSts", required = true)
 	public StatusAndSubStatus2 getCurrentStatus() {
 		return currentStatus;
 	}
 
-	public void setCurrentStatus(com.tools20022.repository.msg.StatusAndSubStatus2 currentStatus) {
-		this.currentStatus = currentStatus;
+	public TradeData12 setCurrentStatus(StatusAndSubStatus2 currentStatus) {
+		this.currentStatus = Objects.requireNonNull(currentStatus);
+		return this;
 	}
 
-	@XmlElement(name = "CurStsSubTp")
-	public StatusSubType2Code getCurrentStatusSubType() {
-		return currentStatusSubType;
+	public Optional<StatusSubType2Code> getCurrentStatusSubType() {
+		return currentStatusSubType == null ? Optional.empty() : Optional.of(currentStatusSubType);
 	}
 
-	public void setCurrentStatusSubType(StatusSubType2Code currentStatusSubType) {
+	public TradeData12 setCurrentStatusSubType(StatusSubType2Code currentStatusSubType) {
 		this.currentStatusSubType = currentStatusSubType;
+		return this;
 	}
 
-	@XmlElement(name = "CurStsDtTm", required = true)
 	public ISODateTime getCurrentStatusDateTime() {
 		return currentStatusDateTime;
 	}
 
-	public void setCurrentStatusDateTime(ISODateTime currentStatusDateTime) {
-		this.currentStatusDateTime = currentStatusDateTime;
+	public TradeData12 setCurrentStatusDateTime(ISODateTime currentStatusDateTime) {
+		this.currentStatusDateTime = Objects.requireNonNull(currentStatusDateTime);
+		return this;
 	}
 
-	@XmlElement(name = "PrvsSts")
-	public Status28Choice getPreviousStatus() {
-		return previousStatus;
+	public Optional<Status28Choice> getPreviousStatus() {
+		return previousStatus == null ? Optional.empty() : Optional.of(previousStatus);
 	}
 
-	public void setPreviousStatus(Status28Choice previousStatus) {
+	public TradeData12 setPreviousStatus(Status28Choice previousStatus) {
 		this.previousStatus = previousStatus;
+		return this;
 	}
 
-	@XmlElement(name = "PrvsStsSubTp")
-	public StatusSubType2Code getPreviousStatusSubType() {
-		return previousStatusSubType;
+	public Optional<StatusSubType2Code> getPreviousStatusSubType() {
+		return previousStatusSubType == null ? Optional.empty() : Optional.of(previousStatusSubType);
 	}
 
-	public void setPreviousStatusSubType(StatusSubType2Code previousStatusSubType) {
+	public TradeData12 setPreviousStatusSubType(StatusSubType2Code previousStatusSubType) {
 		this.previousStatusSubType = previousStatusSubType;
+		return this;
 	}
 
-	@XmlElement(name = "PdctTp")
-	public Max35Text getProductType() {
-		return productType;
+	public Optional<Max35Text> getProductType() {
+		return productType == null ? Optional.empty() : Optional.of(productType);
 	}
 
-	public void setProductType(Max35Text productType) {
+	public TradeData12 setProductType(Max35Text productType) {
 		this.productType = productType;
+		return this;
 	}
 
-	@XmlElement(name = "SttlmSsnIdr")
-	public Exact4AlphaNumericText getSettlementSessionIdentifier() {
-		return settlementSessionIdentifier;
+	public Optional<Exact4AlphaNumericText> getSettlementSessionIdentifier() {
+		return settlementSessionIdentifier == null ? Optional.empty() : Optional.of(settlementSessionIdentifier);
 	}
 
-	public void setSettlementSessionIdentifier(Exact4AlphaNumericText settlementSessionIdentifier) {
+	public TradeData12 setSettlementSessionIdentifier(Exact4AlphaNumericText settlementSessionIdentifier) {
 		this.settlementSessionIdentifier = settlementSessionIdentifier;
+		return this;
 	}
 
-	@XmlElement(name = "LkdRptId")
-	public Max35Text getLinkedReportIdentification() {
-		return linkedReportIdentification;
+	public Optional<Max35Text> getLinkedReportIdentification() {
+		return linkedReportIdentification == null ? Optional.empty() : Optional.of(linkedReportIdentification);
 	}
 
-	public void setLinkedReportIdentification(Max35Text linkedReportIdentification) {
+	public TradeData12 setLinkedReportIdentification(Max35Text linkedReportIdentification) {
 		this.linkedReportIdentification = linkedReportIdentification;
+		return this;
 	}
 }

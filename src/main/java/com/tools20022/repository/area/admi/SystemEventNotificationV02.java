@@ -23,9 +23,9 @@ import com.tools20022.metamodel.MMMessageDefinitionIdentifier;
 import com.tools20022.metamodel.MMRegistrationStatus;
 import com.tools20022.repository.area.AdministrationLatestVersion;
 import com.tools20022.repository.msg.Event2;
-import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -71,15 +71,16 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "SystemEventNotificationV02", propOrder = "eventInformation")
 public class SystemEventNotificationV02 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "EvtInf", required = true)
 	protected Event2 eventInformation;
 	/**
-	 * Detailed information about a system event.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -98,7 +99,7 @@ public class SystemEventNotificationV02 {
 	 * definition} = "Detailed information about a system event."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmEventInformation = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<SystemEventNotificationV02, Event2> mmEventInformation = new MMMessageBuildingBlock<SystemEventNotificationV02, Event2>() {
 		{
 			xmlTag = "EvtInf";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -109,12 +110,14 @@ public class SystemEventNotificationV02 {
 			complexType_lazy = () -> Event2.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return SystemEventNotificationV02.class.getMethod("getEventInformation", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Event2 getValue(SystemEventNotificationV02 obj) {
+			return obj.getEventInformation();
+		}
+
+		@Override
+		public void setValue(SystemEventNotificationV02 obj, Event2 value) {
+			obj.setEventInformation(value);
 		}
 	};
 
@@ -146,16 +149,16 @@ public class SystemEventNotificationV02 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "EvtInf", required = true)
 	public Event2 getEventInformation() {
 		return eventInformation;
 	}
 
-	public void setEventInformation(Event2 eventInformation) {
-		this.eventInformation = eventInformation;
+	public SystemEventNotificationV02 setEventInformation(Event2 eventInformation) {
+		this.eventInformation = Objects.requireNonNull(eventInformation);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:admi.004.02.02")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:admi.004.001.02")
 	static public class Document {
 		@XmlElement(name = "SysEvtNtfctn", required = true)
 		public SystemEventNotificationV02 messageBody;

@@ -24,8 +24,12 @@ import com.tools20022.repository.area.fxtr.ForeignExchangeTradeBulkStatusNotific
 import com.tools20022.repository.datatype.Max5NumericText;
 import com.tools20022.repository.datatype.YesNoIndicator;
 import com.tools20022.repository.GeneratedRepository;
+import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Date;
+import java.util.function.Supplier;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -60,12 +64,13 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
- * registrationStatus} =
- * com.tools20022.metamodel.MMRegistrationStatus.REGISTERED</li>
+ * registrationStatus} = com.tools20022.metamodel.MMRegistrationStatus.OBSOLETE</li>
+ * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRemovalDate
+ * removalDate} = September 9, 2018</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getName name} =
  * "Pagination"</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
@@ -74,15 +79,16 @@ import javax.xml.bind.annotation.XmlType;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "Pagination", propOrder = {"pageNumber", "lastPageIndicator"})
 public class Pagination {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "PgNb", required = true)
 	protected Max5NumericText pageNumber;
 	/**
-	 * Page number.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -107,9 +113,9 @@ public class Pagination {
 	 * definition} = "Page number."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmPageNumber = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Pagination, Max5NumericText> mmPageNumber = new MMMessageAttribute<Pagination, Max5NumericText>() {
 		{
-			componentContext_lazy = () -> Pagination.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Pagination.mmObject();
 			isDerived = false;
 			xmlTag = "PgNb";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -119,11 +125,22 @@ public class Pagination {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max5NumericText.mmObject();
 		}
+
+		@Override
+		public Max5NumericText getValue(Pagination obj) {
+			return obj.getPageNumber();
+		}
+
+		@Override
+		public void setValue(Pagination obj, Max5NumericText value) {
+			obj.setPageNumber(value);
+		}
 	};
+	@XmlElement(name = "LastPgInd", required = true)
 	protected YesNoIndicator lastPageIndicator;
 	/**
-	 * Indicates the last page.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -148,9 +165,9 @@ public class Pagination {
 	 * definition} = "Indicates the last page."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmLastPageIndicator = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Pagination, YesNoIndicator> mmLastPageIndicator = new MMMessageAttribute<Pagination, YesNoIndicator>() {
 		{
-			componentContext_lazy = () -> Pagination.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Pagination.mmObject();
 			isDerived = false;
 			xmlTag = "LastPgInd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -160,15 +177,32 @@ public class Pagination {
 			minOccurs = 1;
 			simpleType_lazy = () -> YesNoIndicator.mmObject();
 		}
+
+		@Override
+		public YesNoIndicator getValue(Pagination obj) {
+			return obj.getLastPageIndicator();
+		}
+
+		@Override
+		public void setValue(Pagination obj, YesNoIndicator value) {
+			obj.setLastPageIndicator(value);
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(Pagination.mmPageNumber, Pagination.mmLastPageIndicator);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.Pagination.mmPageNumber, com.tools20022.repository.msg.Pagination.mmLastPageIndicator);
 				messageBuildingBlock_lazy = () -> Arrays.asList(ForeignExchangeTradeBulkStatusNotificationV04.mmMessagePagination);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
-				registrationStatus = MMRegistrationStatus.REGISTERED;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
+				registrationStatus = MMRegistrationStatus.OBSOLETE;
+				removalDate = ((Supplier<Date>) (() -> {
+					try {
+						return DateFormat.getDateInstance(java.text.DateFormat.LONG).parse("September 9, 2018");
+					} catch (Exception e) {
+						throw new RuntimeException(e);
+					}
+				})).get();
 				name = "Pagination";
 				definition = "Number used to sequence pages when it is not possible for data to be conveyed in a single message and the data has to be split across several pages (messages).";
 			}
@@ -176,21 +210,21 @@ public class Pagination {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "PgNb", required = true)
 	public Max5NumericText getPageNumber() {
 		return pageNumber;
 	}
 
-	public void setPageNumber(Max5NumericText pageNumber) {
-		this.pageNumber = pageNumber;
+	public Pagination setPageNumber(Max5NumericText pageNumber) {
+		this.pageNumber = Objects.requireNonNull(pageNumber);
+		return this;
 	}
 
-	@XmlElement(name = "LastPgInd", required = true)
 	public YesNoIndicator getLastPageIndicator() {
 		return lastPageIndicator;
 	}
 
-	public void setLastPageIndicator(YesNoIndicator lastPageIndicator) {
-		this.lastPageIndicator = lastPageIndicator;
+	public Pagination setLastPageIndicator(YesNoIndicator lastPageIndicator) {
+		this.lastPageIndicator = Objects.requireNonNull(lastPageIndicator);
+		return this;
 	}
 }

@@ -25,6 +25,7 @@ import com.tools20022.repository.entity.TradeIdentification;
 import com.tools20022.repository.GeneratedRepository;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -54,8 +55,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -64,20 +65,20 @@ import javax.xml.bind.annotation.XmlType;
  * "MatchingSystemReference1Choice"</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
  * definition} =
- * "Choice between a matching system unique identification or the related reference. "
+ * "Choice between a matching system unique identification or the related reference."
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "MatchingSystemReference1Choice", propOrder = {"matchingSystemUniqueReference", "relatedReference"})
 public class MatchingSystemReference1Choice {
 
 	final static private AtomicReference<MMChoiceComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "MtchgSysUnqRef", required = true)
 	protected Max35Text matchingSystemUniqueReference;
 	/**
-	 * Reference to the unique system identification assigned to the trade by
-	 * the central matching system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -105,29 +106,39 @@ public class MatchingSystemReference1Choice {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Reference to the unique system identification assigned to the trade  by the central matching system."
+	 * "Reference to the unique system identification assigned to the trade by the central matching system."
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmMatchingSystemUniqueReference = new MMMessageAttribute() {
+	public static final MMMessageAttribute<MatchingSystemReference1Choice, Max35Text> mmMatchingSystemUniqueReference = new MMMessageAttribute<MatchingSystemReference1Choice, Max35Text>() {
 		{
 			businessElementTrace_lazy = () -> TradeIdentification.mmMatchingReference;
-			componentContext_lazy = () -> MatchingSystemReference1Choice.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.choice.MatchingSystemReference1Choice.mmObject();
 			isDerived = false;
 			xmlTag = "MtchgSysUnqRef";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "MatchingSystemUniqueReference";
-			definition = "Reference to the unique system identification assigned to the trade  by the central matching system.";
+			definition = "Reference to the unique system identification assigned to the trade by the central matching system.";
 			maxOccurs = 1;
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(MatchingSystemReference1Choice obj) {
+			return obj.getMatchingSystemUniqueReference();
+		}
+
+		@Override
+		public void setValue(MatchingSystemReference1Choice obj, Max35Text value) {
+			obj.setMatchingSystemUniqueReference(value);
+		}
 	};
+	@XmlElement(name = "RltdRef", required = true)
 	protected Max35Text relatedReference;
 	/**
-	 * Refers to the identification of a previous event in the life of a trade
-	 * which is amended or cancelled.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -155,54 +166,64 @@ public class MatchingSystemReference1Choice {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Refers to the identification of a previous event in the life of a trade which is amended or cancelled. "
+	 * "Refers to the identification of a previous event in the life of a trade which is amended or cancelled."
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmRelatedReference = new MMMessageAttribute() {
+	public static final MMMessageAttribute<MatchingSystemReference1Choice, Max35Text> mmRelatedReference = new MMMessageAttribute<MatchingSystemReference1Choice, Max35Text>() {
 		{
 			businessElementTrace_lazy = () -> TradeIdentification.mmIdentification;
-			componentContext_lazy = () -> MatchingSystemReference1Choice.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.choice.MatchingSystemReference1Choice.mmObject();
 			isDerived = false;
 			xmlTag = "RltdRef";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "RelatedReference";
-			definition = "Refers to the identification of a previous event in the life of a trade which is amended or cancelled. ";
+			definition = "Refers to the identification of a previous event in the life of a trade which is amended or cancelled.";
 			maxOccurs = 1;
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
+		}
+
+		@Override
+		public Max35Text getValue(MatchingSystemReference1Choice obj) {
+			return obj.getRelatedReference();
+		}
+
+		@Override
+		public void setValue(MatchingSystemReference1Choice obj, Max35Text value) {
+			obj.setRelatedReference(value);
 		}
 	};
 
 	final static public MMChoiceComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMChoiceComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(MatchingSystemReference1Choice.mmMatchingSystemUniqueReference, MatchingSystemReference1Choice.mmRelatedReference);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.choice.MatchingSystemReference1Choice.mmMatchingSystemUniqueReference, com.tools20022.repository.choice.MatchingSystemReference1Choice.mmRelatedReference);
 				trace_lazy = () -> TradeIdentification.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "MatchingSystemReference1Choice";
-				definition = "Choice between a matching system unique identification or the related reference. ";
+				definition = "Choice between a matching system unique identification or the related reference.";
 			}
 		});
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "MtchgSysUnqRef", required = true)
 	public Max35Text getMatchingSystemUniqueReference() {
 		return matchingSystemUniqueReference;
 	}
 
-	public void setMatchingSystemUniqueReference(Max35Text matchingSystemUniqueReference) {
-		this.matchingSystemUniqueReference = matchingSystemUniqueReference;
+	public MatchingSystemReference1Choice setMatchingSystemUniqueReference(Max35Text matchingSystemUniqueReference) {
+		this.matchingSystemUniqueReference = Objects.requireNonNull(matchingSystemUniqueReference);
+		return this;
 	}
 
-	@XmlElement(name = "RltdRef", required = true)
 	public Max35Text getRelatedReference() {
 		return relatedReference;
 	}
 
-	public void setRelatedReference(Max35Text relatedReference) {
-		this.relatedReference = relatedReference;
+	public MatchingSystemReference1Choice setRelatedReference(Max35Text relatedReference) {
+		this.relatedReference = Objects.requireNonNull(relatedReference);
+		return this;
 	}
 }

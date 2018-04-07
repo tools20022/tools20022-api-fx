@@ -26,9 +26,8 @@ import com.tools20022.repository.datatype.Max1000Text;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.datatype.Max4AlphaNumericText;
 import com.tools20022.repository.GeneratedRepository;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -65,8 +64,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -79,15 +78,16 @@ import javax.xml.bind.annotation.XmlType;
  * previousVersion} = {@linkplain com.tools20022.repository.msg.Event1 Event1}</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "Event2", propOrder = {"eventCode", "eventParameter", "eventDescription", "eventTime"})
 public class Event2 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "EvtCd", required = true)
 	protected Max4AlphaNumericText eventCode;
 	/**
-	 * Proprietary code used to specify an event that occurred in a system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -118,9 +118,9 @@ public class Event2 {
 	 * Event1.mmEventCode}</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmEventCode = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Event2, Max4AlphaNumericText> mmEventCode = new MMMessageAttribute<Event2, Max4AlphaNumericText>() {
 		{
-			componentContext_lazy = () -> Event2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Event2.mmObject();
 			isDerived = false;
 			xmlTag = "EvtCd";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -131,11 +131,22 @@ public class Event2 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max4AlphaNumericText.mmObject();
 		}
+
+		@Override
+		public Max4AlphaNumericText getValue(Event2 obj) {
+			return obj.getEventCode();
+		}
+
+		@Override
+		public void setValue(Event2 obj, Max4AlphaNumericText value) {
+			obj.setEventCode(value);
+		}
 	};
+	@XmlElement(name = "EvtParam")
 	protected List<Max35Text> eventParameter;
 	/**
-	 * Describes the parameters of an event which occurred in a system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -165,9 +176,9 @@ public class Event2 {
 	 * Event1.mmEventParameter}</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmEventParameter = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Event2, List<Max35Text>> mmEventParameter = new MMMessageAttribute<Event2, List<Max35Text>>() {
 		{
-			componentContext_lazy = () -> Event2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Event2.mmObject();
 			isDerived = false;
 			xmlTag = "EvtParam";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -177,11 +188,22 @@ public class Event2 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public List<Max35Text> getValue(Event2 obj) {
+			return obj.getEventParameter();
+		}
+
+		@Override
+		public void setValue(Event2 obj, List<Max35Text> value) {
+			obj.setEventParameter(value);
+		}
 	};
+	@XmlElement(name = "EvtDesc")
 	protected Max1000Text eventDescription;
 	/**
-	 * Free text used to describe an event which occurred in a system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -211,9 +233,9 @@ public class Event2 {
 	 * Event1.mmEventDescription}</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmEventDescription = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Event2, Optional<Max1000Text>> mmEventDescription = new MMMessageAttribute<Event2, Optional<Max1000Text>>() {
 		{
-			componentContext_lazy = () -> Event2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Event2.mmObject();
 			isDerived = false;
 			xmlTag = "EvtDesc";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -224,11 +246,22 @@ public class Event2 {
 			minOccurs = 0;
 			simpleType_lazy = () -> Max1000Text.mmObject();
 		}
+
+		@Override
+		public Optional<Max1000Text> getValue(Event2 obj) {
+			return obj.getEventDescription();
+		}
+
+		@Override
+		public void setValue(Event2 obj, Optional<Max1000Text> value) {
+			obj.setEventDescription(value.orElse(null));
+		}
 	};
+	@XmlElement(name = "EvtTm")
 	protected ISODateTime eventTime;
 	/**
-	 * Date and time at which the event occurred.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -257,9 +290,9 @@ public class Event2 {
 	 * Event1.mmEventTime}</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmEventTime = new MMMessageAttribute() {
+	public static final MMMessageAttribute<Event2, Optional<ISODateTime>> mmEventTime = new MMMessageAttribute<Event2, Optional<ISODateTime>>() {
 		{
-			componentContext_lazy = () -> Event2.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.Event2.mmObject();
 			isDerived = false;
 			xmlTag = "EvtTm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -270,14 +303,25 @@ public class Event2 {
 			minOccurs = 0;
 			simpleType_lazy = () -> ISODateTime.mmObject();
 		}
+
+		@Override
+		public Optional<ISODateTime> getValue(Event2 obj) {
+			return obj.getEventTime();
+		}
+
+		@Override
+		public void setValue(Event2 obj, Optional<ISODateTime> value) {
+			obj.setEventTime(value.orElse(null));
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(Event2.mmEventCode, Event2.mmEventParameter, Event2.mmEventDescription, Event2.mmEventTime);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.Event2.mmEventCode, com.tools20022.repository.msg.Event2.mmEventParameter, com.tools20022.repository.msg.Event2.mmEventDescription,
+						com.tools20022.repository.msg.Event2.mmEventTime);
 				messageBuildingBlock_lazy = () -> Arrays.asList(SystemEventNotificationV02.mmEventInformation);
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "Event2";
 				definition = "Provides information on an event that happened in a system.";
@@ -287,39 +331,39 @@ public class Event2 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "EvtCd", required = true)
 	public Max4AlphaNumericText getEventCode() {
 		return eventCode;
 	}
 
-	public void setEventCode(Max4AlphaNumericText eventCode) {
-		this.eventCode = eventCode;
+	public Event2 setEventCode(Max4AlphaNumericText eventCode) {
+		this.eventCode = Objects.requireNonNull(eventCode);
+		return this;
 	}
 
-	@XmlElement(name = "EvtParam")
 	public List<Max35Text> getEventParameter() {
-		return eventParameter;
+		return eventParameter == null ? eventParameter = new ArrayList<>() : eventParameter;
 	}
 
-	public void setEventParameter(List<Max35Text> eventParameter) {
-		this.eventParameter = eventParameter;
+	public Event2 setEventParameter(List<Max35Text> eventParameter) {
+		this.eventParameter = Objects.requireNonNull(eventParameter);
+		return this;
 	}
 
-	@XmlElement(name = "EvtDesc")
-	public Max1000Text getEventDescription() {
-		return eventDescription;
+	public Optional<Max1000Text> getEventDescription() {
+		return eventDescription == null ? Optional.empty() : Optional.of(eventDescription);
 	}
 
-	public void setEventDescription(Max1000Text eventDescription) {
+	public Event2 setEventDescription(Max1000Text eventDescription) {
 		this.eventDescription = eventDescription;
+		return this;
 	}
 
-	@XmlElement(name = "EvtTm")
-	public ISODateTime getEventTime() {
-		return eventTime;
+	public Optional<ISODateTime> getEventTime() {
+		return eventTime == null ? Optional.empty() : Optional.of(eventTime);
 	}
 
-	public void setEventTime(ISODateTime eventTime) {
+	public Event2 setEventTime(ISODateTime eventTime) {
 		this.eventTime = eventTime;
+		return this;
 	}
 }

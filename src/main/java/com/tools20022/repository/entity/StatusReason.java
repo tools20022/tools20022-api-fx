@@ -20,14 +20,15 @@ package com.tools20022.repository.entity;
 import com.tools20022.metamodel.*;
 import com.tools20022.repository.codeset.*;
 import com.tools20022.repository.datatype.Max35Text;
+import com.tools20022.repository.entity.GenericIdentification;
+import com.tools20022.repository.entity.RegisteredContract;
+import com.tools20022.repository.entity.Status;
 import com.tools20022.repository.GeneratedRepository;
 import com.tools20022.repository.msg.RejectionReason2;
 import com.tools20022.repository.msg.TradeAgreement12;
 import com.tools20022.repository.msg.TradeAgreement15;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 
 /**
  * Specifies the underlying reason for the status of an object.
@@ -112,8 +113,8 @@ import java.util.List;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -129,8 +130,8 @@ public class StatusReason {
 	final static private AtomicReference<MMBusinessComponent> mmObject_lazy = new AtomicReference<>();
 	protected Status status;
 	/**
-	 * Status for which a reason is provided.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -159,7 +160,7 @@ public class StatusReason {
 	 * definition} = "Status for which a reason is provided."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmStatus = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<StatusReason, Optional<Status>> mmStatus = new MMBusinessAssociationEnd<StatusReason, Optional<Status>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -168,15 +169,25 @@ public class StatusReason {
 			definition = "Status for which a reason is provided.";
 			maxOccurs = 1;
 			minOccurs = 0;
-			opposite_lazy = () -> com.tools20022.repository.entity.Status.mmStatusReason;
+			opposite_lazy = () -> Status.mmStatusReason;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.Status.mmObject();
+			type_lazy = () -> Status.mmObject();
+		}
+
+		@Override
+		public Optional<Status> getValue(StatusReason obj) {
+			return obj.getStatus();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, Optional<Status> value) {
+			obj.setStatus(value.orElse(null));
 		}
 	};
 	protected Max35Text reason;
 	/**
-	 * Reason provided for the status.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -209,7 +220,7 @@ public class StatusReason {
 	 * definition} = "Reason provided for the status."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, Max35Text> mmReason = new MMBusinessAttribute<StatusReason, Max35Text>() {
 		{
 			derivation_lazy = () -> Arrays.asList(TradeAgreement12.mmAmendOrCancelReason, TradeAgreement15.mmAmendOrCancelReason);
 			isDerived = false;
@@ -222,18 +233,20 @@ public class StatusReason {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(StatusReason obj) {
+			return obj.getReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, Max35Text value) {
+			obj.setReason(value);
 		}
 	};
 	protected NoReasonCode noSpecifiedReason;
 	/**
-	 * Indicates that there is no reason available or to report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -256,7 +269,7 @@ public class StatusReason {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmNoSpecifiedReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, NoReasonCode> mmNoSpecifiedReason = new MMBusinessAttribute<StatusReason, NoReasonCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -268,18 +281,20 @@ public class StatusReason {
 			simpleType_lazy = () -> NoReasonCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getNoSpecifiedReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public NoReasonCode getValue(StatusReason obj) {
+			return obj.getNoSpecifiedReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, NoReasonCode value) {
+			obj.setNoSpecifiedReason(value);
 		}
 	};
-	protected List<com.tools20022.repository.entity.GenericIdentification> dataSourceScheme;
+	protected List<GenericIdentification> dataSourceScheme;
 	/**
-	 * Proprietary identification of the reason for the status.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -310,7 +325,7 @@ public class StatusReason {
 	 * definition} = "Proprietary identification of the reason for the status."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmDataSourceScheme = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<StatusReason, List<GenericIdentification>> mmDataSourceScheme = new MMBusinessAssociationEnd<StatusReason, List<GenericIdentification>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -318,15 +333,25 @@ public class StatusReason {
 			name = "DataSourceScheme";
 			definition = "Proprietary identification of the reason for the status.";
 			minOccurs = 0;
-			opposite_lazy = () -> com.tools20022.repository.entity.GenericIdentification.mmRelatedStatusReason;
+			opposite_lazy = () -> GenericIdentification.mmRelatedStatusReason;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.GenericIdentification.mmObject();
+			type_lazy = () -> GenericIdentification.mmObject();
+		}
+
+		@Override
+		public List<GenericIdentification> getValue(StatusReason obj) {
+			return obj.getDataSourceScheme();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, List<GenericIdentification> value) {
+			obj.setDataSourceScheme(value);
 		}
 	};
 	protected RejectedStatusReasonCode rejectedStatusReason;
 	/**
-	 * Reason for the rejected status.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -349,7 +374,7 @@ public class StatusReason {
 	 * definition} = "Reason for the rejected status."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmRejectedStatusReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, RejectedStatusReasonCode> mmRejectedStatusReason = new MMBusinessAttribute<StatusReason, RejectedStatusReasonCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -361,18 +386,20 @@ public class StatusReason {
 			simpleType_lazy = () -> RejectedStatusReasonCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getRejectedStatusReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public RejectedStatusReasonCode getValue(StatusReason obj) {
+			return obj.getRejectedStatusReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, RejectedStatusReasonCode value) {
+			obj.setRejectedStatusReason(value);
 		}
 	};
 	protected PendingFailingReasonCode failingReason;
 	/**
-	 * Reason why a transaction has a failing status.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -395,7 +422,7 @@ public class StatusReason {
 	 * definition} = "Reason why a transaction has a failing status."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmFailingReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, PendingFailingReasonCode> mmFailingReason = new MMBusinessAttribute<StatusReason, PendingFailingReasonCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -407,19 +434,20 @@ public class StatusReason {
 			simpleType_lazy = () -> PendingFailingReasonCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getFailingReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public PendingFailingReasonCode getValue(StatusReason obj) {
+			return obj.getFailingReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, PendingFailingReasonCode value) {
+			obj.setFailingReason(value);
 		}
 	};
 	protected CancelledStatusReasonV2Code cancellationReason;
 	/**
-	 * Specifies the reason why the related instruction is cancelled, or the
-	 * related cancellation request is executed.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -444,7 +472,7 @@ public class StatusReason {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmCancellationReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, CancelledStatusReasonV2Code> mmCancellationReason = new MMBusinessAttribute<StatusReason, CancelledStatusReasonV2Code>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -456,18 +484,20 @@ public class StatusReason {
 			simpleType_lazy = () -> CancelledStatusReasonV2Code.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getCancellationReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public CancelledStatusReasonV2Code getValue(StatusReason obj) {
+			return obj.getCancellationReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, CancelledStatusReasonV2Code value) {
+			obj.setCancellationReason(value);
 		}
 	};
 	protected PendingFailingReasonCode pendingReason;
 	/**
-	 * Specifies the reason why the instruction processing is pending.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -491,7 +521,7 @@ public class StatusReason {
 	 * "Specifies the reason why the instruction processing is pending."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmPendingReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, PendingFailingReasonCode> mmPendingReason = new MMBusinessAttribute<StatusReason, PendingFailingReasonCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -503,19 +533,20 @@ public class StatusReason {
 			simpleType_lazy = () -> PendingFailingReasonCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getPendingReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public PendingFailingReasonCode getValue(StatusReason obj) {
+			return obj.getPendingReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, PendingFailingReasonCode value) {
+			obj.setPendingReason(value);
 		}
 	};
 	protected RejectionReasonV2Code rejectionReason;
 	/**
-	 * Specifies the reason why the instruction/request has a repair or
-	 * rejection status.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -540,7 +571,7 @@ public class StatusReason {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmRejectionReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, RejectionReasonV2Code> mmRejectionReason = new MMBusinessAttribute<StatusReason, RejectionReasonV2Code>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -552,18 +583,20 @@ public class StatusReason {
 			simpleType_lazy = () -> RejectionReasonV2Code.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getRejectionReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public RejectionReasonV2Code getValue(StatusReason obj) {
+			return obj.getRejectionReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, RejectionReasonV2Code value) {
+			obj.setRejectionReason(value);
 		}
 	};
 	protected AcknowledgementReasonCode acknowledgedAcceptedReason;
 	/**
-	 * Specifies additional information about the processed instruction.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -587,7 +620,7 @@ public class StatusReason {
 	 * "Specifies additional information about the processed instruction."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmAcknowledgedAcceptedReason = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<StatusReason, AcknowledgementReasonCode> mmAcknowledgedAcceptedReason = new MMBusinessAttribute<StatusReason, AcknowledgementReasonCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -599,18 +632,20 @@ public class StatusReason {
 			simpleType_lazy = () -> AcknowledgementReasonCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return StatusReason.class.getMethod("getAcknowledgedAcceptedReason", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public AcknowledgementReasonCode getValue(StatusReason obj) {
+			return obj.getAcknowledgedAcceptedReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, AcknowledgementReasonCode value) {
+			obj.setAcknowledgedAcceptedReason(value);
 		}
 	};
 	protected RegisteredContract relatedClosureReason;
 	/**
-	 * Related reason of closure of the contract.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -640,7 +675,7 @@ public class StatusReason {
 	 * definition} = "Related reason of closure of the contract. "</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmRelatedClosureReason = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<StatusReason, RegisteredContract> mmRelatedClosureReason = new MMBusinessAssociationEnd<StatusReason, RegisteredContract>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.StatusReason.mmObject();
@@ -649,21 +684,30 @@ public class StatusReason {
 			definition = "Related reason of closure of the contract. ";
 			maxOccurs = 1;
 			minOccurs = 1;
-			opposite_lazy = () -> com.tools20022.repository.entity.RegisteredContract.mmClosureReason;
+			opposite_lazy = () -> RegisteredContract.mmClosureReason;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.RegisteredContract.mmObject();
+			type_lazy = () -> RegisteredContract.mmObject();
+		}
+
+		@Override
+		public RegisteredContract getValue(StatusReason obj) {
+			return obj.getRelatedClosureReason();
+		}
+
+		@Override
+		public void setValue(StatusReason obj, RegisteredContract value) {
+			obj.setRelatedClosureReason(value);
 		}
 	};
 
 	static public MMBusinessComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMBusinessComponent() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "StatusReason";
 				definition = "Specifies the underlying reason for the status of an object.";
-				associationDomain_lazy = () -> Arrays.asList(com.tools20022.repository.entity.GenericIdentification.mmRelatedStatusReason, com.tools20022.repository.entity.Status.mmStatusReason,
-						com.tools20022.repository.entity.RegisteredContract.mmClosureReason);
+				associationDomain_lazy = () -> Arrays.asList(GenericIdentification.mmRelatedStatusReason, Status.mmStatusReason, RegisteredContract.mmClosureReason);
 				subType_lazy = () -> Arrays.asList(SecuritiesTradeStatusReason.mmObject(), CorporateActionStatusReason.mmObject(), UndertakingStatusReason.mmObject(), MeetingStatusReason.mmObject());
 				element_lazy = () -> Arrays.asList(com.tools20022.repository.entity.StatusReason.mmStatus, com.tools20022.repository.entity.StatusReason.mmReason, com.tools20022.repository.entity.StatusReason.mmNoSpecifiedReason,
 						com.tools20022.repository.entity.StatusReason.mmDataSourceScheme, com.tools20022.repository.entity.StatusReason.mmRejectedStatusReason, com.tools20022.repository.entity.StatusReason.mmFailingReason,
@@ -680,91 +724,102 @@ public class StatusReason {
 		return mmObject_lazy.get();
 	}
 
-	public Status getStatus() {
-		return status;
+	public Optional<Status> getStatus() {
+		return status == null ? Optional.empty() : Optional.of(status);
 	}
 
-	public void setStatus(com.tools20022.repository.entity.Status status) {
+	public StatusReason setStatus(Status status) {
 		this.status = status;
+		return this;
 	}
 
 	public Max35Text getReason() {
 		return reason;
 	}
 
-	public void setReason(Max35Text reason) {
-		this.reason = reason;
+	public StatusReason setReason(Max35Text reason) {
+		this.reason = Objects.requireNonNull(reason);
+		return this;
 	}
 
 	public NoReasonCode getNoSpecifiedReason() {
 		return noSpecifiedReason;
 	}
 
-	public void setNoSpecifiedReason(NoReasonCode noSpecifiedReason) {
-		this.noSpecifiedReason = noSpecifiedReason;
+	public StatusReason setNoSpecifiedReason(NoReasonCode noSpecifiedReason) {
+		this.noSpecifiedReason = Objects.requireNonNull(noSpecifiedReason);
+		return this;
 	}
 
 	public List<GenericIdentification> getDataSourceScheme() {
-		return dataSourceScheme;
+		return dataSourceScheme == null ? dataSourceScheme = new ArrayList<>() : dataSourceScheme;
 	}
 
-	public void setDataSourceScheme(List<com.tools20022.repository.entity.GenericIdentification> dataSourceScheme) {
-		this.dataSourceScheme = dataSourceScheme;
+	public StatusReason setDataSourceScheme(List<GenericIdentification> dataSourceScheme) {
+		this.dataSourceScheme = Objects.requireNonNull(dataSourceScheme);
+		return this;
 	}
 
 	public RejectedStatusReasonCode getRejectedStatusReason() {
 		return rejectedStatusReason;
 	}
 
-	public void setRejectedStatusReason(RejectedStatusReasonCode rejectedStatusReason) {
-		this.rejectedStatusReason = rejectedStatusReason;
+	public StatusReason setRejectedStatusReason(RejectedStatusReasonCode rejectedStatusReason) {
+		this.rejectedStatusReason = Objects.requireNonNull(rejectedStatusReason);
+		return this;
 	}
 
 	public PendingFailingReasonCode getFailingReason() {
 		return failingReason;
 	}
 
-	public void setFailingReason(PendingFailingReasonCode failingReason) {
-		this.failingReason = failingReason;
+	public StatusReason setFailingReason(PendingFailingReasonCode failingReason) {
+		this.failingReason = Objects.requireNonNull(failingReason);
+		return this;
 	}
 
 	public CancelledStatusReasonV2Code getCancellationReason() {
 		return cancellationReason;
 	}
 
-	public void setCancellationReason(CancelledStatusReasonV2Code cancellationReason) {
-		this.cancellationReason = cancellationReason;
+	public StatusReason setCancellationReason(CancelledStatusReasonV2Code cancellationReason) {
+		this.cancellationReason = Objects.requireNonNull(cancellationReason);
+		return this;
 	}
 
 	public PendingFailingReasonCode getPendingReason() {
 		return pendingReason;
 	}
 
-	public void setPendingReason(PendingFailingReasonCode pendingReason) {
-		this.pendingReason = pendingReason;
+	public StatusReason setPendingReason(PendingFailingReasonCode pendingReason) {
+		this.pendingReason = Objects.requireNonNull(pendingReason);
+		return this;
 	}
 
 	public RejectionReasonV2Code getRejectionReason() {
 		return rejectionReason;
 	}
 
-	public void setRejectionReason(RejectionReasonV2Code rejectionReason) {
-		this.rejectionReason = rejectionReason;
+	public StatusReason setRejectionReason(RejectionReasonV2Code rejectionReason) {
+		this.rejectionReason = Objects.requireNonNull(rejectionReason);
+		return this;
 	}
 
 	public AcknowledgementReasonCode getAcknowledgedAcceptedReason() {
 		return acknowledgedAcceptedReason;
 	}
 
-	public void setAcknowledgedAcceptedReason(AcknowledgementReasonCode acknowledgedAcceptedReason) {
-		this.acknowledgedAcceptedReason = acknowledgedAcceptedReason;
+	public StatusReason setAcknowledgedAcceptedReason(AcknowledgementReasonCode acknowledgedAcceptedReason) {
+		this.acknowledgedAcceptedReason = Objects.requireNonNull(acknowledgedAcceptedReason);
+		return this;
 	}
 
 	public RegisteredContract getRelatedClosureReason() {
 		return relatedClosureReason;
 	}
 
-	public void setRelatedClosureReason(com.tools20022.repository.entity.RegisteredContract relatedClosureReason) {
-		this.relatedClosureReason = relatedClosureReason;
+	public StatusReason setRelatedClosureReason(RegisteredContract relatedClosureReason) {
+		this.relatedClosureReason = Objects.requireNonNull(relatedClosureReason);
+		return this;
 	}
 }

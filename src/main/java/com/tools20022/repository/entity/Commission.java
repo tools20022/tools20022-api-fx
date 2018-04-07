@@ -17,6 +17,7 @@
 
 package com.tools20022.repository.entity;
 
+import com.tools20022.metamodel.ext.ISO15022Synonym;
 import com.tools20022.metamodel.*;
 import com.tools20022.repository.codeset.CommissionTypeV2Code;
 import com.tools20022.repository.codeset.CurrencyCode;
@@ -25,13 +26,11 @@ import com.tools20022.repository.datatype.CurrencyAndAmount;
 import com.tools20022.repository.datatype.ISODateTime;
 import com.tools20022.repository.datatype.Max35Text;
 import com.tools20022.repository.datatype.PercentageRate;
-import com.tools20022.repository.entity.Adjustment;
+import com.tools20022.repository.entity.*;
 import com.tools20022.repository.GeneratedRepository;
 import com.tools20022.repository.msg.GeneralInformation5;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 
 /**
  * Amount of money due to a party as compensation for a service.
@@ -113,8 +112,8 @@ import java.util.List;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -131,8 +130,8 @@ public class Commission extends Adjustment {
 	final static private AtomicReference<MMBusinessComponent> mmObject_lazy = new AtomicReference<>();
 	protected CommissionWaiver commissionWaiving;
 	/**
-	 * Voluntary non-enforcement of the right to all or part of a commission.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -163,7 +162,7 @@ public class Commission extends Adjustment {
 	 * "Voluntary non-enforcement of the right to all or part of a commission."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmCommissionWaiving = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Commission, CommissionWaiver> mmCommissionWaiving = new MMBusinessAssociationEnd<Commission, CommissionWaiver>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -172,15 +171,25 @@ public class Commission extends Adjustment {
 			definition = "Voluntary non-enforcement of the right to all or part of a commission.";
 			maxOccurs = 1;
 			minOccurs = 1;
-			opposite_lazy = () -> com.tools20022.repository.entity.CommissionWaiver.mmCommission;
+			opposite_lazy = () -> CommissionWaiver.mmCommission;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.CommissionWaiver.mmObject();
+			type_lazy = () -> CommissionWaiver.mmObject();
+		}
+
+		@Override
+		public CommissionWaiver getValue(Commission obj) {
+			return obj.getCommissionWaiving();
+		}
+
+		@Override
+		public void setValue(Commission obj, CommissionWaiver value) {
+			obj.setCommissionWaiving(value);
 		}
 	};
 	protected Trade trade;
 	/**
-	 * Trade for which commission parameters are specified.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -209,7 +218,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Trade for which commission parameters are specified."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmTrade = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Commission, Optional<Trade>> mmTrade = new MMBusinessAssociationEnd<Commission, Optional<Trade>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -222,11 +231,21 @@ public class Commission extends Adjustment {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.Trade.mmObject();
 		}
+
+		@Override
+		public Optional<Trade> getValue(Commission obj) {
+			return obj.getTrade();
+		}
+
+		@Override
+		public void setValue(Commission obj, Optional<Trade> value) {
+			obj.setTrade(value.orElse(null));
+		}
 	};
 	protected CommissionTypeV2Code commissionType;
 	/**
-	 * Service for which the commission is asked or paid.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -239,6 +258,9 @@ public class Commission extends Adjustment {
 	 * elementContext} =
 	 * {@linkplain com.tools20022.repository.entity.Commission Commission}</li>
 	 * <li>
+	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getSemanticMarkup
+	 * semanticMarkup} = ISO15022Synonym: :22a::COST</li>
+	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
 	 * registrationStatus} =
 	 * com.tools20022.metamodel.MMRegistrationStatus.REGISTERED</li>
@@ -249,10 +271,11 @@ public class Commission extends Adjustment {
 	 * definition} = "Service for which the commission is asked or paid."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmCommissionType = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, CommissionTypeV2Code> mmCommissionType = new MMBusinessAttribute<Commission, CommissionTypeV2Code>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
+			semanticMarkup_lazy = () -> Arrays.asList(new ISO15022Synonym(this, ":22a::COST"));
 			registrationStatus = MMRegistrationStatus.REGISTERED;
 			name = "CommissionType";
 			definition = "Service for which the commission is asked or paid.";
@@ -261,18 +284,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> CommissionTypeV2Code.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getCommissionType", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public CommissionTypeV2Code getValue(Commission obj) {
+			return obj.getCommissionType();
+		}
+
+		@Override
+		public void setValue(Commission obj, CommissionTypeV2Code value) {
+			obj.setCommissionType(value);
 		}
 	};
 	protected TaxationBasisCode basis;
 	/**
-	 * Basis upon which a commission is charged, eg, flat fee.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -295,7 +320,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Basis upon which a commission is charged, eg, flat fee."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmBasis = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, TaxationBasisCode> mmBasis = new MMBusinessAttribute<Commission, TaxationBasisCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -307,20 +332,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> TaxationBasisCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getBasis", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public TaxationBasisCode getValue(Commission obj) {
+			return obj.getBasis();
+		}
+
+		@Override
+		public void setValue(Commission obj, TaxationBasisCode value) {
+			obj.setBasis(value);
 		}
 	};
 	protected Max35Text commercialAgreementReference;
 	/**
-	 * Reference to the agreement established between the fund and another
-	 * party. This element, amongst others, defines the conditions of the
-	 * commissions.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -344,7 +369,7 @@ public class Commission extends Adjustment {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmCommercialAgreementReference = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, Max35Text> mmCommercialAgreementReference = new MMBusinessAttribute<Commission, Max35Text>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -356,18 +381,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getCommercialAgreementReference", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Max35Text getValue(Commission obj) {
+			return obj.getCommercialAgreementReference();
+		}
+
+		@Override
+		public void setValue(Commission obj, Max35Text value) {
+			obj.setCommercialAgreementReference(value);
 		}
 	};
 	protected ISODateTime calculationDate;
 	/**
-	 * Date/time at which the commission is calculated.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -389,7 +416,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Date/time at which the commission is calculated."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmCalculationDate = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, ISODateTime> mmCalculationDate = new MMBusinessAttribute<Commission, ISODateTime>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -401,18 +428,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> ISODateTime.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getCalculationDate", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public ISODateTime getValue(Commission obj) {
+			return obj.getCalculationDate();
+		}
+
+		@Override
+		public void setValue(Commission obj, ISODateTime value) {
+			obj.setCalculationDate(value);
 		}
 	};
 	protected PercentageRate rate;
 	/**
-	 * Commission expressed as a percentage.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -435,7 +464,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Commission expressed as a percentage."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmRate = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, PercentageRate> mmRate = new MMBusinessAttribute<Commission, PercentageRate>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -447,18 +476,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> PercentageRate.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getRate", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public PercentageRate getValue(Commission obj) {
+			return obj.getRate();
+		}
+
+		@Override
+		public void setValue(Commission obj, PercentageRate value) {
+			obj.setRate(value);
 		}
 	};
 	protected CurrencyAndAmount commissionAmount;
 	/**
-	 * Commission expressed as an amount of money.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -489,7 +520,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Commission expressed as an amount of money."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmCommissionAmount = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, CurrencyAndAmount> mmCommissionAmount = new MMBusinessAttribute<Commission, CurrencyAndAmount>() {
 		{
 			derivation_lazy = () -> Arrays.asList(GeneralInformation5.mmBrokersCommission);
 			isDerived = false;
@@ -502,18 +533,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> CurrencyAndAmount.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getCommissionAmount", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public CurrencyAndAmount getValue(Commission obj) {
+			return obj.getCommissionAmount();
+		}
+
+		@Override
+		public void setValue(Commission obj, CurrencyAndAmount value) {
+			obj.setCommissionAmount(value);
 		}
 	};
 	protected List<com.tools20022.repository.entity.Broker> broker;
 	/**
-	 * Broker to which a commission is paid.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -542,7 +575,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Broker to which a commission is paid."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmBroker = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Commission, List<Broker>> mmBroker = new MMBusinessAssociationEnd<Commission, List<Broker>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -554,11 +587,21 @@ public class Commission extends Adjustment {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.Broker.mmObject();
 		}
+
+		@Override
+		public List<Broker> getValue(Commission obj) {
+			return obj.getBroker();
+		}
+
+		@Override
+		public void setValue(Commission obj, List<Broker> value) {
+			obj.setBroker(value);
+		}
 	};
 	protected List<com.tools20022.repository.entity.CommissionPartyRole> commissionPartyRole;
 	/**
-	 * Role played by a party in the context of commissions.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -588,7 +631,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Role played by a party in the context of commissions."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmCommissionPartyRole = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Commission, List<CommissionPartyRole>> mmCommissionPartyRole = new MMBusinessAssociationEnd<Commission, List<CommissionPartyRole>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -600,11 +643,21 @@ public class Commission extends Adjustment {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.CommissionPartyRole.mmObject();
 		}
+
+		@Override
+		public List<CommissionPartyRole> getValue(Commission obj) {
+			return obj.getCommissionPartyRole();
+		}
+
+		@Override
+		public void setValue(Commission obj, List<CommissionPartyRole> value) {
+			obj.setCommissionPartyRole(value);
+		}
 	};
-	protected List<com.tools20022.repository.entity.CashAccount> account;
+	protected List<CashAccount> account;
 	/**
-	 * Account used for the commission fees.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -634,7 +687,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Account used for the commission fees."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmAccount = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Commission, List<CashAccount>> mmAccount = new MMBusinessAssociationEnd<Commission, List<CashAccount>>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -642,15 +695,25 @@ public class Commission extends Adjustment {
 			name = "Account";
 			definition = "Account used for the commission fees.";
 			minOccurs = 0;
-			opposite_lazy = () -> com.tools20022.repository.entity.CashAccount.mmCommission;
+			opposite_lazy = () -> CashAccount.mmCommission;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.CashAccount.mmObject();
+			type_lazy = () -> CashAccount.mmObject();
+		}
+
+		@Override
+		public List<CashAccount> getValue(Commission obj) {
+			return obj.getAccount();
+		}
+
+		@Override
+		public void setValue(Commission obj, List<CashAccount> value) {
+			obj.setAccount(value);
 		}
 	};
 	protected SecuritiesQuoteVariable relatedQuote;
 	/**
-	 * Quote which includes a commission.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -681,7 +744,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Quote which includes a commission."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmRelatedQuote = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Commission, SecuritiesQuoteVariable> mmRelatedQuote = new MMBusinessAssociationEnd<Commission, SecuritiesQuoteVariable>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -690,15 +753,25 @@ public class Commission extends Adjustment {
 			definition = "Quote which includes a commission.";
 			maxOccurs = 1;
 			minOccurs = 1;
-			opposite_lazy = () -> com.tools20022.repository.entity.SecuritiesQuoteVariable.mmCommission;
+			opposite_lazy = () -> SecuritiesQuoteVariable.mmCommission;
 			aggregation = MMAggregation.NONE;
-			type_lazy = () -> com.tools20022.repository.entity.SecuritiesQuoteVariable.mmObject();
+			type_lazy = () -> SecuritiesQuoteVariable.mmObject();
+		}
+
+		@Override
+		public SecuritiesQuoteVariable getValue(Commission obj) {
+			return obj.getRelatedQuote();
+		}
+
+		@Override
+		public void setValue(Commission obj, SecuritiesQuoteVariable value) {
+			obj.setRelatedQuote(value);
 		}
 	};
 	protected PercentageRate splitRate;
 	/**
-	 * Percentage of the total commission received by an intermediary.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -722,7 +795,7 @@ public class Commission extends Adjustment {
 	 * "Percentage of the total commission received by an intermediary."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmSplitRate = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, PercentageRate> mmSplitRate = new MMBusinessAttribute<Commission, PercentageRate>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -734,18 +807,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> PercentageRate.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getSplitRate", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public PercentageRate getValue(Commission obj) {
+			return obj.getSplitRate();
+		}
+
+		@Override
+		public void setValue(Commission obj, PercentageRate value) {
+			obj.setSplitRate(value);
 		}
 	};
 	protected CurrencyCode currency;
 	/**
-	 * Currency in which the commission has to be settled.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -767,7 +842,7 @@ public class Commission extends Adjustment {
 	 * definition} = "Currency in which the commission has to be settled."</li>
 	 * </ul>
 	 */
-	public static final MMBusinessAttribute mmCurrency = new MMBusinessAttribute() {
+	public static final MMBusinessAttribute<Commission, CurrencyCode> mmCurrency = new MMBusinessAttribute<Commission, CurrencyCode>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -779,18 +854,20 @@ public class Commission extends Adjustment {
 			simpleType_lazy = () -> CurrencyCode.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return Commission.class.getMethod("getCurrency", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public CurrencyCode getValue(Commission obj) {
+			return obj.getCurrency();
+		}
+
+		@Override
+		public void setValue(Commission obj, CurrencyCode value) {
+			obj.setCurrency(value);
 		}
 	};
 	protected CorporateActionFeesAndCharges corporateActionFeesAndCharges;
 	/**
-	 * Corporate action fees to which commission fees are added.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -822,7 +899,7 @@ public class Commission extends Adjustment {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMBusinessAssociationEnd mmCorporateActionFeesAndCharges = new MMBusinessAssociationEnd() {
+	public static final MMBusinessAssociationEnd<Commission, com.tools20022.repository.entity.CorporateActionFeesAndCharges> mmCorporateActionFeesAndCharges = new MMBusinessAssociationEnd<Commission, com.tools20022.repository.entity.CorporateActionFeesAndCharges>() {
 		{
 			isDerived = false;
 			elementContext_lazy = () -> com.tools20022.repository.entity.Commission.mmObject();
@@ -835,18 +912,28 @@ public class Commission extends Adjustment {
 			aggregation = MMAggregation.NONE;
 			type_lazy = () -> com.tools20022.repository.entity.CorporateActionFeesAndCharges.mmObject();
 		}
+
+		@Override
+		public com.tools20022.repository.entity.CorporateActionFeesAndCharges getValue(Commission obj) {
+			return obj.getCorporateActionFeesAndCharges();
+		}
+
+		@Override
+		public void setValue(Commission obj, com.tools20022.repository.entity.CorporateActionFeesAndCharges value) {
+			obj.setCorporateActionFeesAndCharges(value);
+		}
 	};
 
 	static public MMBusinessComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMBusinessComponent() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "Commission";
 				definition = "Amount of money due to a party as compensation for a service.";
-				associationDomain_lazy = () -> Arrays.asList(com.tools20022.repository.entity.CashAccount.mmCommission, com.tools20022.repository.entity.Trade.mmTradeCommission,
-						com.tools20022.repository.entity.CommissionWaiver.mmCommission, com.tools20022.repository.entity.CorporateActionFeesAndCharges.mmCommission, com.tools20022.repository.entity.Broker.mmCommission,
-						com.tools20022.repository.entity.CommissionPartyRole.mmCommission, com.tools20022.repository.entity.SecuritiesQuoteVariable.mmCommission);
+				associationDomain_lazy = () -> Arrays.asList(CashAccount.mmCommission, com.tools20022.repository.entity.Trade.mmTradeCommission, CommissionWaiver.mmCommission,
+						com.tools20022.repository.entity.CorporateActionFeesAndCharges.mmCommission, com.tools20022.repository.entity.Broker.mmCommission, com.tools20022.repository.entity.CommissionPartyRole.mmCommission,
+						SecuritiesQuoteVariable.mmCommission);
 				superType_lazy = () -> Adjustment.mmObject();
 				element_lazy = () -> Arrays.asList(com.tools20022.repository.entity.Commission.mmCommissionWaiving, com.tools20022.repository.entity.Commission.mmTrade, com.tools20022.repository.entity.Commission.mmCommissionType,
 						com.tools20022.repository.entity.Commission.mmBasis, com.tools20022.repository.entity.Commission.mmCommercialAgreementReference, com.tools20022.repository.entity.Commission.mmCalculationDate,
@@ -867,119 +954,134 @@ public class Commission extends Adjustment {
 		return commissionWaiving;
 	}
 
-	public void setCommissionWaiving(com.tools20022.repository.entity.CommissionWaiver commissionWaiving) {
-		this.commissionWaiving = commissionWaiving;
+	public Commission setCommissionWaiving(CommissionWaiver commissionWaiving) {
+		this.commissionWaiving = Objects.requireNonNull(commissionWaiving);
+		return this;
 	}
 
-	public Trade getTrade() {
-		return trade;
+	public Optional<Trade> getTrade() {
+		return trade == null ? Optional.empty() : Optional.of(trade);
 	}
 
-	public void setTrade(com.tools20022.repository.entity.Trade trade) {
+	public Commission setTrade(com.tools20022.repository.entity.Trade trade) {
 		this.trade = trade;
+		return this;
 	}
 
 	public CommissionTypeV2Code getCommissionType() {
 		return commissionType;
 	}
 
-	public void setCommissionType(CommissionTypeV2Code commissionType) {
-		this.commissionType = commissionType;
+	public Commission setCommissionType(CommissionTypeV2Code commissionType) {
+		this.commissionType = Objects.requireNonNull(commissionType);
+		return this;
 	}
 
 	public TaxationBasisCode getBasis() {
 		return basis;
 	}
 
-	public void setBasis(TaxationBasisCode basis) {
-		this.basis = basis;
+	public Commission setBasis(TaxationBasisCode basis) {
+		this.basis = Objects.requireNonNull(basis);
+		return this;
 	}
 
 	public Max35Text getCommercialAgreementReference() {
 		return commercialAgreementReference;
 	}
 
-	public void setCommercialAgreementReference(Max35Text commercialAgreementReference) {
-		this.commercialAgreementReference = commercialAgreementReference;
+	public Commission setCommercialAgreementReference(Max35Text commercialAgreementReference) {
+		this.commercialAgreementReference = Objects.requireNonNull(commercialAgreementReference);
+		return this;
 	}
 
 	public ISODateTime getCalculationDate() {
 		return calculationDate;
 	}
 
-	public void setCalculationDate(ISODateTime calculationDate) {
-		this.calculationDate = calculationDate;
+	public Commission setCalculationDate(ISODateTime calculationDate) {
+		this.calculationDate = Objects.requireNonNull(calculationDate);
+		return this;
 	}
 
 	public PercentageRate getRate() {
 		return rate;
 	}
 
-	public void setRate(PercentageRate rate) {
-		this.rate = rate;
+	public Commission setRate(PercentageRate rate) {
+		this.rate = Objects.requireNonNull(rate);
+		return this;
 	}
 
 	public CurrencyAndAmount getCommissionAmount() {
 		return commissionAmount;
 	}
 
-	public void setCommissionAmount(CurrencyAndAmount commissionAmount) {
-		this.commissionAmount = commissionAmount;
+	public Commission setCommissionAmount(CurrencyAndAmount commissionAmount) {
+		this.commissionAmount = Objects.requireNonNull(commissionAmount);
+		return this;
 	}
 
 	public List<Broker> getBroker() {
-		return broker;
+		return broker == null ? broker = new ArrayList<>() : broker;
 	}
 
-	public void setBroker(List<com.tools20022.repository.entity.Broker> broker) {
-		this.broker = broker;
+	public Commission setBroker(List<com.tools20022.repository.entity.Broker> broker) {
+		this.broker = Objects.requireNonNull(broker);
+		return this;
 	}
 
 	public List<CommissionPartyRole> getCommissionPartyRole() {
-		return commissionPartyRole;
+		return commissionPartyRole == null ? commissionPartyRole = new ArrayList<>() : commissionPartyRole;
 	}
 
-	public void setCommissionPartyRole(List<com.tools20022.repository.entity.CommissionPartyRole> commissionPartyRole) {
-		this.commissionPartyRole = commissionPartyRole;
+	public Commission setCommissionPartyRole(List<com.tools20022.repository.entity.CommissionPartyRole> commissionPartyRole) {
+		this.commissionPartyRole = Objects.requireNonNull(commissionPartyRole);
+		return this;
 	}
 
 	public List<CashAccount> getAccount() {
-		return account;
+		return account == null ? account = new ArrayList<>() : account;
 	}
 
-	public void setAccount(List<com.tools20022.repository.entity.CashAccount> account) {
-		this.account = account;
+	public Commission setAccount(List<CashAccount> account) {
+		this.account = Objects.requireNonNull(account);
+		return this;
 	}
 
 	public SecuritiesQuoteVariable getRelatedQuote() {
 		return relatedQuote;
 	}
 
-	public void setRelatedQuote(com.tools20022.repository.entity.SecuritiesQuoteVariable relatedQuote) {
-		this.relatedQuote = relatedQuote;
+	public Commission setRelatedQuote(SecuritiesQuoteVariable relatedQuote) {
+		this.relatedQuote = Objects.requireNonNull(relatedQuote);
+		return this;
 	}
 
 	public PercentageRate getSplitRate() {
 		return splitRate;
 	}
 
-	public void setSplitRate(PercentageRate splitRate) {
-		this.splitRate = splitRate;
+	public Commission setSplitRate(PercentageRate splitRate) {
+		this.splitRate = Objects.requireNonNull(splitRate);
+		return this;
 	}
 
 	public CurrencyCode getCurrency() {
 		return currency;
 	}
 
-	public void setCurrency(CurrencyCode currency) {
-		this.currency = currency;
+	public Commission setCurrency(CurrencyCode currency) {
+		this.currency = Objects.requireNonNull(currency);
+		return this;
 	}
 
 	public CorporateActionFeesAndCharges getCorporateActionFeesAndCharges() {
 		return corporateActionFeesAndCharges;
 	}
 
-	public void setCorporateActionFeesAndCharges(com.tools20022.repository.entity.CorporateActionFeesAndCharges corporateActionFeesAndCharges) {
-		this.corporateActionFeesAndCharges = corporateActionFeesAndCharges;
+	public Commission setCorporateActionFeesAndCharges(com.tools20022.repository.entity.CorporateActionFeesAndCharges corporateActionFeesAndCharges) {
+		this.corporateActionFeesAndCharges = Objects.requireNonNull(corporateActionFeesAndCharges);
+		return this;
 	}
 }

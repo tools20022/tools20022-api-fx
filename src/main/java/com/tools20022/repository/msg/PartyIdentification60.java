@@ -27,8 +27,11 @@ import com.tools20022.repository.entity.OrganisationIdentification;
 import com.tools20022.repository.entity.PartyIdentificationInformation;
 import com.tools20022.repository.entity.TreasuryTradingParty;
 import com.tools20022.repository.GeneratedRepository;
+import com.tools20022.repository.msg.NameAndAddress8;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -61,8 +64,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -74,15 +77,16 @@ import javax.xml.bind.annotation.XmlType;
  * "Identification of a party by fund name, name and address or an LEI."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "PartyIdentification60", propOrder = {"fundIdentification", "nameAndAddress", "legalEntityIdentifier"})
 public class PartyIdentification60 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "FndId", required = true)
 	protected Max35Text fundIdentification;
 	/**
-	 * Identification of a fund.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -112,10 +116,10 @@ public class PartyIdentification60 {
 	 * definition} = "Identification of a fund."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmFundIdentification = new MMMessageAttribute() {
+	public static final MMMessageAttribute<PartyIdentification60, Max35Text> mmFundIdentification = new MMMessageAttribute<PartyIdentification60, Max35Text>() {
 		{
 			businessElementTrace_lazy = () -> TreasuryTradingParty.mmInvestmentFund;
-			componentContext_lazy = () -> PartyIdentification60.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.PartyIdentification60.mmObject();
 			isDerived = false;
 			xmlTag = "FndId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -125,12 +129,22 @@ public class PartyIdentification60 {
 			minOccurs = 1;
 			simpleType_lazy = () -> Max35Text.mmObject();
 		}
+
+		@Override
+		public Max35Text getValue(PartyIdentification60 obj) {
+			return obj.getFundIdentification();
+		}
+
+		@Override
+		public void setValue(PartyIdentification60 obj, Max35Text value) {
+			obj.setFundIdentification(value);
+		}
 	};
+	@XmlElement(name = "NmAndAdr")
 	protected NameAndAddress8 nameAndAddress;
 	/**
-	 * Identification of the party expressed as name and an optional address and
-	 * an optional alternative identifier.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -161,10 +175,10 @@ public class PartyIdentification60 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmNameAndAddress = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<PartyIdentification60, Optional<NameAndAddress8>> mmNameAndAddress = new MMMessageAssociationEnd<PartyIdentification60, Optional<NameAndAddress8>>() {
 		{
 			businessComponentTrace_lazy = () -> PartyIdentificationInformation.mmObject();
-			componentContext_lazy = () -> PartyIdentification60.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.PartyIdentification60.mmObject();
 			isDerived = false;
 			xmlTag = "NmAndAdr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -173,15 +187,24 @@ public class PartyIdentification60 {
 			maxOccurs = 1;
 			minOccurs = 0;
 			isComposite = true;
-			type_lazy = () -> com.tools20022.repository.msg.NameAndAddress8.mmObject();
+			type_lazy = () -> NameAndAddress8.mmObject();
+		}
+
+		@Override
+		public Optional<NameAndAddress8> getValue(PartyIdentification60 obj) {
+			return obj.getNameAndAddress();
+		}
+
+		@Override
+		public void setValue(PartyIdentification60 obj, Optional<NameAndAddress8> value) {
+			obj.setNameAndAddress(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "LglNttyIdr")
 	protected LEIIdentifier legalEntityIdentifier;
 	/**
-	 * Identification of the Legal Entity Identifier. This is a code allocated
-	 * to a party as described in ISO 17442
-	 * "Financial Services - Legal Entity Identifier (LEI)".
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -214,10 +237,10 @@ public class PartyIdentification60 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAttribute mmLegalEntityIdentifier = new MMMessageAttribute() {
+	public static final MMMessageAttribute<PartyIdentification60, Optional<LEIIdentifier>> mmLegalEntityIdentifier = new MMMessageAttribute<PartyIdentification60, Optional<LEIIdentifier>>() {
 		{
 			businessComponentTrace_lazy = () -> OrganisationIdentification.mmObject();
-			componentContext_lazy = () -> PartyIdentification60.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.PartyIdentification60.mmObject();
 			isDerived = false;
 			xmlTag = "LglNttyIdr";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -227,14 +250,25 @@ public class PartyIdentification60 {
 			minOccurs = 0;
 			simpleType_lazy = () -> LEIIdentifier.mmObject();
 		}
+
+		@Override
+		public Optional<LEIIdentifier> getValue(PartyIdentification60 obj) {
+			return obj.getLegalEntityIdentifier();
+		}
+
+		@Override
+		public void setValue(PartyIdentification60 obj, Optional<LEIIdentifier> value) {
+			obj.setLegalEntityIdentifier(value.orElse(null));
+		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(PartyIdentification60.mmFundIdentification, PartyIdentification60.mmNameAndAddress, PartyIdentification60.mmLegalEntityIdentifier);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.PartyIdentification60.mmFundIdentification, com.tools20022.repository.msg.PartyIdentification60.mmNameAndAddress,
+						com.tools20022.repository.msg.PartyIdentification60.mmLegalEntityIdentifier);
 				trace_lazy = () -> PartyIdentificationInformation.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "PartyIdentification60";
 				definition = "Identification of a party by fund name, name and address or an LEI.";
@@ -243,30 +277,30 @@ public class PartyIdentification60 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "FndId", required = true)
 	public Max35Text getFundIdentification() {
 		return fundIdentification;
 	}
 
-	public void setFundIdentification(Max35Text fundIdentification) {
-		this.fundIdentification = fundIdentification;
+	public PartyIdentification60 setFundIdentification(Max35Text fundIdentification) {
+		this.fundIdentification = Objects.requireNonNull(fundIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "NmAndAdr")
-	public NameAndAddress8 getNameAndAddress() {
-		return nameAndAddress;
+	public Optional<NameAndAddress8> getNameAndAddress() {
+		return nameAndAddress == null ? Optional.empty() : Optional.of(nameAndAddress);
 	}
 
-	public void setNameAndAddress(com.tools20022.repository.msg.NameAndAddress8 nameAndAddress) {
+	public PartyIdentification60 setNameAndAddress(NameAndAddress8 nameAndAddress) {
 		this.nameAndAddress = nameAndAddress;
+		return this;
 	}
 
-	@XmlElement(name = "LglNttyIdr")
-	public LEIIdentifier getLegalEntityIdentifier() {
-		return legalEntityIdentifier;
+	public Optional<LEIIdentifier> getLegalEntityIdentifier() {
+		return legalEntityIdentifier == null ? Optional.empty() : Optional.of(legalEntityIdentifier);
 	}
 
-	public void setLegalEntityIdentifier(LEIIdentifier legalEntityIdentifier) {
+	public PartyIdentification60 setLegalEntityIdentifier(LEIIdentifier legalEntityIdentifier) {
 		this.legalEntityIdentifier = legalEntityIdentifier;
+		return this;
 	}
 }

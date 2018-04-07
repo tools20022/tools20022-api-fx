@@ -24,10 +24,8 @@ import com.tools20022.metamodel.MMRegistrationStatus;
 import com.tools20022.repository.area.CashManagementLatestVersion;
 import com.tools20022.repository.choice.PartyIdentification73Choice;
 import com.tools20022.repository.msg.*;
-import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
 import javax.xml.bind.annotation.*;
 
 /**
@@ -86,15 +84,16 @@ import javax.xml.bind.annotation.*;
  * </li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "PayInScheduleV03", propOrder = {"partyIdentification", "reportData", "payInScheduleLongBalance", "payInScheduleItem", "payInFactors", "supplementaryData"})
 public class PayInScheduleV03 {
 
 	final static private AtomicReference<MMMessageDefinition> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "PtyId", required = true)
 	protected PartyIdentification73Choice partyIdentification;
 	/**
-	 * Party for which the pay-in schedule is generated.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -115,7 +114,7 @@ public class PayInScheduleV03 {
 	 * definition} = "Party for which the pay-in schedule is generated."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmPartyIdentification = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<PayInScheduleV03, PartyIdentification73Choice> mmPartyIdentification = new MMMessageBuildingBlock<PayInScheduleV03, PartyIdentification73Choice>() {
 		{
 			xmlTag = "PtyId";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -126,18 +125,21 @@ public class PayInScheduleV03 {
 			complexType_lazy = () -> PartyIdentification73Choice.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return PayInScheduleV03.class.getMethod("getPartyIdentification", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public PartyIdentification73Choice getValue(PayInScheduleV03 obj) {
+			return obj.getPartyIdentification();
+		}
+
+		@Override
+		public void setValue(PayInScheduleV03 obj, PartyIdentification73Choice value) {
+			obj.setPartyIdentification(value);
 		}
 	};
+	@XmlElement(name = "RptData", required = true)
 	protected ReportData4 reportData;
 	/**
-	 * General information applicable to the report.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -157,7 +159,7 @@ public class PayInScheduleV03 {
 	 * definition} = "General information applicable to the report."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmReportData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<PayInScheduleV03, ReportData4> mmReportData = new MMMessageBuildingBlock<PayInScheduleV03, ReportData4>() {
 		{
 			xmlTag = "RptData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -168,19 +170,21 @@ public class PayInScheduleV03 {
 			complexType_lazy = () -> ReportData4.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return PayInScheduleV03.class.getMethod("getReportData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public ReportData4 getValue(PayInScheduleV03 obj) {
+			return obj.getReportData();
+		}
+
+		@Override
+		public void setValue(PayInScheduleV03 obj, ReportData4 value) {
+			obj.setReportData(value);
 		}
 	};
+	@XmlElement(name = "PayInSchdlLngBal")
 	protected List<BalanceStatus2> payInScheduleLongBalance;
 	/**
-	 * Projected net position for all currencies, projected long for the value
-	 * date.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -202,7 +206,7 @@ public class PayInScheduleV03 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmPayInScheduleLongBalance = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<PayInScheduleV03, List<BalanceStatus2>> mmPayInScheduleLongBalance = new MMMessageBuildingBlock<PayInScheduleV03, List<BalanceStatus2>>() {
 		{
 			xmlTag = "PayInSchdlLngBal";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -212,18 +216,21 @@ public class PayInScheduleV03 {
 			complexType_lazy = () -> BalanceStatus2.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return PayInScheduleV03.class.getMethod("getPayInScheduleLongBalance", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<BalanceStatus2> getValue(PayInScheduleV03 obj) {
+			return obj.getPayInScheduleLongBalance();
+		}
+
+		@Override
+		public void setValue(PayInScheduleV03 obj, List<BalanceStatus2> value) {
+			obj.setPayInScheduleLongBalance(value);
 		}
 	};
+	@XmlElement(name = "PayInSchdlItm")
 	protected List<PayInScheduleItems1> payInScheduleItem;
 	/**
-	 * Currency and total amount to be paid in by the corresponding deadline.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -245,7 +252,7 @@ public class PayInScheduleV03 {
 	 * "Currency and total amount to be paid in by the corresponding deadline."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmPayInScheduleItem = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<PayInScheduleV03, List<PayInScheduleItems1>> mmPayInScheduleItem = new MMMessageBuildingBlock<PayInScheduleV03, List<PayInScheduleItems1>>() {
 		{
 			xmlTag = "PayInSchdlItm";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -255,18 +262,21 @@ public class PayInScheduleV03 {
 			complexType_lazy = () -> PayInScheduleItems1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return PayInScheduleV03.class.getMethod("getPayInScheduleItem", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<PayInScheduleItems1> getValue(PayInScheduleV03 obj) {
+			return obj.getPayInScheduleItem();
+		}
+
+		@Override
+		public void setValue(PayInScheduleV03 obj, List<PayInScheduleItems1> value) {
+			obj.setPayInScheduleItem(value);
 		}
 	};
+	@XmlElement(name = "PayInFctrs")
 	protected PayInFactors1 payInFactors;
 	/**
-	 * Factors used in the calculation of the pay-in schedule.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -286,7 +296,7 @@ public class PayInScheduleV03 {
 	 * definition} = "Factors used in the calculation of the pay-in schedule."</li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmPayInFactors = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<PayInScheduleV03, Optional<PayInFactors1>> mmPayInFactors = new MMMessageBuildingBlock<PayInScheduleV03, Optional<PayInFactors1>>() {
 		{
 			xmlTag = "PayInFctrs";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -297,19 +307,21 @@ public class PayInScheduleV03 {
 			complexType_lazy = () -> PayInFactors1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return PayInScheduleV03.class.getMethod("getPayInFactors", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public Optional<PayInFactors1> getValue(PayInScheduleV03 obj) {
+			return obj.getPayInFactors();
+		}
+
+		@Override
+		public void setValue(PayInScheduleV03 obj, Optional<PayInFactors1> value) {
+			obj.setPayInFactors(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "SplmtryData")
 	protected List<SupplementaryData1> supplementaryData;
 	/**
-	 * Additional information that cannot be captured in the structured elements
-	 * and/or any other specific block.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>
@@ -332,7 +344,7 @@ public class PayInScheduleV03 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageBuildingBlock mmSupplementaryData = new MMMessageBuildingBlock() {
+	public static final MMMessageBuildingBlock<PayInScheduleV03, List<SupplementaryData1>> mmSupplementaryData = new MMMessageBuildingBlock<PayInScheduleV03, List<SupplementaryData1>>() {
 		{
 			xmlTag = "SplmtryData";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -342,12 +354,14 @@ public class PayInScheduleV03 {
 			complexType_lazy = () -> SupplementaryData1.mmObject();
 		}
 
-		public Method getGetterMethod() {
-			try {
-				return PayInScheduleV03.class.getMethod("getSupplementaryData", new Class[]{});
-			} catch (NoSuchMethodException e) {
-				throw new RuntimeException(e);
-			}
+		@Override
+		public List<SupplementaryData1> getValue(PayInScheduleV03 obj) {
+			return obj.getSupplementaryData();
+		}
+
+		@Override
+		public void setValue(PayInScheduleV03 obj, List<SupplementaryData1> value) {
+			obj.setSupplementaryData(value);
 		}
 	};
 
@@ -381,61 +395,61 @@ public class PayInScheduleV03 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "PtyId", required = true)
 	public PartyIdentification73Choice getPartyIdentification() {
 		return partyIdentification;
 	}
 
-	public void setPartyIdentification(PartyIdentification73Choice partyIdentification) {
-		this.partyIdentification = partyIdentification;
+	public PayInScheduleV03 setPartyIdentification(PartyIdentification73Choice partyIdentification) {
+		this.partyIdentification = Objects.requireNonNull(partyIdentification);
+		return this;
 	}
 
-	@XmlElement(name = "RptData", required = true)
 	public ReportData4 getReportData() {
 		return reportData;
 	}
 
-	public void setReportData(ReportData4 reportData) {
-		this.reportData = reportData;
+	public PayInScheduleV03 setReportData(ReportData4 reportData) {
+		this.reportData = Objects.requireNonNull(reportData);
+		return this;
 	}
 
-	@XmlElement(name = "PayInSchdlLngBal")
 	public List<BalanceStatus2> getPayInScheduleLongBalance() {
-		return payInScheduleLongBalance;
+		return payInScheduleLongBalance == null ? payInScheduleLongBalance = new ArrayList<>() : payInScheduleLongBalance;
 	}
 
-	public void setPayInScheduleLongBalance(List<BalanceStatus2> payInScheduleLongBalance) {
-		this.payInScheduleLongBalance = payInScheduleLongBalance;
+	public PayInScheduleV03 setPayInScheduleLongBalance(List<BalanceStatus2> payInScheduleLongBalance) {
+		this.payInScheduleLongBalance = Objects.requireNonNull(payInScheduleLongBalance);
+		return this;
 	}
 
-	@XmlElement(name = "PayInSchdlItm")
 	public List<PayInScheduleItems1> getPayInScheduleItem() {
-		return payInScheduleItem;
+		return payInScheduleItem == null ? payInScheduleItem = new ArrayList<>() : payInScheduleItem;
 	}
 
-	public void setPayInScheduleItem(List<PayInScheduleItems1> payInScheduleItem) {
-		this.payInScheduleItem = payInScheduleItem;
+	public PayInScheduleV03 setPayInScheduleItem(List<PayInScheduleItems1> payInScheduleItem) {
+		this.payInScheduleItem = Objects.requireNonNull(payInScheduleItem);
+		return this;
 	}
 
-	@XmlElement(name = "PayInFctrs")
-	public PayInFactors1 getPayInFactors() {
-		return payInFactors;
+	public Optional<PayInFactors1> getPayInFactors() {
+		return payInFactors == null ? Optional.empty() : Optional.of(payInFactors);
 	}
 
-	public void setPayInFactors(PayInFactors1 payInFactors) {
+	public PayInScheduleV03 setPayInFactors(PayInFactors1 payInFactors) {
 		this.payInFactors = payInFactors;
+		return this;
 	}
 
-	@XmlElement(name = "SplmtryData")
 	public List<SupplementaryData1> getSupplementaryData() {
-		return supplementaryData;
+		return supplementaryData == null ? supplementaryData = new ArrayList<>() : supplementaryData;
 	}
 
-	public void setSupplementaryData(List<SupplementaryData1> supplementaryData) {
-		this.supplementaryData = supplementaryData;
+	public PayInScheduleV03 setSupplementaryData(List<SupplementaryData1> supplementaryData) {
+		this.supplementaryData = Objects.requireNonNull(supplementaryData);
+		return this;
 	}
 
-	@XmlRootElement(namespace = "urn:iso:std:iso:20022:tech:xsd:camt.062.03.03")
+	@XmlRootElement(name = "Document", namespace = "urn:iso:std:iso:20022:tech:xsd:camt.062.001.03")
 	static public class Document {
 		@XmlElement(name = "PayInSchdl", required = true)
 		public PayInScheduleV03 messageBody;

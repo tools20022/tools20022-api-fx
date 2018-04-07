@@ -38,16 +38,16 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <ul>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicator1Code#FullyCollateralised
- * CollateralisationIndicator1Code.mmFullyCollateralised}</li>
+ * CollateralisationIndicator1Code.FullyCollateralised}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicator1Code#OneWayCollateralised
- * CollateralisationIndicator1Code.mmOneWayCollateralised}</li>
+ * CollateralisationIndicator1Code.OneWayCollateralised}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicator1Code#PartiallyCollateralised
- * CollateralisationIndicator1Code.mmPartiallyCollateralised}</li>
+ * CollateralisationIndicator1Code.PartiallyCollateralised}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CollateralisationIndicator1Code#Uncollateralised
- * CollateralisationIndicator1Code.mmUncollateralised}</li>
+ * CollateralisationIndicator1Code.Uncollateralised}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getTrace trace} =
@@ -56,8 +56,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>{@linkplain com.tools20022.metamodel.MMRepositoryConcept#getExample
  * example} =
  * <ul>
@@ -182,7 +182,7 @@ public class CollateralisationIndicator1Code extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				example = Arrays.asList("FULL");
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "CollateralisationIndicator1Code";

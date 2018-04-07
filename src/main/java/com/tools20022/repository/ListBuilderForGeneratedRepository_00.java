@@ -521,14 +521,14 @@ class ListBuilderForGeneratedRepository_00 {
 		list.add((T) Loan.mmObject());
 		list.add((T) RegulatoryReportingRole.mmObject());
 		list.add((T) CRSStatus.mmObject());
+		list.add((T) MessageIdentification1.mmObject());
 		list.add((T) PostalAddress1.mmObject());
 		list.add((T) DateAndDateTimeChoice.mmObject());
+		list.add((T) GenericIdentification1.mmObject());
 		list.add((T) ClearingSystemIdentification2Choice.mmObject());
 		list.add((T) ClearingSystemMemberIdentification2.mmObject());
 		list.add((T) FinancialIdentificationSchemeName1Choice.mmObject());
 		list.add((T) GenericFinancialIdentification1.mmObject());
-		list.add((T) PostalAddress6.mmObject());
-		list.add((T) FinancialInstitutionIdentification8.mmObject());
 		ListBuilderForGeneratedRepository_01.addElems(list);
 		return list;
 	}

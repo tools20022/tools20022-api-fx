@@ -24,8 +24,13 @@ import com.tools20022.repository.area.fxtr.ForeignExchangeTradeStatusAndDetailsN
 import com.tools20022.repository.entity.ForeignExchangeTrade;
 import com.tools20022.repository.entity.TreasuryTrade;
 import com.tools20022.repository.GeneratedRepository;
+import com.tools20022.repository.msg.AgreedRate3;
+import com.tools20022.repository.msg.AmountsAndValueDate1;
+import com.tools20022.repository.msg.TradeData16;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.Objects;
+import java.util.Optional;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlElement;
@@ -66,8 +71,8 @@ import javax.xml.bind.annotation.XmlType;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -79,16 +84,16 @@ import javax.xml.bind.annotation.XmlType;
  * "Information describing the high level details of a split trade."</li>
  * </ul>
  */
-@XmlAccessorType(XmlAccessType.PROPERTY)
+@XmlAccessorType(XmlAccessType.NONE)
 @XmlType(name = "SplitTradeDetails3", propOrder = {"statusDetails", "tradeAmounts", "agreedRate"})
 public class SplitTradeDetails3 {
 
 	final static private AtomicReference<MMMessageComponent> mmObject_lazy = new AtomicReference<>();
+	@XmlElement(name = "StsDtls")
 	protected TradeData16 statusDetails;
 	/**
-	 * Provides information on the status of a foreign exchange trade in the
-	 * system.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -119,10 +124,10 @@ public class SplitTradeDetails3 {
 	 * </li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmStatusDetails = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<SplitTradeDetails3, Optional<TradeData16>> mmStatusDetails = new MMMessageAssociationEnd<SplitTradeDetails3, Optional<TradeData16>>() {
 		{
 			businessElementTrace_lazy = () -> TreasuryTrade.mmTreasuryTradeSettlementStatus;
-			componentContext_lazy = () -> SplitTradeDetails3.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.SplitTradeDetails3.mmObject();
 			isDerived = false;
 			xmlTag = "StsDtls";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -131,13 +136,24 @@ public class SplitTradeDetails3 {
 			maxOccurs = 1;
 			minOccurs = 0;
 			isComposite = true;
-			type_lazy = () -> com.tools20022.repository.msg.TradeData16.mmObject();
+			type_lazy = () -> TradeData16.mmObject();
+		}
+
+		@Override
+		public Optional<TradeData16> getValue(SplitTradeDetails3 obj) {
+			return obj.getStatusDetails();
+		}
+
+		@Override
+		public void setValue(SplitTradeDetails3 obj, Optional<TradeData16> value) {
+			obj.setStatusDetails(value.orElse(null));
 		}
 	};
+	@XmlElement(name = "TradAmts", required = true)
 	protected AmountsAndValueDate1 tradeAmounts;
 	/**
-	 * Amounts of the foreign exchange trade.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -166,10 +182,10 @@ public class SplitTradeDetails3 {
 	 * definition} = "Amounts of the foreign exchange trade."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmTradeAmounts = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<SplitTradeDetails3, AmountsAndValueDate1> mmTradeAmounts = new MMMessageAssociationEnd<SplitTradeDetails3, AmountsAndValueDate1>() {
 		{
 			businessComponentTrace_lazy = () -> ForeignExchangeTrade.mmObject();
-			componentContext_lazy = () -> SplitTradeDetails3.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.SplitTradeDetails3.mmObject();
 			isDerived = false;
 			xmlTag = "TradAmts";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -178,13 +194,24 @@ public class SplitTradeDetails3 {
 			maxOccurs = 1;
 			minOccurs = 1;
 			isComposite = true;
-			type_lazy = () -> com.tools20022.repository.msg.AmountsAndValueDate1.mmObject();
+			type_lazy = () -> AmountsAndValueDate1.mmObject();
+		}
+
+		@Override
+		public AmountsAndValueDate1 getValue(SplitTradeDetails3 obj) {
+			return obj.getTradeAmounts();
+		}
+
+		@Override
+		public void setValue(SplitTradeDetails3 obj, AmountsAndValueDate1 value) {
+			obj.setTradeAmounts(value);
 		}
 	};
+	@XmlElement(name = "AgrdRate")
 	protected AgreedRate3 agreedRate;
 	/**
-	 * Exchange rate as agreed by the traders.
-	 * <p>
+	 * 
+	 <p>
 	 * <strong>Constant fields:</strong>
 	 * <ul>
 	 * <li>{@linkplain com.tools20022.metamodel.MMMessageAssociationEnd#getType
@@ -213,10 +240,10 @@ public class SplitTradeDetails3 {
 	 * definition} = "Exchange rate as agreed by the traders."</li>
 	 * </ul>
 	 */
-	public static final MMMessageAssociationEnd mmAgreedRate = new MMMessageAssociationEnd() {
+	public static final MMMessageAssociationEnd<SplitTradeDetails3, Optional<AgreedRate3>> mmAgreedRate = new MMMessageAssociationEnd<SplitTradeDetails3, Optional<AgreedRate3>>() {
 		{
 			businessElementTrace_lazy = () -> ForeignExchangeTrade.mmAgreedRate;
-			componentContext_lazy = () -> SplitTradeDetails3.mmObject();
+			componentContext_lazy = () -> com.tools20022.repository.msg.SplitTradeDetails3.mmObject();
 			isDerived = false;
 			xmlTag = "AgrdRate";
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
@@ -225,17 +252,28 @@ public class SplitTradeDetails3 {
 			maxOccurs = 1;
 			minOccurs = 0;
 			isComposite = true;
-			type_lazy = () -> com.tools20022.repository.msg.AgreedRate3.mmObject();
+			type_lazy = () -> AgreedRate3.mmObject();
+		}
+
+		@Override
+		public Optional<AgreedRate3> getValue(SplitTradeDetails3 obj) {
+			return obj.getAgreedRate();
+		}
+
+		@Override
+		public void setValue(SplitTradeDetails3 obj, Optional<AgreedRate3> value) {
+			obj.setAgreedRate(value.orElse(null));
 		}
 	};
 
 	final static public MMMessageComponent mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMMessageComponent() {
 			{
-				messageElement_lazy = () -> Arrays.asList(SplitTradeDetails3.mmStatusDetails, SplitTradeDetails3.mmTradeAmounts, SplitTradeDetails3.mmAgreedRate);
+				messageElement_lazy = () -> Arrays.asList(com.tools20022.repository.msg.SplitTradeDetails3.mmStatusDetails, com.tools20022.repository.msg.SplitTradeDetails3.mmTradeAmounts,
+						com.tools20022.repository.msg.SplitTradeDetails3.mmAgreedRate);
 				messageBuildingBlock_lazy = () -> Arrays.asList(ForeignExchangeTradeStatusAndDetailsNotificationV04.mmSplitTradeInformation);
 				trace_lazy = () -> TreasuryTrade.mmObject();
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "SplitTradeDetails3";
 				definition = "Information describing the high level details of a split trade.";
@@ -244,30 +282,30 @@ public class SplitTradeDetails3 {
 		return mmObject_lazy.get();
 	}
 
-	@XmlElement(name = "StsDtls")
-	public TradeData16 getStatusDetails() {
-		return statusDetails;
+	public Optional<TradeData16> getStatusDetails() {
+		return statusDetails == null ? Optional.empty() : Optional.of(statusDetails);
 	}
 
-	public void setStatusDetails(com.tools20022.repository.msg.TradeData16 statusDetails) {
+	public SplitTradeDetails3 setStatusDetails(TradeData16 statusDetails) {
 		this.statusDetails = statusDetails;
+		return this;
 	}
 
-	@XmlElement(name = "TradAmts", required = true)
 	public AmountsAndValueDate1 getTradeAmounts() {
 		return tradeAmounts;
 	}
 
-	public void setTradeAmounts(com.tools20022.repository.msg.AmountsAndValueDate1 tradeAmounts) {
-		this.tradeAmounts = tradeAmounts;
+	public SplitTradeDetails3 setTradeAmounts(AmountsAndValueDate1 tradeAmounts) {
+		this.tradeAmounts = Objects.requireNonNull(tradeAmounts);
+		return this;
 	}
 
-	@XmlElement(name = "AgrdRate")
-	public AgreedRate3 getAgreedRate() {
-		return agreedRate;
+	public Optional<AgreedRate3> getAgreedRate() {
+		return agreedRate == null ? Optional.empty() : Optional.of(agreedRate);
 	}
 
-	public void setAgreedRate(com.tools20022.repository.msg.AgreedRate3 agreedRate) {
+	public SplitTradeDetails3 setAgreedRate(AgreedRate3 agreedRate) {
 		this.agreedRate = agreedRate;
+		return this;
 	}
 }

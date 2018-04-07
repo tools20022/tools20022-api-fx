@@ -39,28 +39,28 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <ul>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#Assurance
- * CorporateSectorIdentifierCode.mmAssurance}</li>
+ * CorporateSectorIdentifierCode.Assurance}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#CreditInstitution
- * CorporateSectorIdentifierCode.mmCreditInstitution}</li>
+ * CorporateSectorIdentifierCode.CreditInstitution}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#InvestmentFirm
- * CorporateSectorIdentifierCode.mmInvestmentFirm}</li>
+ * CorporateSectorIdentifierCode.InvestmentFirm}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#Insurance
- * CorporateSectorIdentifierCode.mmInsurance}</li>
+ * CorporateSectorIdentifierCode.Insurance}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#AlternativeInvestmentFund
- * CorporateSectorIdentifierCode.mmAlternativeInvestmentFund}</li>
+ * CorporateSectorIdentifierCode.AlternativeInvestmentFund}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#OccupationalRetirementProvision
- * CorporateSectorIdentifierCode.mmOccupationalRetirementProvision}</li>
+ * CorporateSectorIdentifierCode.OccupationalRetirementProvision}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#Reinsurance
- * CorporateSectorIdentifierCode.mmReinsurance}</li>
+ * CorporateSectorIdentifierCode.Reinsurance}</li>
  * <li>
  * {@linkplain com.tools20022.repository.codeset.CorporateSectorIdentifierCode#UCITS
- * CorporateSectorIdentifierCode.mmUCITS}</li>
+ * CorporateSectorIdentifierCode.UCITS}</li>
  * </ul>
  * </li>
  * <li>{@linkplain com.tools20022.metamodel.MMCodeSet#getDerivation derivation}
@@ -74,8 +74,8 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <li>
  * {@linkplain com.tools20022.metamodel.MMTopLevelDictionaryEntry#getDataDictionary
  * dataDictionary} =
- * {@linkplain com.tools20022.repository.GeneratedRepository#mmdataDict
- * GeneratedRepository.mmdataDict}</li>
+ * {@linkplain com.tools20022.repository.GeneratedRepository#dataDict
+ * GeneratedRepository.dataDict}</li>
  * <li>
  * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getRegistrationStatus
  * registrationStatus} =
@@ -145,7 +145,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Credit Institution authorised in accordance with  European Securities and Markets Authority (ESMA) Directive 2006/48/EC."
+	 * "Credit Institution authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2006/48/EC."
 	 * </li>
 	 * </ul>
 	 */
@@ -153,7 +153,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 		{
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "CreditInstitution";
-			definition = "Credit Institution authorised in accordance with  European Securities and Markets Authority (ESMA) Directive 2006/48/EC.";
+			definition = "Credit Institution authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2006/48/EC.";
 			owner_lazy = () -> com.tools20022.repository.codeset.CorporateSectorIdentifierCode.mmObject();
 			codeName = "C";
 		}
@@ -178,7 +178,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Investment firm in accordance with  European Securities and Markets Authority (ESMA) Directive 2004/39/EC."
+	 * "Investment firm in accordance with European Securities and Markets Authority (ESMA) Directive 2004/39/EC."
 	 * </li>
 	 * </ul>
 	 */
@@ -186,7 +186,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 		{
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "InvestmentFirm";
-			definition = "Investment firm in accordance with  European Securities and Markets Authority (ESMA) Directive 2004/39/EC.";
+			definition = "Investment firm in accordance with European Securities and Markets Authority (ESMA) Directive 2004/39/EC.";
 			owner_lazy = () -> com.tools20022.repository.codeset.CorporateSectorIdentifierCode.mmObject();
 			codeName = "F";
 		}
@@ -211,7 +211,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Insurance undertaking in accordance with  European Securities and Markets Authority (ESMA) Directive 73/239/EEC."
+	 * "Insurance undertaking in accordance with European Securities and Markets Authority (ESMA) Directive 73/239/EEC."
 	 * </li>
 	 * </ul>
 	 */
@@ -219,7 +219,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 		{
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "Insurance";
-			definition = "Insurance undertaking in accordance with  European Securities and Markets Authority (ESMA) Directive 73/239/EEC.";
+			definition = "Insurance undertaking in accordance with European Securities and Markets Authority (ESMA) Directive 73/239/EEC.";
 			owner_lazy = () -> com.tools20022.repository.codeset.CorporateSectorIdentifierCode.mmObject();
 			codeName = "I";
 		}
@@ -279,7 +279,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Institution for occupational retirement provision within the meaning of Article 6(a) of  European Securities and Markets Authority (ESMA) Directive 2003/41/EC."
+	 * "Institution for occupational retirement provision within the meaning of Article 6(a) of European Securities and Markets Authority (ESMA) Directive 2003/41/EC."
 	 * </li>
 	 * </ul>
 	 */
@@ -287,7 +287,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 		{
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "OccupationalRetirementProvision";
-			definition = "Institution for occupational retirement provision within the meaning of Article 6(a) of  European Securities and Markets Authority (ESMA) Directive 2003/41/EC.";
+			definition = "Institution for occupational retirement provision within the meaning of Article 6(a) of European Securities and Markets Authority (ESMA) Directive 2003/41/EC.";
 			owner_lazy = () -> com.tools20022.repository.codeset.CorporateSectorIdentifierCode.mmObject();
 			codeName = "O";
 		}
@@ -312,7 +312,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Reinsurance undertaking authorised in accordance with  European Securities and Markets Authority (ESMA) Directive 2005/68/EC."
+	 * "Reinsurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2005/68/EC."
 	 * </li>
 	 * </ul>
 	 */
@@ -320,7 +320,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 		{
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "Reinsurance";
-			definition = "Reinsurance undertaking authorised in accordance with  European Securities and Markets Authority (ESMA) Directive 2005/68/EC.";
+			definition = "Reinsurance undertaking authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2005/68/EC.";
 			owner_lazy = () -> com.tools20022.repository.codeset.CorporateSectorIdentifierCode.mmObject();
 			codeName = "R";
 		}
@@ -346,7 +346,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 	 * <li>
 	 * {@linkplain com.tools20022.metamodel.MMRepositoryConcept#getDefinition
 	 * definition} =
-	 * "Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with  European Securities and Markets Authority (ESMA) Directive 2009/95/EC."
+	 * "Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2009/95/EC."
 	 * </li>
 	 * </ul>
 	 */
@@ -354,7 +354,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 		{
 			registrationStatus = MMRegistrationStatus.PROVISIONALLY_REGISTERED;
 			name = "UCITS";
-			definition = "Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with  European Securities and Markets Authority (ESMA) Directive 2009/95/EC.";
+			definition = "Undertakings for Collective Investment in Transferable Securities (UCITS) and its management company, authorised in accordance with European Securities and Markets Authority (ESMA) Directive 2009/95/EC.";
 			owner_lazy = () -> com.tools20022.repository.codeset.CorporateSectorIdentifierCode.mmObject();
 			codeName = "U";
 		}
@@ -367,7 +367,7 @@ public class CorporateSectorIdentifierCode extends MMCode {
 	final static public MMCodeSet mmObject() {
 		mmObject_lazy.compareAndSet(null, new MMCodeSet() {
 			{
-				dataDictionary_lazy = () -> GeneratedRepository.mmdataDict;
+				dataDictionary_lazy = () -> GeneratedRepository.dataDict;
 				registrationStatus = MMRegistrationStatus.REGISTERED;
 				name = "CorporateSectorIdentifierCode";
 				definition = "Identifies the corporate sector of the counterparty for reporting to trade repositories.";
